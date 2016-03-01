@@ -4,7 +4,7 @@ angular.module('QCrowd',['ui.router']).config(function ($stateProvider,$urlRoute
   $stateProvider
   .state('home',{
     url:'/home',
-    templateUrl:'/partials/home.html',
+    templateUrl:'partials/home.html',
     controller: function($scope) {
       $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
     }
@@ -12,7 +12,7 @@ angular.module('QCrowd',['ui.router']).config(function ($stateProvider,$urlRoute
   .state('login',{
     url:'/login',
     views:{
-      '':{templateUrl:'/partials/login.html'},
+      '':{templateUrl:'partials/login.html'},
       'columnOne@login':{template:'I am on column one'},
       'columnTwo@login':{template:'column2' },
     }
@@ -20,7 +20,7 @@ angular.module('QCrowd',['ui.router']).config(function ($stateProvider,$urlRoute
   // nested list with custom controller
   .state('home.list', {
     url: '/list',
-    templateUrl: '/partials/home.list.html',
+    templateUrl: 'partials/home.list.html',
 
   })
   // nested list with just some random string data
