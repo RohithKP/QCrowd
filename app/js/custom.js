@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-angular.module('QCrowd',['ui.router']).config(function ($stateProvider,$urlRouterProvider) {
-=======
 angular.module('QCrowd',['ui.router','treeControl']).config(function ($stateProvider,$urlRouterProvider) {
->>>>>>> 779e7d71f89d0f604cd796e1b7f49a475e0929b3
   $urlRouterProvider.otherwise('/home');
 
   $stateProvider
   .state('home',{
     url:'/home',
-<<<<<<< HEAD
     templateUrl:'partials/home.html',
-=======
-    templateUrl:'/partials/home.html',
->>>>>>> 779e7d71f89d0f604cd796e1b7f49a475e0929b3
     controller: function($scope) {
       $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
     }
@@ -20,43 +12,26 @@ angular.module('QCrowd',['ui.router','treeControl']).config(function ($stateProv
   .state('login',{
     url:'/login',
     views:{
-<<<<<<< HEAD
       '':{templateUrl:'partials/login.html'},
-=======
-      '':{templateUrl:'/partials/login.html'},
->>>>>>> 779e7d71f89d0f604cd796e1b7f49a475e0929b3
       'columnOne@login':{template:'I am on column one'},
       'columnTwo@login':{template:'column2' },
     }
   })
-<<<<<<< HEAD
-  // nested list with custom controller
   .state('home.list', {
     url: '/list',
     templateUrl: 'partials/home.list.html',
-=======
+  })
   .state('login.child',{
     views:{
       'columnOne':{template:'from login.child'}
     }
   })
-  // nested list with custom controller
-  .state('home.list', {
-    url: '/list',
-    templateUrl: '/partials/home.list.html',
->>>>>>> 779e7d71f89d0f604cd796e1b7f49a475e0929b3
-
-  })
   // nested list with just some random string data
   .state('home.paragraph', {
     url: '/paragraph',
-<<<<<<< HEAD
     template: 'I could sure use a drink right now.'
-  })
 })
-=======
-    templateU: 'I could sure use a drink right now.'
-  })
+
   .state('tree', {
     url: '/tree',
     templateUrl: 'partials/tree.html',
@@ -122,4 +97,3 @@ angular.module("QCrowd").run(function ($rootScope, $state, $stateParams) {
   }
 );
 });
->>>>>>> 779e7d71f89d0f604cd796e1b7f49a475e0929b3
