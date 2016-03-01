@@ -77,7 +77,7 @@ angular.module('QCrowd',['ui.router','treeControl']).config(function ($stateProv
     };
     $scope.addChild = function(node1) {
       $scope.node1.children.push({"name": "New Child", "age":Date.now(), "children": []});
-    console.log($scope.node1);
+    console.log($scope.treeOptions.isLeaf());
     };
 
     $scope.showSelected = function(sel) {
