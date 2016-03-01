@@ -4,7 +4,7 @@ angular.module('QCrowd',['ui.router','treeControl']).config(function ($stateProv
   $stateProvider
   .state('home',{
     url:'/home',
-    templateUrl:'/partials/home.html',
+    templateUrl:'partials/home.html',
     controller: function($scope) {
       $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
     }
@@ -12,27 +12,26 @@ angular.module('QCrowd',['ui.router','treeControl']).config(function ($stateProv
   .state('login',{
     url:'/login',
     views:{
-      '':{templateUrl:'/partials/login.html'},
+      '':{templateUrl:'partials/login.html'},
       'columnOne@login':{template:'I am on column one'},
       'columnTwo@login':{template:'column2' },
     }
+  })
+  .state('home.list', {
+    url: '/list',
+    templateUrl: 'partials/home.list.html',
   })
   .state('login.child',{
     views:{
       'columnOne':{template:'from login.child'}
     }
   })
-  // nested list with custom controller
-  .state('home.list', {
-    url: '/list',
-    templateUrl: '/partials/home.list.html',
-
-  })
   // nested list with just some random string data
   .state('home.paragraph', {
     url: '/paragraph',
-    templateU: 'I could sure use a drink right now.'
-  })
+    template: 'I could sure use a drink right now.'
+})
+
   .state('tree', {
     url: '/tree',
     templateUrl: 'partials/tree.html',
@@ -77,7 +76,7 @@ angular.module('QCrowd',['ui.router','treeControl']).config(function ($stateProv
     };
     $scope.addChild = function(node1) {
       $scope.node1.children.push({"name": "New Child", "age":Date.now(), "children": []});
-    console.log($scope.treeOptions.isLeaf());
+    console.log($scope.node1);
     };
 
     $scope.showSelected = function(sel) {
