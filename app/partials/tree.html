@@ -1,9 +1,7 @@
 <treecontrol class="tree-classic"
    tree-model="dataForTheTree"
    options="treeOptions"
-   on-selection="showSelected(node)"
-   selected-node="node1">
-    project:{{node.name}} {{node.age}}
+   on-selection="showSelected(node,$parentNode,$index)"
+   selected-node="node" >
+  <span ng-show="node.title">  project:{{node.title}} {{node.id}}</span>
 </treecontrol>
-
-<button type="button" name="button" ng-click="addChild(node1)">Add Node</button>{{selectedNode.name}}{{selectedNode.age}}{{node1}}
