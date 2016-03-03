@@ -1,5 +1,4 @@
 angular.module('QCrowd').controller('treeController',function ($scope) {
-
   $scope.treeOptions = {
     nodeChildren: "links",
     dirSelectable: true,
@@ -26,6 +25,8 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
       ]}
     ]}
   ];
+  // $scope.selected =
+  console.log($scope.dataForTheTree[0]);
   // $scope.treedata=createSubTree(3, 4, "");
   $scope.isLeaf = function(node) {
     if(!!node){
@@ -35,16 +36,25 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
     return false;
    }
  }
-$scope.addModule = function(node) {
-  node.links.push({"title": "New Child", "id":Date.now(),"description":"", "links": [{}]});
+$scope.addModule = function(parentNode) {
+  parentNode.links.unshift({"title": "New Module", "id":Date.now(),"description":"", "links": [{}]});
+  $scope.selected = {"title": "New Module", "id":Date.now(),"description":"", "links": [{}]};
 };
-$scope.addLeaf = function(node) {
-  node.links.push({"title": "New Child", "id":Date.now(),"description":"", "links": []});
+$scope.addLeaf = function(parentNode) {
+  parentNode.links.push({"title": "New Leaf", "id":Date.now(),"description":"", "links": []});
+  $scope.selected = {"title": "New Leaf", "id":Date.now(),"description":"", "links": []};
 };
-
+$scope.buttonClick= function ($event,node) {
+  console.log($event);
+}
 $scope.showSelected = function(node,$parentNode,$index) {
-$scope.parentNode = $parentNode;
+$scope.parentNode = $parentNode||null;
 $scope.leaf= $scope.isLeaf(node);
 $scope.selectedNode =node;
  };
+
+(function () {
+  $scope.showSelected($scope.dataForTheTree[0]);
+} )();
+
 })

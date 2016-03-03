@@ -2,6 +2,7 @@
    tree-model="dataForTheTree"
    options="treeOptions"
    on-selection="showSelected(node,$parentNode,$index)"
-   selected-node="node" >
+   selected-node="selected"
+   ng-click="buttonClick($event, node)">
   <span ng-show="node.title">  project:{{node.title}} {{node.id}}</span>
 </treecontrol>
