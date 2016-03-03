@@ -2,8 +2,7 @@
 <h1><span class="text-danger" ng-show="!(parentNode==null) && !leaf">Module name</span><span class="text-danger" ng-show="parentNode==null">Project name</span><span class="text-danger" ng-show="leaf">Test Case</span></h1>: <span class="text-success"><h3> {{selectedNode.title}}</h3></span>
 </div>
 <div class="">
-Description: {{selectedNode.description}}
+Description: {{currentNode.description}}
 </div>
-
-<button ng-show='!isLeaf(selectedNode)' type="button" name="button" ng-click="addModule(selectedNode)">Add module</button>
-<button ng-show='!isLeaf(selectedNode)' type="button" name="button" ng-click="addLeaf(selectedNode)">Add Leaf</button>
+<button ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="addModule(currentNode)">Add module</button>
+<button ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="addLeaf(currentNode)">Add Leaf</button>

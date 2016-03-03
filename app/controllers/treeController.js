@@ -25,36 +25,42 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
       ]}
     ]}
   ];
-  // $scope.selected =
-  console.log($scope.dataForTheTree[0]);
-  // $scope.treedata=createSubTree(3, 4, "");
+
   $scope.isLeaf = function(node) {
     if(!!node){
-    if(!node.links[0]){
-       return true;
+      if(!node.links[0]){
+        return true;
+      }
+      return false;
     }
-    return false;
-   }
- }
-$scope.addModule = function(parentNode) {
-  parentNode.links.unshift({"title": "New Module", "id":Date.now(),"description":"", "links": [{}]});
-  $scope.selected = {"title": "New Module", "id":Date.now(),"description":"", "links": [{}]};
-};
-$scope.addLeaf = function(parentNode) {
-  parentNode.links.push({"title": "New Leaf", "id":Date.now(),"description":"", "links": []});
-  $scope.selected = {"title": "New Leaf", "id":Date.now(),"description":"", "links": []};
-};
-$scope.buttonClick= function ($event,node) {
-  console.log($event);
-}
-$scope.showSelected = function(node,$parentNode,$index) {
-$scope.parentNode = $parentNode||null;
-$scope.leaf= $scope.isLeaf(node);
-$scope.selectedNode =node;
- };
+  }
+  $scope.addModule = function(parentNode) {
+    $scope.expandedNodes.push(parentNode);
+    newModule = {"title": "New Module", "id":Date.now(),"description":"", "links": [{}]};
+    parentNode.links.unshift(newModule);
+    $scope.$broadcast('select',newModule);
+    // $scope.selected = newModule;
+    $scope.showSelected(newModule,parentNode);
+  };
+  $scope.addLeaf = function(parentNode) {
+    $scope.expandedNodes.push(parentNode);
+    newNode = {"title": "New Leaf", "id":Date.now(),"description":"", "links": []};
+    parentNode.links.push(newNode);
+    $scope.$broadcast('select',newNode);
+    // $scope.selected = newNode;
+    $scope.showSelected(newNode,parentNode);
+  };
 
-(function () {
-  $scope.showSelected($scope.dataForTheTree[0]);
-} )();
+  $scope.showSelected = function(node,$parentNode,$index) {
+    $scope.parentNode = $parentNode||null;
+    $scope.leaf= $scope.isLeaf(node);
+    $scope.currentNode =node;
+  };
+
+  (function () {
+    $scope.selected = $scope.dataForTheTree[0];
+    $scope.expandedNodes = [$scope.dataForTheTree[0]];
+    $scope.showSelected($scope.dataForTheTree[0]);
+  } )();
 
 })

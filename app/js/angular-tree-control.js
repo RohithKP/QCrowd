@@ -207,6 +207,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
                             } else {
                                 if (!$scope.options.equality(selectedNode, $scope.selectedNode)) {
                                     $scope.selectedNode = selectedNode;
+                                    console.log(selectedNode);
                                     selected = true;
                                 }
                                 else {
@@ -226,7 +227,9 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
                             }
                         }
                     };
-
+                    $scope.$on('select', function (event,targetNode) {
+                      $scope.selectNodeLabel(targetNode);
+                    });
                     $scope.selectedClass = function() {
                         var isThisNodeSelected = isSelectedNode(this.node);
                         var labelSelectionClass = classIfDefined($scope.options.injectClasses.labelSelected, false);
