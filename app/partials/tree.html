@@ -3,6 +3,7 @@
    options="treeOptions"
    on-selection="showSelected(node,$parentNode,$index)"
    selected-node="selected"
-   ng-click="buttonClick($event, node)">
+   ng-click="buttonClick($event, node)"
+   expanded-nodes="expandedNodes">
   <span ng-show="node.title">  project:{{node.title}} {{node.id}}</span>
 </treecontrol>
