@@ -23,12 +23,12 @@
     <ul class="nav navbar-nav pull-right">
       <li><a ui-sref="home" ui-sref-active="active">Home</a></li>
       <li><a ui-sref="login" ui-sref-active="active">login</a></li>
-      <li><a ui-sref="tree" ui-sref-active="tree">tree</a></li>
+      <li><a ui-sref="projects" ui-sref-active="projects">Projects</a></li>
     </ul>
   </nav>
 
   <div class="container">
-    <div ui-view >    Loading .. .. .
+  <div ui-view >    Loading .. .. .
     </div>
     <pre>
       $state = {{$state.current.name}}
@@ -38,6 +38,7 @@
   </div>
 
   <script type="text/javascript" src="js/custom.js">  </script>
+    <script type="text/javascript" src="controllers/treeController.js">  </script>
   <script type="text/javascript" src="controllers/mainController.js">  </script>
 </body>
 </html>
