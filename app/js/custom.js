@@ -26,7 +26,7 @@ angular.module('QCrowd',['ui.router','treeControl']).config(function ($stateProv
       'columnOne':{template:'from login.child'}
     }
   })
-  // nested list with just some random string data
+
   .state('home.paragraph', {
     url: '/paragraph',
     template: 'I could sure use a drink right now.'
