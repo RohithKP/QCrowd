@@ -1,8 +1,15 @@
 <div class="">
-<h1><span class="text-danger" ng-show="!(parentNode==null) && !leaf">Module name</span><span class="text-danger" ng-show="parentNode==null">Project name</span><span class="text-danger" ng-show="leaf">Test Case</span></h1>: <span class="text-success"><h3> {{selectedNode.title}}</h3></span>
+<h3><span class="text-danger" ng-show="!(parentNode==null) && !leaf">Module name</span>
+    <span class="text-danger" ng-show="parentNode==null">Project name</span>
+    <span class="text-danger" ng-show="leaf">Test Case</span>:
+    <span class="text-success" ng-show='!edit'>{{currentNode.title}}</span>
+    <span class="text-success" ng-show='edit'><input type="text" name="name" ng-model="currentNode.title"></span>
+</h3>
 </div>
-<div class="">
-Description: {{currentNode.description}}
-</div>
+<div ng-show='!edit' class="">Description: {{currentNode.description}}</div>
+<div ng-show='edit' class="">Description: <textarea style="width:500px;" name="name" ng-model="currentNode.description"></textarea></div>
 <button ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="addModule(currentNode)">Add module</button>
 <button ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="addLeaf(currentNode)">Add Leaf</button>
+
+<button  type="button"  ng-show='!edit' name="button" ng-click="toggle()">Edit</button>
+<button  type="button"  ng-show='edit' name="button" ng-click="rename(currentNode)">Save</button>
