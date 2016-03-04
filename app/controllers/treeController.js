@@ -15,12 +15,12 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
   }
   $scope.dataForTheTree =
   [
-    { "title" : "Joe", "id" : "21","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ", "links" : [
+    { "title" : "Joe", "id" : "21s","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ", "links" : [
       { "title" : "Smith", "id" : "42","description":"bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi", "links" : [] },
-      { "title" : "Gary", "id" : "21","description":"bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi", "links" : [
-        { "title" : "Jenifer", "id" : "23","description":"bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi", "links" : [
-          { "title" : "Dani", "id" : "32","description":"bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi", "links" : [] },
-          { "title" : "Max", "id" : "34","description":"bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi", "links" : [] }
+      { "title" : "Gary", "id" : "20s","description":"bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi", "links" : [
+        { "title" : "Jenifer", "id" : "2s3","description":"bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi", "links" : [
+          { "title" : "Dani", "id" : "d32","description":"bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi", "links" : [] },
+          { "title" : "Max", "id" : "334","description":"bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi", "links" : [] }
         ]}
       ]}
     ]}
@@ -33,6 +33,14 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
       }
       return false;
     }
+  }
+  $scope.toggle = function(){
+    $scope.edit = !$scope.edit;
+  }
+  $scope.rename = function (currentNode) {
+    $scope.toggle();
+    $scope.$broadcast('rename',currentNode);
+    // console.log($scope.dataForTheTree);
   }
   $scope.addModule = function(parentNode) {
     $scope.expandedNodes.push(parentNode);
@@ -52,12 +60,14 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
   };
 
   $scope.showSelected = function(node,$parentNode,$index) {
+    $scope.edit = false;
     $scope.parentNode = $parentNode||null;
     $scope.leaf= $scope.isLeaf(node);
     $scope.currentNode =node;
   };
 
   (function () {
+    $scope.x = [];
     $scope.selected = $scope.dataForTheTree[0];
     $scope.expandedNodes = [$scope.dataForTheTree[0]];
     $scope.showSelected($scope.dataForTheTree[0]);
