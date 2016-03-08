@@ -43,6 +43,10 @@ angular.module('QCrowd',['ui.router','treeControl']).config(function ($stateProv
     url: '/login',
     templateUrl: 'partials/login.html',
   })
+  .state('register', {
+    url: '/register',
+    templateUrl: 'partials/register.html',
+  })
 
 
 })
