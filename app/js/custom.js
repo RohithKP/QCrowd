@@ -9,30 +9,27 @@ angular.module('QCrowd',['ui.router','treeControl']).config(function ($stateProv
       $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
     }
   })
-  .state('login',{
-    url:'/login',
-    views:{
-      '':{templateUrl:'partials/login.html'},
-      'columnOne@login':{template:'I am on column one'},
-      'columnTwo@login':{template:'column2' },
-    }
-  })
   .state('home.list', {
     url: '/list',
     templateUrl: 'partials/home.list.html',
   })
-  .state('login.child',{
+  .state('views',{
+    url:'/views',
     views:{
-      'columnOne':{template:'from login.child'}
+      '':{templateUrl:'partials/views.html'},
+      'columnOne@views':{template:'I am on column one'},
+      'columnTwo@views':{template:'column2' },
     }
   })
-
+  .state('views.child',{
+    views:{
+      'columnOne':{template:'from views.child'}
+    }
+  })
   .state('home.paragraph', {
     url: '/paragraph',
     template: 'I could sure use a drink right now.'
 })
-
-
   .state('projects', {
     url: '/projects',
     views:{
@@ -41,6 +38,10 @@ angular.module('QCrowd',['ui.router','treeControl']).config(function ($stateProv
       'detailView@projects':{templateUrl:'partials/detailView.html'},
     }
 
+  })
+  .state('login', {
+    url: '/login',
+    templateUrl: 'partials/login.html',
   })
 
 
