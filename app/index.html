@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title>QCrowd</title>
-  <link rel="stylesheet" href="assets/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+  <!-- <link rel="stylesheet" href="assets/css/bootstrap.css" media="screen" title="no title" charset="utf-8"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"  crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/font-awesome.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="assets/css/styles.css" media="screen" title="no title" charset="utf-8">
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src='js/lib/angular.js'></script>
   <!-- <script type="text/javascript" src='/js/lib/angular-route.min.js'></script> -->
   <script type="text/javascript" src='js/lib/angular-ui-router.js'></script>
@@ -16,18 +18,22 @@
 </head>
 <body>
   <!-- NAVIGATION -->
-  <nav class="nav navbar-inverse" role="navigation">
-    <div class="navbar-header">
-      <a class="navbar-brand" ui-sref="#">QCrowd</a>
-    </div>
-    <ul class="nav navbar-nav pull-right">
-      <li><a ui-sref="home" ui-sref-active="active">Home</a></li>
-      <li><a ui-sref="login" ui-sref-active="active">login</a></li>
-      <li><a ui-sref="projects" ui-sref-active="projects">Projects</a></li>
-    </ul>
-  </nav>
-
-  <div class="container">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" ui-sref="#"><img src="assets/images/QB_logo.png" alt="" /></a>
+        </div>
+          <div class="navbar-collapse collapse" id="footer-body">
+              <ul class="nav navbar-nav pull-right">
+                <li><a ui-sref="home" ui-sref-active="active">Home</a></li>
+                <li><a ui-sref="views" ui-sref-active="active">views</a></li>
+                <li><a ui-sref="login" ui-sref-active="login">login</a></li>
+                <li><a ui-sref="projects" ui-sref-active="projects">Projects</a></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  <div class="">
   <div ui-view >    Loading .. .. .
     </div>
     <pre>
@@ -36,7 +42,16 @@
       $state full url = {{ $state.$current.url.source }}
     </pre>
   </div>
-
+  <footer>
+      <div class="navbar navbar-inverse navbar-fixed-bottom">
+          <div class="container">
+              <div class="navbar-collapse collapse" id="footer-body">
+                  <ul class="nav navbar-nav">
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </footer>
   <script type="text/javascript" src="js/custom.js">  </script>
     <script type="text/javascript" src="controllers/treeController.js">  </script>
     <script type="text/javascript" src="directives/contentEditable.js">  </script>

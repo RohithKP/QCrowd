@@ -1,3 +1,9 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Ubuntu', sans-serif;
+}
 .active{
   color: #ccc;
   font-size: 20px;
@@ -5,4 +11,84 @@
 .tree-div{
   background-color: #999;
   min-height: 500px;
+}
+/*login*/
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    padding : 0px;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+    background-color: #fff;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 680px;
+    min-height:350px;
+}
+#innerOne{
+  background-color: #333;
+  min-height:350px;
+  padding: 0;
+  position: relative;
+}
+#innerOne .intro-text{
+  font-size: 40px;
+  color: #fff;
+  position: absolute;
+  top :100px;
+  text-align: center;
+  width: 160px;
+  left: 55px;
+  line-height: 45px;
+}
+#innerTwo{
+  background-color: #fff;
+  min-height:350px;
+  padding: 20px;
+}
+.login-header{
+  font-size: 24px;
+  padding: 20px 0;
+  font-weight: 300;
+}
+.inner img {
+  width: 100%;
+  height:350px;
+}
+.null-pad{
+  padding:0;
+}
+.clearfix{
+  overflow: auto;
+}
+.btn-custom-dark{
+  width: 95px;
+  height: 32px;
+  background-color: #303840;
+  color: #fff;
+}
+.btn-custom-dark:hover{
+  color: #999;
+}
+.btn-wrapper{
+  padding-top: 30px;
+}
+.reg-link{
+  display: block;
+  text-align: center;
+  padding-top: 40px;
+  font-size: 16px;
+  color: #727475;
+}
+.small-text{
+  font-size: 13px;
+  color: #2c3742;
 }
