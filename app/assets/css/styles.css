@@ -52,7 +52,7 @@ body{
 #innerTwo{
   background-color: #fff;
   min-height:350px;
-  padding: 20px;
+  padding: 0 35px;
 }
 .login-header{
   font-size: 24px;
@@ -91,4 +91,8 @@ body{
 .small-text{
   font-size: 13px;
   color: #2c3742;
+}
+.nav-brand{
+  padding-top:5px;
+  float: left;
 }
