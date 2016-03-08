@@ -24,7 +24,8 @@ body{
 .middle {
     display: table-cell;
     vertical-align: middle;
-    background-color: #fff;
+    background-color: #f5f5f5;
+    background-image: url(/assets/images/bg_pattern.png);
 }
 
 .inner {
@@ -59,7 +60,7 @@ body{
   padding: 20px 0;
   font-weight: 300;
 }
-.inner img {
+#innerOne img {
   width: 100%;
   height:350px;
 }
@@ -95,4 +96,24 @@ body{
 .nav-brand{
   padding-top:5px;
   float: left;
+}
+.register-wrapper{
+    position: relative;
+  background-color: #fff;
+  margin: 0 auto;
+  width: 508px;
+}
+.form-wrapper{
+    padding: 0 40px;
+}
+.register-header{
+  position: relative;
+  padding-bottom: 25px;
+}
+.regiter-txt{
+  position: absolute;
+  top: 20px;
+  left: 38%;
+  font-size: 25px;
+  color: #fff;
 }
