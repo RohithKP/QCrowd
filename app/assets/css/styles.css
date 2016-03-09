@@ -4,9 +4,19 @@
 body{
   font-family: 'Ubuntu', sans-serif;
 }
+a {
+  color: #2c3742;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #23527c;
+  text-decoration: underline;
+}
 .active{
   color: #ccc;
-  font-size: 20px;
+  border-top: 2px solid red;
+  border-radius: 4px 4px 0 0 ;
 }
 .tree-div{
   background-color: #999;
@@ -24,10 +34,15 @@ body{
 .middle {
     display: table-cell;
     vertical-align: middle;
-    background-color: #f5f5f5;
-    background-image: url(/assets/images/bg_pattern.png);
+    background-color: #f1f1f1;
+    background-image: url(../images/bg_pattern.png);
 }
-
+.top {
+    display: table-cell;
+    padding-top: 100px;
+    background-color: #f1f1f1;
+    background-image: url(../images/bg_pattern.png);
+}
 .inner {
     margin-left: auto;
     margin-right: auto;
@@ -121,4 +136,17 @@ border-radius: 5px 5px 0 0;
   left: 38%;
   font-size: 25px;
   color: #fff;
+}
+.view-wrapper{
+  margin-top: 100px;
+}
+.dashboard-wrapper{
+  max-width: 600px;
+  margin: 0 auto;
+}
+.tab-content{
+  background-color: #fff;
+}
+.tab-content .current{
+  display: block;
 }
