@@ -39,6 +39,7 @@ body{
   min-height:350px;
   padding: 0;
   position: relative;
+border-radius: 5px 0  0 5px ;
 }
 #innerOne .intro-text{
   font-size: 40px;
@@ -49,6 +50,7 @@ body{
   width: 160px;
   left: 55px;
   line-height: 45px;
+border-radius: 0 5px 5px 0;
 }
 #innerTwo{
   background-color: #fff;
@@ -109,6 +111,9 @@ body{
 .register-header{
   position: relative;
   padding-bottom: 25px;
+}
+.register-header img{
+border-radius: 5px 5px 0 0;
 }
 .regiter-txt{
   position: absolute;
