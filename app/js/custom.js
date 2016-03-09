@@ -1,4 +1,4 @@
-angular.module('QCrowd',['ui.router','treeControl']).config(function ($stateProvider,$urlRouterProvider) {
+angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ngSanitize']).config(function ($stateProvider,$urlRouterProvider) {
   $urlRouterProvider.otherwise('/home');
 
   $stateProvider
@@ -46,6 +46,11 @@ angular.module('QCrowd',['ui.router','treeControl']).config(function ($stateProv
   .state('register', {
     url: '/register',
     templateUrl: 'partials/register.html',
+  })
+  .state('dashboard', {
+    url: '/dashboard',
+    templateUrl: 'partials/dashboard.html',
+    controller:"TabsDemoCtrl"
   })
 
 

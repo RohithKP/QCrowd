@@ -1,0 +1,19 @@
+<div class="outer ">
+  <div class="top">
+    <div class="container">
+  <uib-tabset active="0">
+    <uib-tab index="$index" ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
+      <div ng-show="$index==0"> <table class="table"><tr><th>#</th><th>Task Name</th><th>Status</th><th>Browsers</th><th>User</th></tr><tr ng-repeat="project in projects"><td>{{project.id}}</td><td>{{project.name}}</td><td>{{project.status}}</td><td>{{project.browsers}}</td><td>{{project.user}}</td></tr></table></div>
+      {{tab.content}}
+    </uib-tab>
+    <uib-tab index="3" >
+      <uib-tab-heading>
+        <i class="glyphicon glyphicon-bell"></i> Alert!
+      </uib-tab-heading>
+      I've got an HTML heading, and a select callback. Pretty cool!
+      <div ng-bind-html="tableHTML" ></div>
+    </uib-tab>
+  </uib-tabset>
+</div>
+</div>
+</div>
