@@ -9,10 +9,11 @@
   <link rel="stylesheet" href="assets/css/styles.css" media="screen" title="no title" charset="utf-8">
   <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src='js/lib/angular.js'></script>
-  <!-- <script type="text/javascript" src='/js/lib/angular-route.min.js'></script> -->
+  <script type="text/javascript" src='js/ui-bootstrap-tpls-1.2.4.js'></script>
   <script type="text/javascript" src='js/lib/angular-ui-router.js'></script>
 
   <script type="text/javascript" src="js/angular-tree-control.js"></script>
+  <script type="text/javascript" src="js/sanitize.js"></script>
   <link rel="stylesheet" type="text/css" href="assets/css/tree-control.css">
   <link rel="stylesheet" type="text/css" href="assets/css/tree-control-attribute.css">
 </head>
@@ -28,6 +29,7 @@
                 <!-- <li><a ui-sref="home" ui-sref-active="active">Home</a></li>
                 <li><a ui-sref="views" ui-sref-active="active">views</a></li> -->
                 <li><a ui-sref="login" ui-sref-active="login">login</a></li>
+                <li><a ui-sref="dashboard" ui-sref-active="dashboard">DashBoard</a></li>
                 <!-- <li><a ui-sref="register" ui-sref-active="register">register</a></li> -->
                 <!-- <li><a ui-sref="projects" ui-sref-active="projects">Projects</a></li> -->
               </ul>
@@ -36,12 +38,12 @@
   </div>
   <div class="">
   <div ui-view >    Loading .. .. .
-    </div>
-    <pre>
+  </div>
+    <!-- <pre>
       $state = {{$state.current.name}}
       $stateParams = {{$stateParams}}
       $state full url = {{ $state.$current.url.source }}
-    </pre>
+    </pre> -->
   </div>
   <footer>
       <div class="navbar navbar-inverse navbar-fixed-bottom">
@@ -55,6 +57,7 @@
   </footer>
   <script type="text/javascript" src="js/custom.js">  </script>
     <script type="text/javascript" src="controllers/treeController.js">  </script>
+    <script type="text/javascript" src="controllers/tabsDemoCtrl.js">  </script>
     <script type="text/javascript" src="directives/contentEditable.js">  </script>
   <script type="text/javascript" src="controllers/mainController.js">  </script>
 </body>
