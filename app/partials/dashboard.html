@@ -1,9 +1,52 @@
+<style>
+  .typeahead-demo .custom-popup-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    background-color: #f9f9f9;
+  }
+
+  .typeahead-demo .custom-popup-wrapper > .message {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    color: #868686;
+  }
+
+  .typeahead-demo .custom-popup-wrapper > .dropdown-menu {
+    position: static;
+    float: none;
+    display: block;
+    min-width: 160px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+</style>
 <div class="outer ">
   <div class="top">
     <div class="container">
       <uib-tabset active="0">
         <uib-tab index="$index" ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
-          <div ng-show="$index==0"> <table class="table"><tr><th>#</th><th>Task Name</th><th>Status</th><th>Browsers</th><th>User</th></tr><tr ng-repeat="project in projects"><td>{{project.id}}</td><td>{{project.name}}</td><td><span ng-class="{'fail':project.status.text=='failed','pass':project.status.text=='passed'}"><b>{{project.status.text}}</b><uib-progressbar animate="false" value="project.status.percent" type="success"><b>{{project.status.percent}}%</b></uib-progressbar></span></td><td><i ng-repeat="browser in project.browsers" ng-class="{pass:browser.status==1,fail:browser.status==0,muted:browser.status==-1}" class="fa fa-{{browser.name}}">&nbsp;</i></td><td><img class="img-circle avatar" src="{{project.user.imgUrl}}"/> {{project.user.name}}</td></tr></table></div>
+          <div ng-show="$index==0">
+            <table class="table">
+              <tr>
+                <th class="col-md-1">#</th>
+                <th class="col-md-2">Task Name &nbsp;<i class="fa fa-filter" popover-placement="bottom" uib-popover-template="'taskname.html'" ></i></th>
+                <th class="col-md-2">Status &nbsp;<i class="fa fa-filter" popover-placement="bottom" uib-popover-template="'status.html'"></i></th>
+                <th class="col-md-2">Browsers &nbsp;<i class="fa fa-filter" popover-placement="bottom" uib-popover-template="'browsers.html'"></i></th>
+                <th class="col-md-2">User &nbsp;<i class="fa fa-filter" popover-placement="bottom" uib-popover-template="'users.html'"></i></th>
+              </tr>
+              <tr ng-repeat="project in projects | projFilter:query.projectQuery |userFilter:query.userQuery |statusFilter:query.statusQuery |browserFilter:query.browserQuery">
+                <td>{{project.id}}</td><td>{{project.name}}</td>
+                <td><span ng-class="{'fail':project.status.text=='failed','pass':project.status.text=='passed'}"><b>{{project.status.text}}</b><uib-progressbar animate="false" value="project.status.percent" type="success"><b>{{project.status.percent}}%</b></uib-progressbar></span></td>
+                <td><i ng-repeat="browser in project.browsers" ng-class="{pass:browser.status==1,fail:browser.status==0,muted:browser.status==-1}" class="fa fa-{{browser.name}}">&nbsp;</i></td>
+                <td><img class="img-circle avatar" src="{{project.user.imgUrl}}"/> {{project.user.name}}</td>
+              </tr>
+            </table>
+          </div>
           {{tab.content}}
         </uib-tab>
         <uib-tab index="3" >
@@ -11,9 +54,51 @@
             <i class="glyphicon glyphicon-bell"></i> Alert!
           </uib-tab-heading>
           I've got an HTML heading, and a select callback. Pretty cool!
-          <div ng-bind-html="tableHTML" ></div>
-        </uib-tab>
       </uib-tabset>
     </div>
   </div>
+  <script id="taskname.html" type="text/ng-template">
+     <div class="popup">
+       <ul>
+         <li class="no-hover"><input placeholder="Task Name" type="text" ng-model="query.projectQuery"  uib-typeahead="project.name for project in projects | filter:$viewValue | limitTo:8" /></li>
+         <li class="divider"></li>
+         <li>Equal</li>
+         <li class="divider"></li>
+         <li>Contains</li>
+       </ul>
+     </div>
+  </script>
+  <script id="status.html" type="text/ng-template">
+  <div class="popup">
+    <ul>
+      <li ng-click="query.statusQuery ='passed'">Passed</li>
+      <li class="divider"></li>
+      <li ng-click="query.statusQuery ='failed'" >Failed</li>
+      <li class="divider"></li>
+      <li ng-click="query.statusQuery =''">Both </li>
+    </ul>
+  </div>
+  </script>
+  <script id="browsers.html" type="text/ng-template">
+    <div class="popup">
+      <ul>
+        <li>Passed</li>
+        <li class="divider"></li>
+        <li>Failed</li>
+        <li class="divider"></li>
+        <li>Both</li>
+      </ul>
+    </div>
+  </script>
+  <script id="users.html" type="text/ng-template">
+    <div class="popup">
+      <ul>
+        <li class="no-hover"><input placeholder="user" type="text" ng-model="query.userQuery"  uib-typeahead="project.user.name for project in projects | filter:$viewValue | limitTo:8" /></li>
+        <li class="divider"></li>
+        <li>Equal</li>
+        <li class="divider"></li>
+        <li>Contains</li>
+      </ul>
+    </div>
+  </script>
 </div>
