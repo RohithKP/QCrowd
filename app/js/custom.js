@@ -64,3 +64,61 @@ angular.module("QCrowd").run(function ($rootScope, $state, $stateParams) {
   }
 );
 });
+
+angular.module("QCrowd").filter('projFilter', function() {
+  return function(items,searchText) {
+     if(searchText!=undefined&&searchText!=''){
+     var filtered = [];
+     searchText = searchText.toLowerCase();
+     angular.forEach(items, function(item) {
+     if( item.name.toLowerCase().indexOf(searchText) >= 0 ) filtered.push(item);
+     });
+     return filtered;
+   }else{
+     return items;
+   }
+  }
+});
+
+angular.module("QCrowd").filter('userFilter', function() {
+  return function(items,searchText) {
+         if(searchText!=undefined&&searchText!=''){
+     var filtered = [];
+     searchText = searchText.toLowerCase();
+     angular.forEach(items, function(item) {
+     if( item.user.name.toLowerCase().indexOf(searchText) >= 0 ) filtered.push(item);
+     });
+     return filtered;
+   }else{
+     return items;
+   }
+  }
+});
+angular.module("QCrowd").filter('statusFilter', function() {
+  return function(items,searchText) {
+         if(searchText!=undefined&&searchText!=''){
+     var filtered = [];
+     searchText = searchText.toLowerCase();
+     angular.forEach(items, function(item) {
+     if( item.status.text.toLowerCase().indexOf(searchText) >= 0 ) filtered.push(item);
+     });
+     return filtered;
+   }else{
+     return items;
+   }
+  }
+});
+angular.module("QCrowd").filter('browserFilter', function() {
+  return function(items,searchText) {
+         if(searchText!=undefined&&searchText!=''){
+     var filtered = [];
+     searchText = searchText.toLowerCase();
+     angular.forEach(items, function(item) {
+     if( item.browsers.name.toLowerCase().indexOf(searchText) >= 0 ) filtered.push(item);
+     });
+     return filtered;
+   }else{
+     return items;
+   }
+  }
+});
