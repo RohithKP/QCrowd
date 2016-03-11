@@ -14,7 +14,7 @@
               </tr>
               <tr ng-repeat="project in projects | projFilter:query.projectQuery |userFilter:query.userQuery |statusFilter:query.statusQuery |browserFilter:query.browserQuery">
                 <td>{{project.id}}</td><td>{{project.name}}</td>
-                <td><span ng-class="{'fail':project.status.text=='failed','pass':project.status.text=='passed'}"><b>{{project.status.text}}</b><uib-progressbar animate="false" value="project.status.percent" type="success"><b>{{project.status.percent}}%</b></uib-progressbar></span></td>
+                <td><span ng-class="{'fail':project.status.text=='failed','pass':project.status.text=='passed'}">{{project.status.text}}<uib-progressbar animate="false" value="project.status.percent" type="success"><b>{{project.status.percent}}%</b></uib-progressbar></span></td>
                 <td><span class="browser-icon-wrapper"><span class="browser-icon" ng-repeat="browser in project.browsers" ng-class="{pass:browser.status==1,fail:browser.status==0,muted:browser.status==-1}"><i class="fa fa-{{browser.platform}} platform-icon"></i><span class='version'>V 40.1</span><i  class="fa fa-{{browser.name}}">&nbsp;</i></span></span></td>
                 <td><img class="img-circle avatar " src="{{project.user.imgUrl}}"/> {{project.user.name}}</td>
               </tr>
@@ -27,43 +27,49 @@
             <i class="glyphicon glyphicon-bell"></i> Alert!
           </uib-tab-heading>
           I've got an HTML heading, and a select callback. Pretty cool!
-      </uib-tabset>
+        </uib-tabset>
+      </div>
     </div>
-  </div>
-  <script id="taskname.html" type="text/ng-template">
-     <div class="popup">
-       <ul ng-click="$event.stopPropagation();">
-         <li class="no-hover"><input placeholder="Task Name" type="text" ng-model="query.projectQuery"  uib-typeahead="project.name for project in projects | filter:$viewValue | limitTo:8" /></li>
-       </ul>
-     </div>
-  </script>
-  <script id="status.html" type="text/ng-template">
-  <div class="popup">
-    <ul >
-      <li ng-click="filterStatus($event,'')" ng-class="{selected:query.statusQuery ==''}">Both </li>
-      <li class="divider"></li>
-      <li ng-click="filterStatus($event,'failed')" ng-class="{selected:query.statusQuery =='failed'}">Failed</li>
-      <li class="divider"></li>
-      <li ng-click="filterStatus($event,'passed')" ng-class="{selected:query.statusQuery =='passed'}">Passed</li>
-    </ul>
-  </div>
-  </script>
-  <script id="browsers.html" type="text/ng-template">
-    <div class="popup">
-      <ul ng-click="$event.stopPropagation();">
-        <li>Passed</li>
-        <li class="divider"></li>
-        <li>Failed</li>
-        <li class="divider"></li>
-        <li>Both</li>
-      </ul>
+    <script id="taskname.html" type="text/ng-template">
+      <div class="popup">
+        <ul ng-click="$event.stopPropagation();">
+          <li class="no-hover"><input placeholder="Task Name" type="text" ng-model="query.projectQuery"  uib-typeahead="project.name for project in projects | filter:$viewValue | limitTo:8" /></li>
+        </ul>
+      </div>
+    </script>
+    <script id="status.html" type="text/ng-template">
+      <div class="popup">
+        <ul >
+          <li ng-click="filterStatus($event,'')" ng-class="{selected:query.statusQuery ==''}">Both </li>
+          <li class="divider"></li>
+          <li ng-click="filterStatus($event,'failed')" ng-class="{selected:query.statusQuery =='failed'}">Failed</li>
+          <li class="divider"></li>
+          <li ng-click="filterStatus($event,'passed')" ng-class="{selected:query.statusQuery =='passed'}">Passed</li>
+        </ul>
+      </div>
+    </script>
+    <script id="browsers.html" type="text/ng-template">
+      <div class="popup" ng-click="$event.stopPropagation();">
+        <ul>
+          <li  class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">platforms
+              <span class="caret"></span>
+            </button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation">windows 10</li>
+                <li role="presentation">mac</a></li>
+              </ul>
+            </li>
+            <li class="divider"></li>
+            <li><i ng-repeat="browser in query.browsers" class="fa fa-{{browser}}"></i></li>
+          </ul>
+        </div>
+      </script>
+      <script id="users.html" type="text/ng-template">
+        <div class="popup" ng-click="$event.stopPropagation();">
+          <ul>
+            <li class="no-hover"><input placeholder="user" type="text" ng-model="query.userQuery"  uib-typeahead="project.user.name for project in projects | filter:$viewValue | limitTo:8" /></li>
+          </ul>
+        </div>
+      </script>
     </div>
-  </script>
-  <script id="users.html" type="text/ng-template">
-    <div class="popup" ng-click="$event.stopPropagation();">
-      <ul>
-        <li class="no-hover"><input placeholder="user" type="text" ng-model="query.userQuery"  uib-typeahead="project.user.name for project in projects | filter:$viewValue | limitTo:8" /></li>
-      </ul>
-    </div>
-  </script>
-</div>
