@@ -220,7 +220,7 @@ background-color: transparent;
 }
 .popup > ul{
   padding: 0;
-  margin: 0;
+  margin: -1px;
 }
 .popup ul> li{
   list-style: none;
@@ -228,4 +228,14 @@ background-color: transparent;
 }
 .popup ul> li:hover{
 background-color: #EAEAEA;
+}
+.popup ul> li.selected:hover{
+background-color: #2C3742;
+}
+.selected{
+  background-color: #2C3742;
+  color: #fff;
+}
+.popover-content{
+  padding: 0;
 }

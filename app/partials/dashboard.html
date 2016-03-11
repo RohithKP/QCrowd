@@ -59,29 +59,29 @@
   </div>
   <script id="taskname.html" type="text/ng-template">
      <div class="popup">
-       <ul>
+       <ul  ng-click="select($event);">
          <li class="no-hover"><input placeholder="Task Name" type="text" ng-model="query.projectQuery"  uib-typeahead="project.name for project in projects | filter:$viewValue | limitTo:8" /></li>
          <li class="divider"></li>
          <li>Equal</li>
          <li class="divider"></li>
-         <li>Contains</li>
+         <li class="selected">Contains</li>
        </ul>
      </div>
   </script>
   <script id="status.html" type="text/ng-template">
   <div class="popup">
-    <ul>
+    <ul ng-click="select($event);">
       <li ng-click="query.statusQuery ='passed'">Passed</li>
       <li class="divider"></li>
       <li ng-click="query.statusQuery ='failed'" >Failed</li>
       <li class="divider"></li>
-      <li ng-click="query.statusQuery =''">Both </li>
+      <li ng-click="query.statusQuery =''" class="selected">Both </li>
     </ul>
   </div>
   </script>
   <script id="browsers.html" type="text/ng-template">
     <div class="popup">
-      <ul>
+      <ul ng-click="select($event);">
         <li>Passed</li>
         <li class="divider"></li>
         <li>Failed</li>
@@ -92,12 +92,12 @@
   </script>
   <script id="users.html" type="text/ng-template">
     <div class="popup">
-      <ul>
+      <ul ng-click="select($event);">
         <li class="no-hover"><input placeholder="user" type="text" ng-model="query.userQuery"  uib-typeahead="project.user.name for project in projects | filter:$viewValue | limitTo:8" /></li>
         <li class="divider"></li>
         <li>Equal</li>
         <li class="divider"></li>
-        <li>Contains</li>
+        <li class="selected">Contains</li>
       </ul>
     </div>
   </script>
