@@ -65,7 +65,15 @@ angular.module('QCrowd').controller('TabsDemoCtrl', function ($scope, $window,$d
      });
    };
 
+  $scope.addTextField = function () {
+
+  }
+
 });
+
+
+
+
 
 // Please note that $uibModalInstance represents a modal window (instance) dependency.
 // It is not the same as the $uibModal service used above.

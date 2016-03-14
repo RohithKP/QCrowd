@@ -328,12 +328,38 @@ margin: 4px 10px;
 .modal-header{
   text-align: center;
   color: #fff;
-  font-weight: 300;
   background-color: #2C3742;
+}
+.modal-title{
+    font-weight: 300;
 }
 .modal-btn-wrapper{
   text-align: center;
 }
 .modal-content-wrapper{
   overflow: auto;
+margin-top: 25px;
+}
+.modal-content-wrapper textarea.form-control {
+height: 80px
+
+}
+.modal-sub-txt{
+      margin: 25px auto;
+}
+.modal-env-wrapper{
+  padding: 0;
+}
+@media (min-width: 768px){
+.modal-dialog {
+    width: 680px;
+    margin: 30px auto;
+}
+}
+.modal-body{
+      padding: 15px 45px;
+}
+.add-url-txt{
+  cursor: pointer;
+  text-decoration: underline;
 }
