@@ -14,7 +14,7 @@
               </tr>
               <tr ng-repeat="project in projects | projFilter:query.projectQuery |userFilter:query.userQuery |statusFilter:query.statusQuery |browserFilter:query.browserQuery">
                 <td>{{project.id}}</td><td>{{project.name}}</td>
-                <td><span ng-class="{'fail':project.status.text=='failed','pass':project.status.text=='passed'}">{{project.status.text}}<uib-progressbar animate="false" value="project.status.percent" type="success"><b>{{project.status.percent}}%</b></uib-progressbar></span></td>
+                <td><span ng-class="{'fail':project.status.text=='Failed','pass':project.status.text=='Passed'}">{{project.status.text}}<uib-progressbar animate="false" value="project.status.percent" type="success"><b>{{project.status.percent}}%</b></uib-progressbar></span></td>
                 <td><span class="browser-icon-wrapper"><span class="browser-icon" ng-repeat="browser in project.browsers" ng-class="{pass:browser.status==1,fail:browser.status==0,muted:browser.status==-1}"><i class="fa fa-{{browser.platform}} platform-icon"></i><span class='version'>V 40.1</span><i  class="fa fa-{{browser.name}}">&nbsp;</i></span></span></td>
                 <td><img class="img-circle avatar " src="{{project.user.imgUrl}}"/> {{project.user.name}}</td>
               </tr>
