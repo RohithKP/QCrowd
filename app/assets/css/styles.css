@@ -296,3 +296,44 @@ td{
   bottom: -2px;
   left: 0;
 }
+.filter-browser-icon{
+  font-size: 16px;
+margin: 4px 10px;
+  color: #ccc;
+}
+#simple-btn-keyboard-nav{
+  width: 136px;
+}
+.browser-selected{
+  color:#2C3742;
+}
+/*projects tab*/
+.project-list{
+
+}
+.project-item{
+  list-style: none;
+  height: 65px;
+  padding: 22px;
+}
+.project-item input{
+  margin-right: 20px;
+}
+.add-icon{
+  font-size: 16px;
+}
+.add-icon i {
+  margin-right: 8px;
+}
+.modal-header{
+  text-align: center;
+  color: #fff;
+  font-weight: 300;
+  background-color: #2C3742;
+}
+.modal-btn-wrapper{
+  text-align: center;
+}
+.modal-content-wrapper{
+  overflow: auto;
+}
