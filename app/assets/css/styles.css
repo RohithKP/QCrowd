@@ -4,6 +4,7 @@
 body{
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
+      color: #2c3742;
 }
 a {
   color: #2c3742;
@@ -167,9 +168,11 @@ border-radius: 5px 5px 0 0;
 }
 .pass{
   color: #A3BE8C;
+      font-weight: 500;
 }
 .fail{
   color: #BF6069;
+      font-weight: 500;
 }
 .muted{
   color: #AAAAAA;
@@ -325,9 +328,11 @@ margin: 4px 10px;
 .add-icon i {
   margin-right: 8px;
 }
+.modal{top:70px;}
 .modal-header{
   text-align: center;
   color: #fff;
+  background-image: url(./../images/popup_pattern.png);
   background-color: #2C3742;
 }
 .modal-title{
@@ -350,6 +355,9 @@ height: 80px
 .modal-env-wrapper{
   padding: 0;
 }
+div.modal-env-wrapper i {display: none;}
+div.modal-env-wrapper.bar:hover i {display: inline;}
+
 @media (min-width: 768px){
 .modal-dialog {
     width: 680px;
@@ -358,6 +366,9 @@ height: 80px
 }
 .modal-body{
       padding: 15px 45px;
+}
+.close-icon{
+        margin: -24px -15px 0 0;
 }
 .add-url-txt{
   cursor: pointer;

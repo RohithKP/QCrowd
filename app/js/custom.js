@@ -128,7 +128,6 @@ angular.module("QCrowd").filter('browserFilter', function() {
       console.log( filtered);
       return filtered;
     }else{
-          console.log(items);
       return items;
     }
   }
