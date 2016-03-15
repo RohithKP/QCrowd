@@ -7,7 +7,6 @@
         for(i=0;i<4;i++){
           newarr.push (popups[i]);
         }
-        console.log(e.target.parentNode);
         popups = newarr;
         //Go through all of them
         for(var i=0; i<popups.length; i++) {
@@ -15,7 +14,6 @@
           var popup = popups[i];
           //The following is the same jQuery lite element
           var popupElement = angular.element(popup);
-          console.log(popupElement.next()+ i);
           var content;
           var arrow;
           if(popupElement.next()[0]) {
