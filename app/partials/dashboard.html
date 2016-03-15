@@ -24,12 +24,12 @@
         </uib-tab>
         <uib-tab index="2"  heading="PROJECTS" active="tab.active" disable="tab.disabled">
           <div class="">
-            <div class="project-item">
-              <input type="checkbox" name="name" value=""> <span><strong>Project Name</strong></span>
-              <span class="pull-right add-icon"><i class="fa fa-plus-circle" ng-click="open()"></i><i class="fa fa-trash"></i></span>
+            <div class="project-item" >
+              <input type="checkbox" name="name" value="" ng-checked="allSelected(projects)" ng-click="selectAll(projects)"> <span><strong>Project Name</strong></span>
+              <span class="pull-right add-icon"><i class="fa fa-plus-circle" ng-click="open()"></i><i class="fa fa-trash" ng-click="deleteItem()" ng-hide="anySelected()"></i></span>
             </div>
             <div class="project-list">
-              <li class="project-item" ng-repeat="project in projects"><input type="checkbox" name="name" value=""> {{project.name}}</li>
+              <li class="project-item" ng-repeat="project in projects"><input type="checkbox" name="name" value="" ng-checked="isSelected(project.id)" ng-click="toggleSelect(projectsSelected,project.id)"> {{project.name}}</li>
             </div>
           </div>
         </uib-tab>
@@ -67,7 +67,7 @@
             </span>
           </li>
           <li class="divider"></li>
-          <li><span class=""><i ng-repeat="browser in query.browsers" class="fa fa-{{browser}} filter-browser-icon"  ng-class="{'browser-selected':brarray.indexOf(browser) >-1}" ng-click="browserSelect(this)"></i></span></li>
+          <li><span class=""><i ng-repeat="browser in query.browsers" class="fa fa-{{browser}} filter-browser-icon"  ng-class="{'browser-selected':brarray.indexOf(browser) >-1}" ng-click="toggleSelect(brarray,browser)"></i></span></li>
         </ul>
       </div>
     </script>
@@ -105,6 +105,7 @@
             </div>
             <div class="col-md-6 form-group has-feedback">
               <input type="text" class="form-control" placeholder="http://"/>
+              <i ng-click="deleteNod($event)" class="fa fa-times-circle pull-right close-icon"></i>
             </div>
           </div>
         </div>
