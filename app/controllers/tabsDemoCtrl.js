@@ -4,11 +4,6 @@ angular.module('QCrowd').controller('TabsDemoCtrl', function ($scope, $window,$d
                     {"id":2,"name":"Dk sure rem","status":{"text":"Failed","percent":75},"browsers":[{"platform-ver":"10","browser-ver":"V 40.1","platform":"windows","name":"firefox","status":-1},{"platform-ver":"10","browser-ver":"V 40.1","platform":"windows","name":"chrome","status":0},{"platform-ver":"10","browser-ver":"V 40.1","platform":"windows","name":"safari","status":0},{"platform-ver":"10","browser-ver":"V 40.1","platform":"apple","name":"opera","status":0}],"user":{"id":3,"imgUrl":"assets/images/users/two.jpg","name":"Julie Ann"}},
                   {"id":3,"name":"savi main","status":{"text":"Passed","percent":100},"browsers":[{"platform-ver":"10","browser-ver":"V 40.1","platform":"windows","name":"firefox","status":1},{"platform-ver":"10","browser-ver":"V 40.1","platform":"apple","name":"chrome","status":1},{"platform-ver":"10","browser-ver":"V 40.1","platform":"windows","name":"safari","status":0},{"platform-ver":"10","browser-ver":"V 40.1","platform":"windows","name":"opera","status":1}],"user":{"id":4,"imgUrl":"assets/images/users/two.jpg","name":"Akshaya"}},
                 {"id":4,"name":"savi main","status":{"text":"Passed","percent":100},"browsers":[{"platform-ver":"10","browser-ver":"V 40.1","platform":"windows","name":"firefox","status":1},{"platform-ver":"10","browser-ver":"V 40.1","platform":"windows","name":"chrome","status":-1},{"platform-ver":"10","browser-ver":"V 40.1","platform":"apple","name":"safari","status":1}],"user":{"id":5,"imgUrl":"assets/images/users/two.jpg","name":"Dan"}}];
-  // $scope.tabs = [
-  //   { title:'TASK UNDER PROGRESS', content:'' },
-  //   { title:'COMPLETED TASK', content:'Dynamic content 2'},
-  //   { title:'PROJECTS', content:'Dynamic content 3' }
-  // ];
 
   $scope.alertMe = function() {
     setTimeout(function() {
@@ -34,15 +29,14 @@ angular.module('QCrowd').controller('TabsDemoCtrl', function ($scope, $window,$d
     name: 'Tabs'
   };
   $scope.brarray = [];
-  $scope.browserSelect = function (self) {
-    var index = $scope.brarray.indexOf(self.browser);
+  $scope.toggleSelect = function (arr,browser) {
+    var index = arr.indexOf(browser);
     if (index > -1) {
-        $scope.brarray.splice(index, 1);
+        arr.splice(index, 1);
     }else{
-      $scope.brarray.push(self.browser);
+      arr.push(browser);
     }
   }
-
 
    $scope.open = function (size) {
 
@@ -65,12 +59,48 @@ angular.module('QCrowd').controller('TabsDemoCtrl', function ($scope, $window,$d
      });
    };
 
-  $scope.addTextField = function () {
+  $scope.projectsSelected = [];
 
+  $scope.anySelected = function () {
+    return $scope.projectsSelected[0]==undefined;
   }
+  $scope.allSelected = function (items) {
+    if($scope.projectsSelected[0]==undefined)return false;
+    var bool =true;
+    angular.forEach(items,function(item){
+          if($scope.isSelected(item.id)==false)bool = false;
+      })
+    return bool;
+  }
+  $scope.isSelected =function (id) {
+    return $scope.projectsSelected.indexOf(id)>-1?true:false;
+  }
+ $scope.selectAll = function (items) {
+   if(!$scope.allSelected(items)){
+     $scope.projectsSelected = [];
+     angular.forEach(items,function(item){
+       $scope.projectsSelected.push(item.id);
+     })
+   }else {
+        $scope.projectsSelected = [];
+   }
+ }
+ $scope.deleteItem = function () {
+   var new_arr = $scope.projectsSelected;
+   angular.forEach($scope.projectsSelected,function (id) {
+    console.log($scope.projects.map(function(e) { return e.id; }));
+    pos = $scope.projects.map(function(e) { return e.id; }).indexOf(id);
+    if(pos>-1){
+    $scope.projects.splice(pos,1);
+    }
+    console.log(pos);
+   });
+     $scope.projectsSelected = [];
+ }
+
+
 
 });
-
 
 
 
@@ -83,7 +113,10 @@ angular.module('QCrowd').controller('ModalInstanceCtrl', function ($scope, $uibM
   $scope.proceed = function () {
     $uibModalInstance.close();
   };
-
+  $scope.deleteNod =function (e) {
+     elem = e.target.parentNode.parentNode;
+     elem.parentNode.removeChild(elem);
+  };
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
