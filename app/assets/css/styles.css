@@ -4,7 +4,7 @@
 body{
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
-      color: #2c3742;
+  color: #2c3742;
 }
 a {
   color: #2c3742;
@@ -22,10 +22,7 @@ a:focus {
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
     border-top: 2px solid red;
 }
-.tree-div{
-  background-color: #999;
-  min-height: 500px;
-}
+
 /*login*/
 .outer {
     display: table;
@@ -90,6 +87,17 @@ border-radius: 0 5px 5px 0;
 }
 .clearfix{
   overflow: auto;
+}
+.btn-custom-light{
+  min-width: 95px;
+  height: 32px;
+  background-color: #fff;
+  color: #2c3742;
+  border: 1px solid #2c3742;
+}
+.btn-custom-light:hover{
+  background-color: #2c3742;
+  color: #fff;
 }
 .btn-custom-dark{
   width: 95px;
@@ -373,4 +381,53 @@ div.modal-env-wrapper.bar:hover i {display: inline;}
 .add-url-txt{
   cursor: pointer;
   text-decoration: underline;
+}
+
+/*projectsTreeView*/
+.heading{
+  display: block;
+  font-weight: 500;
+  padding: 20px 0 5px 0;
+}
+.mute-input[disabled]{
+  border: none;
+  background-color: #fff;
+}
+.un-mute{
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 4px;
+}
+.detail-wrapper{
+  padding: 20px;
+}
+.detail-wrapper button:first-child{
+  margin-right: 10px;
+}
+
+.edit-icon{
+  font-size: 18px;
+}
+.edit-icon:hover{
+  font-size: 20px;
+}
+.tree-div{
+  background-color: #999;
+  min-height: 500px;
+  margin-top: 42px;
+}
+.vt-wrapper{
+  position: relative;
+  margin-top: 30px;
+}
+.nav-pills>li{
+  width: 140px;
+}
+.nav-pills>li.active>a,.nav-pills>li.active>a:hover,
+.nav-pills>li.active>a:focus{
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-left: 2px solid red;
+  color:#2C3742;
 }
