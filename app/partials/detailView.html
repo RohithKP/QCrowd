@@ -1,15 +1,29 @@
-<div class="">
-<h3><span class="text-danger" ng-show="!(parentNode==null) && !leaf">Module name</span>
-    <span class="text-danger" ng-show="parentNode==null">Project name</span>
-    <span class="text-danger" ng-show="leaf">Test Case</span>:
-    <span class="text-success" ng-show='!edit'>{{currentNode.title}}</span>
-    <span class="text-success" ng-show='edit'><input type="text" name="name" ng-model="currentNode.title"></span>
-</h3>
-</div>
-<div ng-show='!edit' class="">Description: {{currentNode.description}}</div>
-<div ng-show='edit' class="">Description: <textarea style="width:500px;" name="name" ng-model="currentNode.description"></textarea></div>
-<button ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="addModule(currentNode)">Add module</button>
-<button ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="addLeaf(currentNode)">Add Leaf</button>
+<uib-tabset active="0">
+  <uib-tab index="0"  heading={{currentNode.heading}} active="tab.active" disable="tab.disabled">
+    <div class="detail-wrapper">
+      <span class="heading">{{currentNode.heading}} Name
+        <span class="pull-right edit-icon" ng-show='!edit'  ng-click="toggle()"><i class="fa fa-pencil"></i></span>
+      </span>
+      <input class="text-danger mute-input" id="inp1" disabled="true" ng-model="currentNode.title" ng-class="{'un-mute':edit}"></input>
 
-<button  type="button"  ng-show='!edit' name="button" ng-click="toggle()">Edit</button>
-<button  type="button"  ng-show='edit' name="button" ng-click="rename(currentNode)">Save</button>
+      <span class="heading">{{currentNode.heading}} Description</span>
+      <textarea disabled="true" class="mute-input" style="width:500px;height:auto;" name="name" ng-model="currentNode.description" ng-class="{'un-mute':edit}"></textarea>
+
+      <div class="detail-wrapper" ng-show='edit'>
+        <button  class="btn btn-custom-light" type="button" name="button" ng-click="cancel()">Cancel</button>
+        <button  class="btn btn-custom-light" type="button" name="button" ng-click="rename(currentNode)">Save</button>
+      </div>
+
+      <div class="vt-wrapper">
+        <uib-tabset vertical="true" type="pills">
+          <uib-tab heading="Add Module" classes="ver-tab">
+            <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="addModule(nodeRef)">Add module</button>
+          </uib-tab>
+          <uib-tab heading="Add Test Case" classes="ver-tab">
+            <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="addLeaf(nodeRef)">Add Leaf</button>
+          </uib-tab>
+        </uib-tabset>
+      </div>
+    </div>
+  </uib-tab>
+</uib-tabset>
