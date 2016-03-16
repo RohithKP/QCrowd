@@ -36,6 +36,10 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
   }
   $scope.toggle = function(){
     $scope.edit = !$scope.edit;
+    inputs = document.querySelectorAll('.mute-input');
+    angular.forEach(inputs,function (input) {
+      input.disabled = !$scope.edit;
+    })
   }
   $scope.rename = function (currentNode) {
     $scope.toggle();
@@ -58,12 +62,26 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
     // $scope.selected = newNode;
     $scope.showSelected(newNode,parentNode);
   };
+  $scope.getTitle = function () {
+   var title;
+   if($scope.parentNode == null){
+      title = "Project"
+   }else if ($scope.leaf) {
+     title = "Test Case"
+   }
+   else{
+     title = "Module"
+   }
+   return title;
+  }
 
   $scope.showSelected = function(node,$parentNode,$index) {
     $scope.edit = false;
     $scope.parentNode = $parentNode||null;
     $scope.leaf= $scope.isLeaf(node);
-    $scope.currentNode =node;
+    $scope.nodeRef = node;
+    $scope.currentNode =angular.copy(node);
+    $scope.currentNode.heading = $scope.getTitle();
   };
 
   (function () {

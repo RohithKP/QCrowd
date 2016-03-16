@@ -1,12 +1,18 @@
-<div class="row">
+<div class="outer ">
+  <div class="top">
+    <div class="container">
+      <div class="row">
 
-    <!-- COLUMN ONE NAMED VIEW -->
-    <div class="col-lg-4 tree-div">
-        <div ui-view="treeView"></div>
-    </div>
+        <!-- COLUMN ONE NAMED VIEW -->
+        <div class="col-lg-4 tree-div null-pad">
+          <div ui-view="treeView"></div>
+        </div>
 
-    <!-- COLUMN TWO NAMED VIEW -->
-    <div class="col-lg-8">
-        <div ui-view="detailView"></div>
+        <!-- COLUMN TWO NAMED VIEW -->
+        <div class="col-lg-8  null-pad">
+          <div ui-view="detailView"></div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
