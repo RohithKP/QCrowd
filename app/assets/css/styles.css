@@ -40,7 +40,7 @@ a:focus {
 }
 .top {
     display: table-cell;
-    padding-top: 100px;
+    padding: 100px 0;
     background-color: #f1f1f1;
     background-image: url(../images/bg_pattern.png);
 }
@@ -159,6 +159,7 @@ border-radius: 5px 5px 0 0;
 }
 .tab-content{
   background-color: #fff;
+  border-radius: 0 5px 5px 0;
 }
 .tab-content .current{
   display: block;
@@ -387,7 +388,7 @@ div.modal-env-wrapper.bar:hover i {display: inline;}
 .heading{
   display: block;
   font-weight: 500;
-  padding: 20px 0 5px 0;
+  padding: 20px 0 0px 0;
 }
 .mute-input[disabled]{
   border: none;
@@ -399,10 +400,10 @@ div.modal-env-wrapper.bar:hover i {display: inline;}
   border-radius: 4px;
 }
 .detail-wrapper{
-  padding: 20px;
+  padding: 20px 40px;
 }
-.detail-wrapper button:first-child{
-  margin-right: 10px;
+.mar-right-20 button:first-child{
+  margin-right: 20px;
 }
 
 .edit-icon{
@@ -412,22 +413,65 @@ div.modal-env-wrapper.bar:hover i {display: inline;}
   font-size: 20px;
 }
 .tree-div{
-  background-color: #999;
+  /*background-color: #999;*/
+  border-radius: 5px 0 0 5px;
   min-height: 500px;
   margin-top: 42px;
+  padding: 20px 0;
+  background-image: url(./../images/bg.png);
 }
 .vt-wrapper{
   position: relative;
-  margin-top: 30px;
 }
 .nav-pills>li{
   width: 140px;
 }
+.nav-pills>li a{
+  padding: 10px 7px;
+  background-color: rgba(135, 135, 135, 0.18);
+  border-radius: 4px 0  0 4px;
+}
+.nav-stacked>li+li{
+  margin-top:0;
+}
 .nav-pills>li.active>a,.nav-pills>li.active>a:hover,
 .nav-pills>li.active>a:focus{
   background-color: #fff;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  border-top: 1px solid rgba(204, 204, 204, 0.5);
+  border-bottom: 1px solid rgba(204, 204, 204, 0.5);
   border-left: 2px solid red;
   color:#2C3742;
+  border-right: 1px solid #fff;
+margin-right: -2px;
+z-index: 4;
+}
+.vt-wrapper ul{
+  float: left;
+}
+.vt-wrapper .tab-content{
+  display: block;
+  overflow: auto;
+  padding: 20px;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+}
+hr{
+  border-top: 1px solid rgb(212, 212, 212);
+}
+.tc-form-wrapper{
+  padding: 10px 30px;
+}
+.form-group{
+  margin-bottom: 20px;
+}
+.mar-top-20{
+  margin-top: 20px;
+}
+.intro-text{
+  margin:60px auto;
+}
+.nav-tabs{
+  border-bottom:none;
+}
+#detailView .nav-tabs>li a{
+  padding: 10px 40px;
 }

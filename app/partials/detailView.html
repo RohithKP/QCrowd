@@ -1,29 +1,77 @@
 <uib-tabset active="0">
-  <uib-tab index="0"  heading={{currentNode.heading}} active="tab.active" disable="tab.disabled">
+  <uib-tab index="0"  heading={{currentNode.heading}} active="tab.active" disable="tab.disabled" >
     <div class="detail-wrapper">
       <span class="heading">{{currentNode.heading}} Name
         <span class="pull-right edit-icon" ng-show='!edit'  ng-click="toggle()"><i class="fa fa-pencil"></i></span>
       </span>
-      <input class="text-danger mute-input" id="inp1" disabled="true" ng-model="currentNode.title" ng-class="{'un-mute':edit}"></input>
-
-      <span class="heading">{{currentNode.heading}} Description</span>
-      <textarea disabled="true" class="mute-input" style="width:500px;height:auto;" name="name" ng-model="currentNode.description" ng-class="{'un-mute':edit}"></textarea>
-
-      <div class="detail-wrapper" ng-show='edit'>
-        <button  class="btn btn-custom-light" type="button" name="button" ng-click="cancel()">Cancel</button>
-        <button  class="btn btn-custom-light" type="button" name="button" ng-click="rename(currentNode)">Save</button>
+      <input class="text-danger mute-input  null-pad " id="inp1" disabled="true" ng-model="currentNode.title" ng-class="{'form-control un-mute':edit}" style="width:240px;"></input>
+      <span class="heading ">{{currentNode.heading}} Description</span>
+      <textarea disabled="true" class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
+      <div  class="mar-top-20 mar-right-20" ng-show='edit'>
+        <button  class="btn btn-custom-light" type="button" name="button" ng-click="updateCancel()">CANCEL</button>
+        <button  class="btn btn-custom-light" type="button" name="button" ng-click="rename(currentNode)">SAVE</button>
       </div>
-
-      <div class="vt-wrapper">
+    </div>
+    <hr>
+    <div class="detail-wrapper">
+      <div class="vt-wrapper" ng-show='!isLeaf(nodeRef)'>
         <uib-tabset vertical="true" type="pills">
-          <uib-tab heading="Add Module" classes="ver-tab">
-            <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="addModule(nodeRef)">Add module</button>
+          <uib-tab heading="ADD NEW MODULE" classes="ver-tab">
+            <div class="tc-form-wrapper">
+              <div class="form-group">
+                <input type="text" class="form-control" ng-model="module.name" placeholder="Module Name">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="3" ng-model="module.description" placeholder="Module Description"></textarea>
+              </div>
+              <div class="mar-right-20">
+              <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="reset('module')">CANCEL</button>
+              <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="addModule(nodeRef,module)">SAVE</button>
+              </div>
+            </div>
           </uib-tab>
-          <uib-tab heading="Add Test Case" classes="ver-tab">
-            <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="addLeaf(nodeRef)">Add Leaf</button>
+          <uib-tab heading="NEW TEST CASE" classes="ver-tab">
+            <div class="tc-form-wrapper">
+              <div class="form-group">
+                <input type="text" class="form-control" ng-model="testCase.name" placeholder="Test Case Name">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="3" ng-model="testCase.description" placeholder="Test Case Description"></textarea>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="3" ng-model="testCase.condition" placeholder="Pre Condition"></textarea>
+              </div>
+              <div class="form-group">
+                <select class="form-control">
+                  <option>Priority</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="mar-right-20">
+                <button class="btn btn-custom-light" ng-show='!isLeaf(nodeRef)' type="button" name="button" ng-click="reset('testCase')">CANCEL</button>
+                <button class="btn btn-custom-light" ng-show='!isLeaf(nodeRef)' type="button" name="button" ng-click="addLeaf(nodeRef,testCase)">SAVE</button>
+              </div>
+            </div>
           </uib-tab>
         </uib-tabset>
       </div>
+
+      <div class="" ng-show='isLeaf(nodeRef)'>
+        <span class="">STEPS</span>
+        <div class="text-center ">
+          <h3 class="text-muted intro-text">There are no steps to show</h3>
+          <div class="mar-right-20">
+            <button class="btn btn-custom-light"  type="button" name="button" ng-click="">EMBED</button>
+            <button class="btn btn-custom-light"  type="button" name="button" ng-click="">ADD</button>
+          </div>
+        </div>
+      </div>
     </div>
+  </uib-tab>
+  <uib-tab index="1"  heading="History" active="tab.active" disable="tab.disabled">
+
   </uib-tab>
 </uib-tabset>
