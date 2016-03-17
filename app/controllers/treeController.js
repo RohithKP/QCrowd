@@ -46,33 +46,36 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
     $scope.$broadcast('rename',currentNode);
     // console.log($scope.dataForTheTree);
   }
-  $scope.addModule = function(parentNode) {
+  $scope.module = {}
+  $scope.testCase = {}
+  $scope.addModule = function(parentNode,module) {
     $scope.expandedNodes.push(parentNode);
-    newModule = {"title": "New Module", "id":Date.now(),"description":"", "links": [{}]};
+    newModule = {"title":module.name, "id":Date.now(),"description":module.description, "links": [{}]};
     parentNode.links.unshift(newModule);
     $scope.$broadcast('select',newModule);
-    // $scope.selected = newModule;
     $scope.showSelected(newModule,parentNode);
+    $scope.module={};
   };
-  $scope.addLeaf = function(parentNode) {
+  $scope.addLeaf = function(parentNode,testCase) {
     $scope.expandedNodes.push(parentNode);
-    newNode = {"title": "New Leaf", "id":Date.now(),"description":"", "links": []};
+    newNode = {"title": testCase.name, "id":Date.now(),"description":testCase.description, "links": []};
     parentNode.links.push(newNode);
     $scope.$broadcast('select',newNode);
     // $scope.selected = newNode;
     $scope.showSelected(newNode,parentNode);
+    $scope.testCase= {};
   };
   $scope.getTitle = function () {
-   var title;
-   if($scope.parentNode == null){
+    var title;
+    if($scope.parentNode == null){
       title = "Project"
-   }else if ($scope.leaf) {
-     title = "Test Case"
-   }
-   else{
-     title = "Module"
-   }
-   return title;
+    }else if ($scope.leaf) {
+      title = "Test Case"
+    }
+    else{
+      title = "Module"
+    }
+    return title;
   }
 
   $scope.showSelected = function(node,$parentNode,$index) {
@@ -82,6 +85,18 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
     $scope.nodeRef = node;
     $scope.currentNode =angular.copy(node);
     $scope.currentNode.heading = $scope.getTitle();
+  };
+
+  $scope.updateCancel =function () {
+    $scope.toggle();
+    $scope.showSelected($scope.nodeRef,$scope.parentNode);
+  };
+
+  $scope.reset = function (obj) {
+     eval('$scope.'+obj+'={}');
+  };
+  $scope.addStep = function (step) {
+
   };
 
   (function () {

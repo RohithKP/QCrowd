@@ -7,9 +7,9 @@ treecontrol {
     user-select: none;
 
     /* default */
-    font-family: Verdana, Helvetica, Arial, sans-serif;
+    /*font-family: Verdana, Helvetica, Arial, sans-serif;*/
     font-size:13px;
-    color: #555;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -23,7 +23,7 @@ treecontrol ul {
 
 treecontrol li {
     position: relative;
-    padding: 0 0 0 20px;
+    padding: 1px 1px 0 20px;
     line-height: 20px;
 }
 
@@ -56,13 +56,16 @@ treecontrol.tree-classic li.tree-collapsed i.tree-branch-head {
 }
 
 treecontrol.tree-classic li.tree-leaf i.tree-leaf-head {
-    padding: 1px 10px;
+    padding: 0px 10px;
     background: url("../images/file.png") no-repeat;
 }
 
 treecontrol.tree-classic li .tree-selected {
-    background-color: #aaddff;
-    font-weight: bold;
+    background-color: #fff;
+    /*font-weight: bold;*/
+    color: #2c3748;
+    padding: 0 10px 2px 10px;
+    border-radius: 3px;
 }
 
 treecontrol.tree-classic li .tree-unselectable {
