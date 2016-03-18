@@ -34,13 +34,7 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
       return false;
     }
   }
-  $scope.toggle = function(){
-    $scope.edit = !$scope.edit;
-    inputs = document.querySelectorAll('.mute-input');
-    angular.forEach(inputs,function (input) {
-      input.disabled = !$scope.edit;
-    })
-  }
+
   $scope.rename = function (currentNode) {
     $scope.toggle();
     $scope.$broadcast('rename',currentNode);
@@ -48,23 +42,7 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
   }
   $scope.module = {}
   $scope.testCase = {}
-  $scope.addModule = function(parentNode,module) {
-    $scope.expandedNodes.push(parentNode);
-    newModule = {"title":module.name, "id":Date.now(),"description":module.description, "links": [{}]};
-    parentNode.links.unshift(newModule);
-    $scope.$broadcast('select',newModule);
-    $scope.showSelected(newModule,parentNode);
-    $scope.module={};
-  };
-  $scope.addLeaf = function(parentNode,testCase) {
-    $scope.expandedNodes.push(parentNode);
-    newNode = {"title": testCase.name, "id":Date.now(),"description":testCase.description, "links": []};
-    parentNode.links.push(newNode);
-    $scope.$broadcast('select',newNode);
-    // $scope.selected = newNode;
-    $scope.showSelected(newNode,parentNode);
-    $scope.testCase= {};
-  };
+
   $scope.getTitle = function () {
     var title;
     if($scope.parentNode == null){
@@ -87,17 +65,6 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
     $scope.currentNode.heading = $scope.getTitle();
   };
 
-  $scope.updateCancel =function () {
-    $scope.toggle();
-    $scope.showSelected($scope.nodeRef,$scope.parentNode);
-  };
-
-  $scope.reset = function (obj) {
-     eval('$scope.'+obj+'={}');
-  };
-  $scope.addStep = function (step) {
-
-  };
 
   (function () {
     $scope.x = [];

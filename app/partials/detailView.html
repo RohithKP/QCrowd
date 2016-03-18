@@ -25,8 +25,8 @@
                 <textarea class="form-control" rows="3" ng-model="module.description" placeholder="Module Description"></textarea>
               </div>
               <div class="mar-right-20">
-              <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="reset('module')">CANCEL</button>
-              <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="addModule(nodeRef,module)">SAVE</button>
+                <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="reset('module')">CANCEL</button>
+                <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="addModule(nodeRef,module)">SAVE</button>
               </div>
             </div>
           </uib-tab>
@@ -61,8 +61,52 @@
 
       <div class="" ng-show='isLeaf(nodeRef)'>
         <span class="">STEPS</span>
-        <div class="text-center ">
-          <h3 class="text-muted intro-text">There are no steps to show</h3>
+        <div class="dragList" id="sortable-container">
+          <!-- <table class="table borderless col-md-12">
+            <tbody data-ng-model="steps['testCaseId']" as-sortable="sortableOptions">
+              <tr ng-repeat="step in steps['testCaseId']" as-sortable-item class="iHover">
+                <td class="">
+                  <span as-sortable-item-handle class="drag-icon">
+                    <i class="fa fa-ellipsis-v"></i>
+                    <i class="fa fa-ellipsis-v"></i>
+                  </span>
+                  <input type="checkbox" name="name" value="">
+                </td>
+                <td  class="">
+                  <span class="block">{{$index+1}}.{{step['que']}}</span>
+                  <span class="text-muted block check-text">{{step['check']}}</span>
+                </td>
+                <td class="">
+                  <i class="fa fa-pencil icons"></i>
+                  <i class="fa fa-trash icons"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table> -->
+          <ul class="cards card-list" as-sortable="sortableOptions" data-ng-model="steps['testCaseId']">
+                    <li class="iHover" ng-repeat="step in steps['testCaseId']" as-sortable-item>
+                            <div as-sortable-item-handle class="stepDiv row">
+                              <div class="col-sm-1">
+                                <span  class="drag-icon">
+                                  <i class="fa fa-ellipsis-v"></i>
+                                  <i class="fa fa-ellipsis-v"></i>
+                                  <input type="checkbox" name="name" value="">
+                                </span>
+                              </div>
+                                <div class="col-sm-10">
+                                  <span class="block">{{$index+1}}.{{step['que']}}</span>
+                                  <span class="text-muted block check-text">{{step['check']}}</span>
+                                </div>
+                                <div class="col-sm-1">
+                                  <i class="fa fa-pencil icons"></i>
+                                  <i class="fa fa-trash icons"></i>
+                                </div>
+                            </div>
+                  </li>
+            </ul>
+        </div>
+        <div class=""  ng-class="{'text-center':!isSteps()}">
+          <h3 ng-show="!isSteps()" class="text-muted intro-text">There are no steps to show</h3>
           <div class="mar-right-20">
             <button class="btn btn-custom-light"  type="button" name="button" ng-click="">EMBED</button>
             <button class="btn btn-custom-light"  type="button" name="button" ng-click="">ADD</button>

@@ -61,7 +61,7 @@ border-radius: 5px 0  0 5px ;
   font-size: 40px;
   color: #fff;
   position: absolute;
-  top :100px;
+  top :50px;
   text-align: center;
   width: 160px;
   left: 55px;
@@ -474,4 +474,44 @@ hr{
 }
 #detailView .nav-tabs>li a{
   padding: 10px 40px;
+}
+/*sortable*/
+.dragList>ul{
+  padding: 0;
+}
+
+.as-sortable-item,
+.as-sortable-placeholder {
+    /*padding: 10px;*/
+    margin: 2px;
+    border-radius: 5px;
+}
+
+.as-sortable-placeholder {
+  border: 1px dotted #999 !important;
+}
+.block{
+  display: block;
+}
+.borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
+    border: none;
+}
+.drag-icon{
+  color: #ccc;
+  cursor: -webkit-grab;
+}
+.drag-icon i:first-child{
+  margin-right: -1px;
+}
+.check-text{
+  padding: 8px 0 0 13px;
+}
+.iHover  .icons{display: none;}
+.iHover:hover .icons {display: inline;}
+
+#sortable-container {
+
+}
+.stepDiv{
+  padding: 10px 0;
 }
