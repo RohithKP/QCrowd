@@ -1,4 +1,4 @@
-angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ngSanitize']).config(function ($stateProvider,$urlRouterProvider) {
+angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','as.sortable']).config(function ($stateProvider,$urlRouterProvider) {
   $urlRouterProvider.otherwise('/home');
 
   $stateProvider
@@ -35,7 +35,7 @@ angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ngSanitize'])
     views:{
       '':{templateUrl: 'partials/projects.html',    controller:'treeController'},
       'treeView@projects':{templateUrl:'partials/tree.html'},
-      'detailView@projects':{templateUrl:'partials/detailView.html'},
+      'detailView@projects':{templateUrl:'partials/detailView.html', controller:'detailViewCtrl'},
     }
 
   })
