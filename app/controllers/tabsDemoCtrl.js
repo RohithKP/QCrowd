@@ -12,13 +12,6 @@ angular.module('QCrowd').controller('TabsDemoCtrl', function ($scope, $window,$d
   };
   $scope.query = {projectQuery:'',userQuery:'',statusQuery:'',browserQuery:''};
 
-  // $scope.select=function functionName($event) {
-  //   var alllis = angular.element($event.currentTarget).find('li');
-  //   angular.forEach(alllis, function(elem) {
-  //    angular.element(elem).removeClass('selected');
-  //   });
-  //   angular.element($event.target).addClass('selected');
-  // };
   $scope.filterStatus = function($event,txt){
     $event.stopPropagation();
     $scope.query.statusQuery =txt;
@@ -29,15 +22,7 @@ angular.module('QCrowd').controller('TabsDemoCtrl', function ($scope, $window,$d
     name: 'Tabs'
   };
   $scope.brarray = [];
-  $scope.toggleSelect = function (arr,browser) {
-    var index = arr.indexOf(browser);
-    if (index > -1) {
-        arr.splice(index, 1);
-    }else{
-      arr.push(browser);
-    }
-  }
-
+  $scope.helpers =  MyNamespace.helpers;
    $scope.open = function (size) {
 
      var modalInstance = $uibModal.open({
@@ -60,45 +45,6 @@ angular.module('QCrowd').controller('TabsDemoCtrl', function ($scope, $window,$d
    };
 
   $scope.projectsSelected = [];
-
-  $scope.anySelected = function () {
-    return $scope.projectsSelected[0]==undefined;
-  }
-  $scope.allSelected = function (items) {
-    if($scope.projectsSelected[0]==undefined)return false;
-    var bool =true;
-    angular.forEach(items,function(item){
-          if($scope.isSelected(item.id)==false)bool = false;
-      })
-    return bool;
-  }
-  $scope.isSelected =function (id) {
-    return $scope.projectsSelected.indexOf(id)>-1?true:false;
-  }
- $scope.selectAll = function (items) {
-   if(!$scope.allSelected(items)){
-     $scope.projectsSelected = [];
-     angular.forEach(items,function(item){
-       $scope.projectsSelected.push(item.id);
-     })
-   }else {
-        $scope.projectsSelected = [];
-   }
- }
- $scope.deleteItem = function () {
-   var new_arr = $scope.projectsSelected;
-   angular.forEach($scope.projectsSelected,function (id) {
-    console.log($scope.projects.map(function(e) { return e.id; }));
-    pos = $scope.projects.map(function(e) { return e.id; }).indexOf(id);
-    if(pos>-1){
-    $scope.projects.splice(pos,1);
-    }
-    console.log(pos);
-   });
-     $scope.projectsSelected = [];
- }
-
-
 
 });
 
