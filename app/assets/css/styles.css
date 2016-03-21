@@ -401,7 +401,9 @@ div.modal-env-wrapper.bar:hover i {display: inline;}
 }
 .detail-wrapper{
   padding: 20px 40px;
+  position: relative;
 }
+
 .mar-right-20 button:first-child{
   margin-right: 20px;
 }
@@ -476,20 +478,6 @@ hr{
   padding: 10px 40px;
 }
 /*sortable*/
-.dragList>ul{
-  padding: 0;
-}
-
-.as-sortable-item,
-.as-sortable-placeholder {
-    /*padding: 10px;*/
-    margin: 2px;
-    border-radius: 5px;
-}
-
-.as-sortable-placeholder {
-  border: 1px dotted #999 !important;
-}
 .block{
   display: block;
 }
@@ -509,9 +497,37 @@ hr{
 .iHover  .icons{display: none;}
 .iHover:hover .icons {display: inline;}
 
-#sortable-container {
-
+#listWithHandle{
+  padding: 20px 0;
+  margin-left: -25px;
 }
-.stepDiv{
-  padding: 10px 0;
+.sidebar{
+  background-color: #333;
+position: absolute;
+right: 0;
+top: 0;
+bottom:0;
+width: 12px;
+border-radius: 0 4px 0 0 ;
+}
+.caret-down{
+  position: absolute;
+  color: #fff;
+  top: 47%;
+  left: 2px;
+}
+.ng-hide-add         {  }
+
+/* when showing the picture */
+.ng-hide-remove      {animation:0.5s lightSpeedOut ease;}
+
+@keyframes lightSpeedOut {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 100%);
+    opacity: 1;
+  }
 }

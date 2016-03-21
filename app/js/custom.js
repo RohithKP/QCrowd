@@ -1,4 +1,4 @@
-angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','as.sortable']).config(function ($stateProvider,$urlRouterProvider) {
+angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable','ngAnimate']).config(function ($stateProvider,$urlRouterProvider) {
   $urlRouterProvider.otherwise('/home');
 
   $stateProvider
@@ -37,7 +37,13 @@ angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','as.sortable']
       'treeView@projects':{templateUrl:'partials/tree.html'},
       'detailView@projects':{templateUrl:'partials/detailView.html', controller:'detailViewCtrl'},
     }
-
+  })
+  .state('projects.addStep', {
+    url: '/projects/addStep',
+    views:{
+      'treeView':{template:'partials/tree.html'},
+      'addView':{template:'partials/detailView.html'},
+    }
   })
   .state('login', {
     url: '/login',
@@ -132,3 +138,54 @@ angular.module("QCrowd").filter('browserFilter', function() {
     }
   }
 });
+
+// commonfunctions
+var MyNamespace = MyNamespace || {};
+
+ MyNamespace.helpers = {
+   toggleSelect: function (array,arg) {
+     var index = array.indexOf(arg);
+     if (index > -1) {
+         array.splice(index, 1);
+     }else{
+       array.push(arg);
+     }
+   },
+   empty : function (array) {
+     return array[0]==undefined;
+   },
+   isItem :function (array,arg) {
+     return array.indexOf(arg)>-1?true:false;
+   },
+   allSelected : function (array,items) {
+     if(array[0]==undefined)return false;
+     var bool =true;
+     angular.forEach(items,function(item){
+           if(this.isItem(array,item.id)==false)bool = false;
+       }.bind(this))
+     return bool;
+   },
+   selectAll :function (array,items) {
+     if(!this.allSelected(array,items)){
+       array = [];
+       angular.forEach(items,function(item){
+         array.push(item.id);
+         console.log(array);
+       })
+     }else {
+          array = [];
+     }
+     return array;
+   },deleteItem : function (array,items) {
+     var new_arr = array;
+     angular.forEach(array,function (id) {
+      pos = items.map(function(e) { return e.id; }).indexOf(id);
+      if(pos>-1){
+      items.splice(pos,1);
+      }
+      console.log(pos);
+     });
+       array = [];
+   }
+
+ };

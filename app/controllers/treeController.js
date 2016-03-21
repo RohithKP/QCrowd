@@ -34,8 +34,14 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
       return false;
     }
   }
-
-  $scope.rename = function (currentNode) {
+  $scope.toggle = function(){
+    $scope.edit = !$scope.edit;
+    inputs = document.querySelectorAll('.mute-input');
+    angular.forEach(inputs,function (input) {
+      input.disabled = !$scope.edit;
+    })
+  }
+  $scope.update = function (currentNode) {
     $scope.toggle();
     $scope.$broadcast('rename',currentNode);
     // console.log($scope.dataForTheTree);
@@ -55,8 +61,10 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
     }
     return title;
   }
-
+  $scope.share = {}
+  $scope.share.more = false;
   $scope.showSelected = function(node,$parentNode,$index) {
+    $scope.share.more = false;
     $scope.edit = false;
     $scope.parentNode = $parentNode||null;
     $scope.leaf= $scope.isLeaf(node);
