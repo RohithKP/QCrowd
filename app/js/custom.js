@@ -1,4 +1,4 @@
-angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable','ngAnimate']).config(function ($stateProvider,$urlRouterProvider) {
+angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable','ngAnimate','chart.js']).config(function ($stateProvider,$urlRouterProvider) {
   $urlRouterProvider.otherwise('/home');
 
   $stateProvider
@@ -36,6 +36,25 @@ angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable',
       '':{templateUrl: 'partials/projects.html',    controller:'treeController'},
       'treeView@projects':{templateUrl:'partials/tree.html'},
       'detailView@projects':{templateUrl:'partials/detailView.html', controller:'detailViewCtrl'},
+      'tabView@projects':{templateUrl:'partials/moduleHistory.html', controller:'moduleHistoryCntrl'},
+    }
+  })
+  .state('projects.module', {
+    url: '/module/',
+    views:{
+    'tabView':{templateUrl:'partials/moduleHistory.html', controller:'moduleHistoryCntrl'},
+    }
+  })
+  .state('projects.testCase', {
+    url: '/testCase/',
+    views:{
+    'tabView':{templateUrl:'partials/testCaseHistory.html', controller:'testCaseHistoryCntrl'},
+    }
+  })
+  .state('projects.statistics', {
+    url: '/statistics/:key',
+    views:{
+      'tabView':{templateUrl:'partials/statistics.html', controller:'statisticsCntrl'},
     }
   })
   .state('projects.addStep', {
@@ -186,6 +205,9 @@ var MyNamespace = MyNamespace || {};
       console.log(pos);
      });
        array = [];
+   },
+   total:function (array) {
+     return array.reduce(function(a, b) {return a + b;});
    }
 
  };

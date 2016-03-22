@@ -1,4 +1,4 @@
-angular.module('QCrowd').controller('detailViewCtrl',function ($scope) {
+angular.module('QCrowd').controller('detailViewCtrl',function ($scope,$state) {
 
 $scope.newStep = {};
 $scope.steps = {"testCaseId":[{"id":"1","que":"Lorem Ipsum is simply dummy text of the printing and typesetting industry","check":"nsectetur, from a Lorem Ipsum "},{"id":"2","que":"Lornd typesetting industry","check":"nsectetur, from a Lorem Ipsum "},{"id":"3","que":"Lorem Ipsum is simply dummy text of the printing and typesetting industry","check":"nsectetur, from a Lorem Ipsum "},{"id":"4","que":"nsectetur, from a Lorem Ipsum nsectetur, from a Lorem Ipsum ","check":"dummy text of the printing and typesetting indust"}],
@@ -53,6 +53,11 @@ $scope.helpers = MyNamespace.helpers;
 $scope.addStep = function () {
 $scope.steps["testCaseId"].push($scope.newStep);
 $scope.reset('newStep');
+}
+$scope.getTabName = function () {
+  if($state.current.name == 'projects.statistics')
+  return 'Statistics'
+  else return 'History'
 }
 
 });
