@@ -1,4 +1,4 @@
-angular.module('QCrowd').controller('historyCntrl',['$scope','$state',function ($scope,$state) {
+angular.module('QCrowd').controller('testCaseHistoryCntrl',['$scope','$state',function ($scope,$state) {
 $scope.history = [
   {
   "date" : "29-FEBRUARY-2016",
@@ -39,6 +39,6 @@ $scope.history = [
 ]
 
 $scope.showStat=function (item) {
-   $state.go('projects.statistics',{"key":item.date+item.time});
+  //  $state.go('projects.module.statistics',{"key":item.date+item.time});
 }
 }]);

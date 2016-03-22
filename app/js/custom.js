@@ -36,17 +36,23 @@ angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable',
       '':{templateUrl: 'partials/projects.html',    controller:'treeController'},
       'treeView@projects':{templateUrl:'partials/tree.html'},
       'detailView@projects':{templateUrl:'partials/detailView.html', controller:'detailViewCtrl'},
-      'tabView@projects':{templateUrl:'partials/history.html', controller:'historyCntrl'},
+      'tabView@projects':{templateUrl:'partials/moduleHistory.html', controller:'moduleHistoryCntrl'},
     }
   })
-  // .state('projects.module', {
-  //   url: '/projects/module/',
-  //   views:{
-  //     'tabView':{templateUrl:'partials/statistics.html', controller:'statisticsCntrl'},
-  //   }
-  // })
+  .state('projects.module', {
+    url: '/module/',
+    views:{
+    'tabView':{templateUrl:'partials/moduleHistory.html', controller:'moduleHistoryCntrl'},
+    }
+  })
+  .state('projects.testCase', {
+    url: '/testCase/',
+    views:{
+    'tabView':{templateUrl:'partials/testCaseHistory.html', controller:'testCaseHistoryCntrl'},
+    }
+  })
   .state('projects.statistics', {
-    url: '/projects/statistics/:key',
+    url: '/statistics/:key',
     views:{
       'tabView':{templateUrl:'partials/statistics.html', controller:'statisticsCntrl'},
     }

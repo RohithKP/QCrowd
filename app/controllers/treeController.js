@@ -1,4 +1,4 @@
-angular.module('QCrowd').controller('treeController',function ($scope) {
+angular.module('QCrowd').controller('treeController',function ($scope,$state) {
   $scope.treeOptions = {
     nodeChildren: "links",
     dirSelectable: true,
@@ -61,6 +61,18 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
     }
     return title;
   }
+  $scope.changeState = function () {
+    if($scope.parentNode == null){
+    $state.go('projects');
+    }
+    else if ($scope.leaf) {
+      $state.go('projects.testCase');
+    }
+    else{
+       $state.go('projects.module');
+        }
+  }
+
   $scope.share = {}
   $scope.share.more = false;
   $scope.showSelected = function(node,$parentNode,$index) {
@@ -71,8 +83,8 @@ angular.module('QCrowd').controller('treeController',function ($scope) {
     $scope.nodeRef = node;
     $scope.currentNode =angular.copy(node);
     $scope.currentNode.heading = $scope.getTitle();
+    $scope.changeState();
   };
-
 
   (function () {
     $scope.x = [];
