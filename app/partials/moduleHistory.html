@@ -1,0 +1,16 @@
+<div  class="detail-wrapper history">
+<table class="table">
+      <tr>
+        <th >#</th>
+        <th  >Date</th>
+        <th  >Time</th>
+      </tr>
+    <tbody>
+      <tr ng-repeat="item in history" ng-click="showStat(this.item)">
+        <td>{{$index+1}}</td>
+        <td>{{item.date}}</td>
+        <td>{{item.time}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
