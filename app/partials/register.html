@@ -7,29 +7,37 @@
           <span class="regiter-txt">REGISTER</span>
         </div>
         <div class="form-wrapper">
-        <div class="form-group has-feedback">
-          <input type="text" class="form-control" id="" placeholder="Product Owner Name"/>
-          <span class="form-control-feedback" ><img src="assets/images/product_owner_name.png" alt="" /></span>
-        </div>
-        <div class="form-group has-feedback" >
-          <input type="text" class="form-control" id="" placeholder="Product Owner Website"/>
-          <span class=" form-control-feedback"  ><img src="assets/images/product_owner_website.png" alt="" /></span>
-        </div>
-        <div class="form-group has-feedback" >
-          <input type="text" class="form-control" id="" placeholder="Contact Person"/>
-          <span class=" form-control-feedback"  ><img src="assets/images/contact_person.png" alt="" /></span>
-        </div>
-        <div class="form-group has-feedback" >
-          <input type="email" class="form-control" id="" placeholder="Email ID"/>
-          <span class=" form-control-feedback"  ><img src="assets/images/email_id.png" alt="" /></span>
-        </div>
-        <div class="form-group has-feedback" >
-          <input type="text" class="form-control" id="" placeholder="Contact Number"/>
-          <span class=" form-control-feedback"  ><img src="assets/images/contact_number.png" alt="" /></span>
-        </div>
-        <div class="text-center btn-wrapper">
-          <button type="button" name="button" class="btn btn-custom-dark">SUBMIT</button>
-        </div>
+          <form name="registerForm" novalidate>
+            <div class="form-group has-feedback" show-errors='{showSuccess: true}'>
+              <input type="text" class="form-control" id=""  name="ownerName" ng-model="register.name" placeholder="Product Owner Name" required/>
+              <span class="form-control-feedback" ><img src="assets/images/product_owner_name.png" alt="" /></span>
+              <p class="help-block" ng-if="registerForm.ownerName.$error.required">The Product owner name is required</p>
+            </div>
+            <div class="form-group has-feedback" show-errors='{showSuccess: true}'>
+              <input type="text" class="form-control" id="" name="website"  ng-model="register.website" placeholder="Product Owner Website" required/>
+              <span class=" form-control-feedback"  ><img src="assets/images/product_owner_website.png" alt="" /></span>
+              <p class="help-block" ng-if="registerForm.website.$error.required">The Product owner website is required</p>
+            </div>
+            <div class="form-group has-feedback" show-errors='{showSuccess: true}'>
+              <input type="text" class="form-control" id="" name="contact"  ng-model="register.contact" placeholder="Contact Person" required/>
+              <span class=" form-control-feedback"  ><img src="assets/images/contact_person.png" alt="" /></span>
+              <p class="help-block" ng-if="registerForm.contact.$error.required">A contact person is required</p>
+            </div>
+            <div class="form-group has-feedback" show-errors='{showSuccess: true}'>
+              <input type="email" class="form-control" name="email" id=""  ng-model="register.email"placeholder="Email ID" required/>
+              <span class=" form-control-feedback"  ><img src="assets/images/email_id.png" alt="" /></span>
+              <p class="help-block" ng-if="registerForm.email.$error.required">User email id is required</p>
+              <p class="help-block" ng-if="registerForm.email.$error.email">Enter vaild email id</p>
+            </div>
+            <div class="form-group has-feedback" show-errors='{showSuccess: true}'>
+              <input type="number" class="form-control" name="contactNo" id=""  ng-model="register.number" placeholder="Contact Number" required/>
+              <span class=" form-control-feedback"  ><img src="assets/images/contact_number.png" alt="" /></span>
+              <p class="help-block" ng-if="registerForm.contactNo.$error.required">User contact number is required</p>
+            </div>
+            <div class="text-center btn-wrapper">
+              <button type="submit" name="button" class="btn btn-custom-dark" ng-click="submit()">SUBMIT</button>
+            </div>
+          </form>
       </div>
       </div>
       </div>
