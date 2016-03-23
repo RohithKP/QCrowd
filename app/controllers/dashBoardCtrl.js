@@ -29,20 +29,3 @@ angular.module('QCrowd').controller('dashBoardCtrl', function ($scope,helpers,$w
   $scope.projectsSelected = [];
 
 });
-
-
-
-
-angular.module('QCrowd').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
-
-  $scope.proceed = function () {
-    $uibModalInstance.close();
-  };
-  $scope.deleteNod =function (e) {
-     elem = e.target.parentNode.parentNode;
-     elem.parentNode.removeChild(elem);
-  };
-  $scope.cancel = function () {
-    $uibModalInstance.dismiss('cancel');
-  };
-});
