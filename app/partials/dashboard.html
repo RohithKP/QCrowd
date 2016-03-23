@@ -7,9 +7,9 @@
             <tr>
               <th class="col-md-1">#</th>
               <th class="col-md-2">Task Name &nbsp;<i class="fa fa-filter exculde" popover popover-placement="bottom" uib-popover-template="'taskname.html'"  popover-elem></i></th>
-              <th class="col-md-2">Status &nbsp;<i class="fa fa-filter" popover popover-placement="bottom" uib-popover-template="'status.html'" popover-elem></i></th>
-              <th class="col-md-2">Browsers &nbsp;<i class="fa fa-filter" popover popover-placement="bottom" uib-popover-template="'browsers.html'" popover-elem></i></th>
-              <th class="col-md-2">User &nbsp;<i class="fa fa-filter" popover popover-placement="bottom" uib-popover-template="'users.html'" popover-elem></i></th>
+              <th class="col-md-2">Status &nbsp;<i class="fa fa-filter exculde" popover popover-placement="bottom" uib-popover-template="'status.html'" popover-elem></i></th>
+              <th class="col-md-2">Browsers &nbsp;<i class="fa fa-filter exculde" popover popover-placement="bottom" uib-popover-template="'browsers.html'" popover-elem></i></th>
+              <th class="col-md-2">User &nbsp;<i class="fa fa-filter exculde" popover popover-placement="bottom" uib-popover-template="'users.html'" popover-elem></i></th>
             </tr>
             <tr ng-repeat="project in projects  | projFilter:query.projectQuery |userFilter:query.userQuery |statusFilter:query.statusQuery |browserFilter:brarray ">
               <td>{{project.id}}</td><td>{{project.name}}</td>
