@@ -26,7 +26,7 @@
           <div class="">
             <div class="project-item" >
               <input type="checkbox" name="name" value="" ng-checked="helpers.allSelected(projectsSelected,projects)" ng-click="projectsSelected = helpers.selectAll(projectsSelected,projects)"> <span><strong>Project Name</strong></span>
-              <span class="pull-right add-icon"><i class="fa fa-plus-circle" ng-click="open()"></i><i class="fa fa-trash" ng-click="helpers.deleteItem(projectsSelected,projects)" ng-hide="helpers.empty(projectsSelected)"></i></span>
+              <span class="pull-right add-icon"><i class="fa fa-plus-circle" ng-click="modalOpen('addProject.html')"></i><i class="fa fa-trash" ng-click="helpers.deleteItem(projectsSelected,projects)" ng-hide="helpers.empty(projectsSelected)"></i></span>
             </div>
             <div class="project-list">
               <li class="project-item" ng-repeat="project in projects"><input type="checkbox" name="name" value="" ng-checked="helpers.isItem(projectsSelected,project.id)" ng-click="helpers.toggleSelect(projectsSelected,project.id)"> {{project.name}}</li>
@@ -79,7 +79,7 @@
       </div>
     </script>
 
-    <script type="text/ng-template" id="myModalContent.html">
+    <script type="text/ng-template" id="addProject.html">
       <div class="modal-header">
         <h3 class="modal-title">ADD PROJECT</h3>
       </div>
