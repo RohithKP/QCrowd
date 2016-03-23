@@ -16,8 +16,8 @@ a:focus {
   text-decoration: underline;
 }
 .active{
-  color: #ccc;
-  border-radius: 4px 4px 0 0 ;
+  /*color: #ccc;*/
+  /*border-radius: 4px 4px 0 0 ;*/
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
     border-top: 2px solid red;
@@ -89,6 +89,7 @@ border-radius: 0 5px 5px 0;
   overflow: auto;
 }
 .btn-custom-light{
+
   min-width: 95px;
   height: 32px;
   background-color: #fff;
@@ -100,13 +101,19 @@ border-radius: 0 5px 5px 0;
   color: #fff;
 }
 .btn-custom-dark{
-  width: 95px;
+  min-width: 95px;
   height: 32px;
   background-color: #303840;
   color: #fff;
+  border: 1px solid transparent;
 }
 .btn-custom-dark:hover{
   color: #999;
+}
+.btn-custom-dark:active,.btn-custom-light:active,
+.btn-custom-dark:focus,.btn-custom-light:focus{
+color: #fff;
+border: none;
 }
 .btn-wrapper{
   padding-top: 30px;

@@ -2,15 +2,16 @@
 <table class="table">
       <tr>
         <th >#</th>
-        <th  >Date</th>
-        <th  >Time</th>
+        <th >Date</th>
+        <th >Time</th>
+        <th >Browsers</th>
       </tr>
     <tbody>
       <tr ng-repeat="item in history" ng-click="showStat(this.item)">
         <td>{{$index+1}}</td>
         <td>{{item.date}}</td>
         <td>{{item.time}}</td>
-        <td>{{item.time}}</td>
+        <td><span class="browser-icon" ng-repeat="browser in item.browsers" ng-class="{pass:browser.status==1,fail:browser.status==0,muted:browser.status==-1}"><i  class="fa fa-{{browser.name}}">&nbsp;</i></span></span></td>
       </tr>
     </tbody>
   </table>
