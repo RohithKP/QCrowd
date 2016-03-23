@@ -185,6 +185,7 @@ border: 1px solid rgb(210, 210, 210);
     border-bottom:none;
 }
 .nav-tabs>li>a {
+  margin-right: 0;
 border: 1px solid rgb(210, 210, 210);
     border-bottom:none;
     color:    #808080;
