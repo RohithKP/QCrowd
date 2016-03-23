@@ -89,9 +89,7 @@ border-radius: 0 5px 5px 0;
   overflow: auto;
 }
 .btn-custom-light{
-
   min-width: 95px;
-  height: 32px;
   background-color: #fff;
   color: #2c3742;
   border: 1px solid #2c3742;
@@ -102,7 +100,6 @@ border-radius: 0 5px 5px 0;
 }
 .btn-custom-dark{
   min-width: 95px;
-  height: 32px;
   background-color: #303840;
   color: #fff;
   border: 1px solid transparent;

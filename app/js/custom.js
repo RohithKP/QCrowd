@@ -33,8 +33,8 @@ angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable',
   .state('projects', {
     url: '/projects',
     views:{
-      '':{templateUrl: 'partials/projects.html',    controller:'treeController'},
-      'treeView@projects':{templateUrl:'partials/tree.html'},
+      '':{templateUrl: 'partials/projects.html',    controller:'projectCtrl'},
+      'treeView@projects':{templateUrl:'partials/tree.html', controller:'treeCtrl'},
       'detailView@projects':{templateUrl:'partials/detailView.html', controller:'detailViewCtrl'},
       'tabView@projects':{templateUrl:'partials/moduleHistory.html', controller:'moduleHistoryCntrl'},
     }
