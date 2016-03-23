@@ -1,5 +1,4 @@
 angular.module('QCrowd').controller('projectCtrl',function ($scope,$state,helpers) {
-  $scope.browsers = ["chrome","firefox","internet-explorer","safari","opera"];
   $scope.isLeaf = function(node) {
     if(!!node){
       if(!node.links[0]){

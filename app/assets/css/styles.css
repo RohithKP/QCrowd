@@ -600,3 +600,14 @@ border-radius: 0 4px 0 0 ;
 .history .table tr:first-child td{
   border:none;
 }
+.modal-browser-icons{
+  font-size: 24px;
+  margin: 5px 20px 5px 0;
+  cursor: pointer;
+}
+.xs-text{
+  font-size: 10px;
+}
+.underline{
+  text-decoration: underline;
+}
