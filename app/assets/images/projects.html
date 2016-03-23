@@ -1,0 +1,52 @@
+<div class="outer ">
+  <div class="top">
+    <div class="container">
+      <div class="row text-right" >
+        <button type="button" class="btn btn-custom-dark" name="button" ng-click="modalOpen('requestExecution.html','rqstInstanceCtrl')">REQUEST EXECUTION</button>
+      </div>
+      <div class="row">
+
+        <!-- COLUMN ONE NAMED VIEW -->
+        <div class="col-md-3 tree-div null-pad">
+          <div ui-view="treeView"></div>
+        </div>
+
+        <!-- COLUMN TWO NAMED VIEW -->
+        <div class="col-md-9  null-pad">
+          <div id="detailView" ui-view="detailView"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/ng-template" id="requestExecution.html">
+  <div class="modal-header">
+    <h3 class="modal-title">REQUEST EXECUTION</h3>
+  </div>
+  <div class="modal-body">
+    <div class="modal-content-wrapper">
+      <div class="col-md-6">
+        <div class="form-group has-feedback">
+          <label for="">Choose Platform</label>
+          <select class="form-control">
+            <option>Platforms</option>
+            <option>Windows</option>
+            <option>Mac</option>
+            <option>Ubuntu</option>
+            <option>Windows 10</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+          <label for="">Choose Browsers</label>
+          <div class="">
+            <span><i ng-repeat="browser in browsers" class="fa fa-{{browser}} modal-browser-icons muted"  ng-class="{'browser-selected':brarray.indexOf(browser) >-1}" ng-click="helpers.toggleSelect(brarray,browser)"></i></span>
+          </div>
+          <div class="xs-text text-right underline"><a href="#">Request additional browser support</a></div>
+      </div>
+    <div class="col-md-12 text-center mar-right-20 mar-top-20">
+      <button class="btn btn-custom-light" type="button" ng-click="">CANCEL</button>
+      <button class="btn btn-custom-dark" type="button" ng-click="proceed()">RUN TEST</button>
+    </div>
+  </div>
+</script>
