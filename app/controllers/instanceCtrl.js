@@ -12,8 +12,8 @@ angular.module('QCrowd').controller('addInstanceCtrl', function ($scope, $uibMod
     $uibModalInstance.dismiss('cancel');
   };
 });
-angular.module('QCrowd').controller('rqstInstanceCtrl', function ($scope, $uibModalInstance) {
-
+angular.module('QCrowd').controller('rqstInstanceCtrl', function ($scope, $uibModalInstance,helpers) {
+  $scope.helpers=helpers;
   $scope.proceed = function () {
     $uibModalInstance.close();
   };
@@ -21,4 +21,5 @@ angular.module('QCrowd').controller('rqstInstanceCtrl', function ($scope, $uibMo
     $uibModalInstance.dismiss('cancel');
   };
   $scope.browsers = ["chrome","firefox","internet-explorer","safari","opera"];
+  $scope.brarray = [];
 });
