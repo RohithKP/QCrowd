@@ -1,6 +1,9 @@
 <div class="outer ">
   <div class="top">
     <div class="container">
+      <div class="row text-right" >
+        <button type="button" class="btn btn-custom-dark" name="button">REQUEST EXECUTION</button>
+      </div>
       <div class="row">
 
         <!-- COLUMN ONE NAMED VIEW -->
@@ -16,3 +19,38 @@
     </div>
   </div>
 </div>
+<script type="text/ng-template" id="myModalContent.html">
+  <div class="modal-header">
+    <h3 class="modal-title">ADD PROJECT</h3>
+  </div>
+  <div class="modal-body">
+    <div class="modal-content-wrapper">
+      <div class="col-md-6">
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control" placeholder="Project Name"/>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control"  placeholder="Project Category"/>
+          <span class=" form-control-feedback" ><img src="assets/images/down-arrow.png" alt="" /></span>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <textarea class="form-control txtarea" placeholder="Project Details"></textarea>
+      </div>
+      <div class="col-md-12 text-center modal-sub-txt"><span>PROJECT ENVIRONMENT DETAILS</span></div>
+      <div id="root">
+      <div id='modal-input-group' class="col-md-12 modal-env-wrapper">
+        <div class="col-md-6 form-group has-feedback">
+          <input type="text" class="form-control" placeholder="QA URL" value = "QA URL"/>
+        </div>
+        <div class="col-md-6 form-group has-feedback">
+          <input type="text" class="form-control" placeholder="http://"/>
+          <i ng-click="deleteNod($event)" class="fa fa-times-circle pull-right close-icon"></i>
+        </div>
+      </div>
+    </div>
+      <span class="pull-right add-url-txt" clone ><i class="fa fa-plus-circle"></i>ADD URL</span>
+    </div>
+    <div class="modal-btn-wrapper"><button class="btn btn-custom-dark" type="button" ng-click="proceed()">PROCEED</button></div>
+  </div>
+</script>
