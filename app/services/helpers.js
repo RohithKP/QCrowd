@@ -56,8 +56,8 @@ angular.module("QCrowd").factory('helpers', function($uibModal) {
         controller: instanceCtrl,
         size: size,
         resolve: {
-          items: function () {
-            return [];
+          message: function () {
+            // return $scope.message;
           }
         }
       });

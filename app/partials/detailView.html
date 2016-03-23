@@ -5,11 +5,11 @@
         <span class="pull-right edit-icon" ng-show='!edit'  ng-click="toggle()"><i class="fa fa-pencil"></i></span>
       </span>
       <input class="text-danger mute-input  null-pad " id="inp1" disabled="true" ng-model="currentNode.title" ng-class="{'form-control un-mute':edit}" style="width:240px;"></input>
-      <span class="heading ">{{currentNode.heading}} Description</span>
-      <textarea disabled="true" class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
+      <span class="heading ">{{currentNode.heading}} Description {{edit}}</span>
+      <textarea disabled class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
 <div class="" ng-show="share.more&&isLeaf(nodeRef)">
       <span class="heading ">Precondition</span>
-      <textarea disabled="true" class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
+      <textarea disabled class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
 
       <span class="heading ">priority</span>
       <textarea disabled="true" class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>

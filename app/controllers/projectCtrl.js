@@ -7,7 +7,8 @@ angular.module('QCrowd').controller('projectCtrl',function ($scope,$state,helper
       return false;
     }
   }
-  $scope.modalOpen = helpers.modalOpen;
+  // $scope.modalOpen = helpers.modalOpen;
+  $scope.helpers = helpers;
 
   $scope.toggle = function(){
     $scope.edit = !$scope.edit;
@@ -15,6 +16,7 @@ angular.module('QCrowd').controller('projectCtrl',function ($scope,$state,helper
     angular.forEach(inputs,function (input) {
       input.disabled = !$scope.edit;
     })
+    console.log($scope.edit);
   }
   $scope.update = function (currentNode) {
     $scope.toggle();
@@ -50,9 +52,17 @@ angular.module('QCrowd').controller('projectCtrl',function ($scope,$state,helper
 
   $scope.share = {}
   $scope.share.more = false;
+
+ $scope.disableInputs = function () {
+   inputs = document.querySelectorAll('.mute-input');
+   angular.forEach(inputs,function (input) {
+     input.disabled = true;
+   })
+}
   $scope.showSelected = function(node,$parentNode,$index) {
     $scope.share.more = false;
     $scope.edit = false;
+     $scope.disableInputs();
     $scope.parentNode = $parentNode||null;
     $scope.leaf= $scope.isLeaf(node);
     $scope.nodeRef = node;

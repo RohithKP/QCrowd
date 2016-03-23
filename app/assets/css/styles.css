@@ -6,6 +6,9 @@ body{
   font-weight: 300;
   color: #2c3742;
 }
+.navbar-inverse{
+  background-color: #303840;
+}
 a {
   color: #2c3742;
   text-decoration: none;
@@ -108,12 +111,16 @@ border-radius: 0 5px 5px 0;
   color: #fff;
 }
 .btn-custom-dark:hover{
-  color: #999;
+  color: #fff;
 }
 
-.btn-custom-dark:active,.btn-custom-light:active,
-.btn-custom-dark:focus,.btn-custom-light:focus{
+.btn-custom-dark:active,
+.btn-custom-dark:focus,{
 color: #fff;
+border: none;
+}
+.btn-custom-light:active,.btn-custom-light:focus{
+color: #2c3742;
 border: none;
 }
 
@@ -384,8 +391,11 @@ div.modal-env-wrapper.bar:hover i {display: inline;}
 
 @media (min-width: 768px){
 .modal-dialog {
-    width: 680px;
+    min-width: 680px;
     margin: 30px auto;
+}
+.modal-xl{
+  width: 80%;
 }
 }
 .modal-body{
@@ -566,6 +576,10 @@ border-radius: 0 4px 0 0 ;
   }
 #statistics .nav-pills>li{
   width: auto;
+}
+.table-hover tbody tr:hover td
+{
+    background-color: #EAEAEA;
 }
 .cust-pie-legend{
   list-style: none;
