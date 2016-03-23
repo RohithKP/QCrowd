@@ -6,10 +6,61 @@
           <table class="table">
             <tr>
               <th class="col-md-1">#</th>
-              <th class="col-md-2">Task Name &nbsp;<i class="fa fa-filter" popover popover-placement="bottom" uib-popover-template="'taskname.html'"  ></i></th>
-              <th class="col-md-2">Status &nbsp;<i class="fa fa-filter" popover popover-placement="bottom" uib-popover-template="'status.html'"></i></th>
+              <th class="col-md-2">Task Name &nbsp;
+                <span class="popup" uib-dropdown ng-click="$event.stopPropagation();">
+                  <i class="fa fa-filter" id="simple-dropdown" uib-dropdown-toggle></i>
+                  <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+                    <div class="triangle"></div>
+                    <li class="no-hover"><input placeholder="Task Name" type="text" ng-model="query.projectQuery"  uib-typeahead="project.name for project in projects | filter:$viewValue | limitTo:8" /></li>
+                  </ul>
+                </span>
+              </th>
+              <th class="col-md-2">Status &nbsp;
+                <span class="popup" uib-dropdown ng-click="$event.stopPropagation();">
+                  <i class="fa fa-filter" id="simple-dropdown" uib-dropdown-toggle></i>
+                  <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+                    <div class="triangle"></div>
+                    <li ng-click="filterStatus($event,'')" ng-class="{selected:query.statusQuery ==''}">Both </li>
+                    <li class="divider"></li>
+                    <li ng-click="filterStatus($event,'failed')" ng-class="{selected:query.statusQuery =='failed'}">Failed</li>
+                    <li class="divider"></li>
+                    <li ng-click="filterStatus($event,'passed')" ng-class="{selected:query.statusQuery =='passed'}">Passed</li>
+                  </ul>
+                  </ul>
+                </span>
+              </th>
               <th class="col-md-2">Browsers &nbsp;<i class="fa fa-filter" popover popover-placement="bottom" uib-popover-template="'browsers.html'"></i></th>
-              <th class="col-md-2">User &nbsp;<i class="fa fa-filter" popover popover-placement="bottom" uib-popover-template="'users.html'"></i></th>
+              <!-- <th class="col-md-2">Browsers &nbsp;
+                <span class="popup" uib-dropdown ng-click="$event.stopPropagation();">
+                  <i class="fa fa-filter" id="simple-dropdown" uib-dropdown-toggle></i>
+                  <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+                    <div class="triangle"></div>
+                    <li  class="dropdown">
+                      <span class="btn-group" uib-dropdown keyboard-nav>
+                        <button id="simple-btn-keyboard-nav" type="button" class="btn " uib-dropdown-toggle>
+                          platform <span class="caret"></span>
+                        </button>
+                        <ul uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+                          <li role="menuitem" ng-repeat="platform in platforms" >{{platform}}</li>
+                        </ul>
+                      </span>
+                    </li>
+                    <li class="divider"></li>
+                    <li><span class=""><i ng-repeat="browser in query.browsers" class="fa fa-{{browser}} filter-browser-icon"  ng-class="{'browser-selected':brarray.indexOf(browser) >-1}" ng-click="helpers.toggleSelect(brarray,browser)"></i></span>
+                    </li>
+                  </ul>
+                </span>
+              </th> -->
+
+              <th class="col-md-2">User &nbsp;
+                <span class="popup" uib-dropdown ng-click="$event.stopPropagation();">
+                  <i class="fa fa-filter" id="simple-dropdown" uib-dropdown-toggle></i>
+                  <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+                    <div class="triangle"></div>
+                    <li class="no-hover"><input placeholder="user" type="text" ng-model="query.userQuery"  uib-typeahead="project.user.name for project in projects | filter:$viewValue | limitTo:8" /></li>
+                  </ul>
+                </span>
+              </th>
             </tr>
             <tr ng-repeat="project in projects  | projFilter:query.projectQuery |userFilter:query.userQuery |statusFilter:query.statusQuery |browserFilter:brarray ">
               <td>{{project.id}}</td><td>{{project.name}}</td>
@@ -35,24 +86,6 @@
         </uib-tab>
       </div>
     </div>
-    <script id="taskname.html" type="text/ng-template">
-      <div class="popup">
-        <ul ng-click="$event.stopPropagation();">
-          <li class="no-hover"><input placeholder="Task Name" type="text" ng-model="query.projectQuery"  uib-typeahead="project.name for project in projects | filter:$viewValue | limitTo:8" /></li>
-        </ul>
-      </div>
-    </script>
-    <script id="status.html" type="text/ng-template">
-      <div class="popup">
-        <ul >
-          <li ng-click="filterStatus($event,'')" ng-class="{selected:query.statusQuery ==''}">Both </li>
-          <li class="divider"></li>
-          <li ng-click="filterStatus($event,'failed')" ng-class="{selected:query.statusQuery =='failed'}">Failed</li>
-          <li class="divider"></li>
-          <li ng-click="filterStatus($event,'passed')" ng-class="{selected:query.statusQuery =='passed'}">Passed</li>
-        </ul>
-      </div>
-    </script>
     <script id="browsers.html" type="text/ng-template">
       <div class="popup" ng-click="$event.stopPropagation();">
         <ul style="text-align:center;">
@@ -68,13 +101,6 @@
           </li>
           <li class="divider"></li>
           <li><span class=""><i ng-repeat="browser in query.browsers" class="fa fa-{{browser}} filter-browser-icon"  ng-class="{'browser-selected':brarray.indexOf(browser) >-1}" ng-click="helpers.toggleSelect(brarray,browser)"></i></span></li>
-        </ul>
-      </div>
-    </script>
-    <script id="users.html" type="text/ng-template">
-      <div class="popup" ng-click="$event.stopPropagation();">
-        <ul>
-          <li class="no-hover"><input placeholder="user" type="text" ng-model="query.userQuery"  uib-typeahead="project.user.name for project in projects | filter:$viewValue | limitTo:8" /></li>
         </ul>
       </div>
     </script>
