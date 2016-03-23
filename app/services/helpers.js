@@ -1,4 +1,4 @@
-angular.module("QCrowd").factory('helpers', function() {
+angular.module("QCrowd").factory('helpers', function($uibModal) {
   return {
     toggleSelect: function (array,arg) {
       var index = array.indexOf(arg);
@@ -47,6 +47,26 @@ angular.module("QCrowd").factory('helpers', function() {
     },
     total:function (array) {
       return array.reduce(function(a, b) {return a + b;});
+    },
+    modalOpen:function (template,size) {
+
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: template,
+        controller: 'ModalInstanceCtrl',
+        size: size,
+        resolve: {
+          items: function () {
+            return [];
+          }
+        }
+      });
+
+      modalInstance.result.then(function (x) {
+      }, function () {
+      console.log('Modal dismissed at: ' + new Date());
+      });
     }
+
   }
 });
