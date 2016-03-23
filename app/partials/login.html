@@ -2,29 +2,33 @@
   <div class="view-wrapper middle">
     <div class="inner">
       <div id="innerOne" class="col-lg-5">
-             <img src="assets/images/popup_pattern.png">
-             <span class="intro-text">Welcome to QCrowd</span>
+        <img src="assets/images/popup_pattern.png">
+        <span class="intro-text">Welcome to QCrowd</span>
       </div>
       <div id="innerTwo" class="col-lg-7">
         <div class="login-header text-center">
           <span class="">LOGIN</span>
         </div>
-        <div class="form-group has-feedback">
-          <input type="text" class="form-control" id="" placeholder="Username/Email ID"/>
-          <span class=" form-control-feedback" ><img src="assets/images/username.png" alt="" /></span>
-        </div>
-        <div class="form-group has-feedback" style="margin-bottom:4px;">
-          <input type="password" class="form-control" id="" placeholder="Password"/>
-          <span class="form-control-feedback" ><img src="assets/images/password.png" alt="" /></span>
-        </div>
-        <div class="clearfix small-text">
-          <span class="col-lg-6 null-pad"><input type="checkbox" name="name" value="">Remember me</span>
-          <span class="col-lg-6 null-pad text-right"><a>Forgot password?</a></span>
-        </div>
-        <div class="text-center btn-wrapper">
-          <button type="button" name="button" class="btn btn-custom-dark">LOGIN</button>
-          <span class="reg-link">New Here?<a ui-sref="register" ui-sref-active="register">Register</a></span>
-        </div>
+        <form name="loginForm" novalidate>
+          <div class="form-group has-feedback" show-errors='{showSuccess: true}'>
+            <input type="text" class="form-control" id="" name="username" ng-model="user.name" placeholder="Username/Email ID" required />
+            <span class=" form-control-feedback" ><img src="assets/images/username.png" alt="" /></span>
+              <p class="help-block" ng-if="loginForm.username.$error.required">Username/Email ID is required</p>
+          </div>
+          <div class="form-group has-feedback" style="margin-bottom:4px;" show-errors='{showSuccess: true}'>
+            <input type="password" class="form-control" id="" ng-model="user.password" name="password" placeholder="Password" required/>
+            <span class="form-control-feedback" ><img src="assets/images/password.png" alt="" /></span>
+            <p class="help-block" ng-if="loginForm.password.$error.required">The user's password is required</p>
+          </div>
+          <div class="clearfix small-text">
+            <span class="col-lg-6 null-pad"><input type="checkbox" name="name" value="">Remember me</span>
+            <span class="col-lg-6 null-pad text-right"><a>Forgot password?</a></span>
+          </div>
+          <div class="text-center btn-wrapper">
+            <button type="submit" name="button" class="btn btn-custom-dark" ng-click="clear()">LOGIN</button>
+            <span class="reg-link">New Here?<a ui-sref="register" ui-sref-active="register">Register</a></span>
+          </div>
+        </form>
       </div>
     </div>
   </div>

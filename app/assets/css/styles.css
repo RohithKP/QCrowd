@@ -107,14 +107,19 @@ border-radius: 0 5px 5px 0;
   color: #fff;
   border: 1px solid transparent;
 }
+.btn-custom-dark:active{
+  color: #fff;
+}
 .btn-custom-dark:hover{
   color: #999;
 }
+
 .btn-custom-dark:active,.btn-custom-light:active,
 .btn-custom-dark:focus,.btn-custom-light:focus{
 color: #fff;
 border: none;
 }
+
 .btn-wrapper{
   padding-top: 30px;
 }
@@ -536,6 +541,16 @@ border-radius: 0 4px 0 0 ;
 /* when showing the picture */
 .ng-hide-remove      {animation:0.5s lightSpeedOut ease;}
 
+.form-group .help-block {
+  display: none;
+}
+
+.form-group.has-error .help-block {
+  display: block;
+}
+.form-control{
+  cursor: pointer;
+}
 @keyframes lightSpeedOut {
   0% {
     opacity: 0;
