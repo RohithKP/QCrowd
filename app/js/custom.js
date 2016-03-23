@@ -1,5 +1,5 @@
 angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable','ngAnimate','chart.js']).config(function ($stateProvider,$urlRouterProvider) {
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/login');
 
   $stateProvider
   .state('home',{
