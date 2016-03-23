@@ -59,7 +59,6 @@ angular.module("QCrowd").filter('browserFilter', function() {
              }
         }
       });
-      console.log( filtered);
       return filtered;
     }else{
       return items;

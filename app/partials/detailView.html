@@ -20,7 +20,7 @@
 </div>
       <div  class="mar-top-20 mar-right-20" ng-show='edit'>
         <button  class="btn btn-custom-light" type="button" name="button" ng-click="updateCancel()">CANCEL</button>
-        <button  class="btn btn-custom-light" type="button" name="button" ng-click="update(currentNode)">SAVE</button>
+        <button  class="btn btn-custom-dark" type="button" name="button" ng-click="update(currentNode)">SAVE</button>
       </div>
     </div>
     <hr>
@@ -37,7 +37,7 @@
               </div>
               <div class="mar-right-20">
                 <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="reset('module')">CANCEL</button>
-                <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="addModule(nodeRef,module)">SAVE</button>
+                <button class="btn btn-custom-dark" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="addModule(nodeRef,module)">SAVE</button>
               </div>
             </div>
           </uib-tab>
@@ -63,7 +63,7 @@
               </div>
               <div class="mar-right-20">
                 <button class="btn btn-custom-light" ng-show='!isLeaf(nodeRef)' type="button" name="button" ng-click="reset('testCase')">CANCEL</button>
-                <button class="btn btn-custom-light" ng-show='!isLeaf(nodeRef)' type="button" name="button" ng-click="addLeaf(nodeRef,testCase)">SAVE</button>
+                <button class="btn btn-custom-dark" ng-show='!isLeaf(nodeRef)' type="button" name="button" ng-click="addLeaf(nodeRef,testCase)">SAVE</button>
               </div>
             </div>
           </uib-tab>
@@ -100,7 +100,7 @@
           <h3 ng-show="!isSteps()" class="text-muted intro-text">There are no steps to show</h3>
           <div class="mar-right-20">
             <button class="btn btn-custom-light"  type="button" name="button" ng-click="">EMBED</button>
-            <button class="btn btn-custom-light"  type="button" name="button" ng-click="add = true">ADD</button>
+            <button class="btn btn-custom-dark"  type="button" name="button" ng-click="add = true">ADD</button>
           </div>
         </div>
       </div>
@@ -115,13 +115,13 @@
         </div>
         <div  class="mar-top-20 mar-right-20" >
           <button  class="btn btn-custom-light" type="button" name="button" ng-click="add=false;">CANCEL</button>
-          <button  class="btn btn-custom-light" type="button" name="button" ng-click="add=false;addStep(newStep)">SAVE</button>
+          <button  class="btn btn-custom-dark" type="button" name="button" ng-click="add=false;addStep(newStep)">SAVE</button>
         </div>
       </div>
       </div>
     </div>
   </uib-tab>
-  <uib-tab index="1"  heading="History" active="tab.active" disable="tab.disabled">
-
-  </uib-tab>
+  <uib-tab  index="1"  heading={{getTabName()}} active="tab.active" disable="tab.disabled">
+  <div class="" ui-view="tabView"></div>
+</uib-tab>
 </uib-tabset>
