@@ -1,4 +1,4 @@
-angular.module('QCrowd').controller('testCaseHistoryCntrl',['$scope','$state',function ($scope,$state) {
+angular.module('QCrowd').controller('testCaseHistoryCntrl',['$scope','$state','helpers',function ($scope,$state,helpers) {
 $scope.history = [
   {
   "date" : "29-FEBRUARY-2016",
@@ -46,8 +46,9 @@ $scope.history = [
 "browsers":[{"name":"opera","status":1},{"name":"opera","status":1},{"name":"firefox","status":-1},{"name":"safari","status":1}]
   }
 ]
-
+$scope.message = "hey there";
+$scope.modalOpen = helpers.modalOpen;
 $scope.showStat=function (item) {
-  //  $state.go('projects.module.statistics',{"key":item.date+item.time});
+  $scope.modalOpen('tcHistoryItem.html','tcHistoryItemPopUpCntrl','xl');
 }
 }]);
