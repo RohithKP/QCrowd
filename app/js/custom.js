@@ -75,7 +75,7 @@ angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable',
   .state('dashboard', {
     url: '/dashboard',
     templateUrl: 'partials/dashboard.html',
-    controller:"TabsDemoCtrl"
+    controller:"dashBoardCtrl"
   })
 
 
