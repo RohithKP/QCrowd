@@ -1,3 +1,4 @@
+
 angular.module('QCrowd').directive('popoverClose', function($timeout){
   return{
     scope: {
@@ -24,12 +25,11 @@ angular.module('QCrowd').directive('popoverClose', function($timeout){
     }
   };
 });
-
 angular.module('QCrowd').directive('popoverElem', function(){
   return{
     link: function(scope, element, attrs) {
       element.on('click', function(){
-        element.addClass('trigger');
+        (element.hasClass('trigger'))? element.removeClass('trigger'):element.addClass('trigger');
       });
     }
   };
