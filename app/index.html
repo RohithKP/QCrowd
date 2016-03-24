@@ -21,28 +21,32 @@
     <script src="http://rubaxa.github.io/Sortable/Sortable.js"></script>
     <script src="http://rubaxa.github.io/Sortable/ng-sortable.js"></script>
   </head>
-  <body>
+  <body popover-close exclude-class="exclude">
     <!-- NAVIGATION -->
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <a class="nav-brand" ui-sref="#"><img src="assets/images/QB_logo.png" alt="" /></a>
         </div>
-        <div class="navbar-collapse collapse" id="footer-body">
-            <ul class="nav navbar-nav pull-right">
-              <!-- <li><a ui-sref="home" ui-sref-active="active">Home</a></li>
-              <li><a ui-sref="views" ui-sref-active="active">views</a></li> -->
-              <li><a ui-sref="login" ui-sref-active="login">login</a></li>
-              <li><a ui-sref="dashboard" ui-sref-active="dashboard">DashBoard</a></li>
-              <!-- <li><a ui-sref="register" ui-sref-active="register">register</a></li> -->
-              <li><a ui-sref="projects" ui-sref-active="projects">Projects</a></li>
-            </ul>
+        <div id="userDown" class="navbar-collapse collapse" id="footer-body">
+          <ul class="nav navbar-nav">
+            <li><a ui-sref="login" ui-sref-active="login">login</a></li>
+            <li><a ui-sref="dashboard" ui-sref-active="dashboard">DashBoard</a></li>
+            <li><a ui-sref="projects" ui-sref-active="projects">Projects</a></li>
+          </ul>
+          <div class="text-right">
+          <span class="inline">
+            <span class="block welcome">Welcome</span>
+            <span class="user-name block">Jacob Mathen</span>
+          </span>
+            <img  class="pull-right user-img img-circle exclude" src="assets/images/users/two.jpg" popover popover-placement="bottom-right" uib-popover-template="'userData.html'"  popover-elem/>
+           </div>
         </div>
       </div>
     </div>
     <div class="">
       <div ui-view >
-        <i class="fa fa-spinner fa-spin fa-5x"></i>
+        <i class="fa fa-spinner fa-spin fa-5x" style="position:absolute;left:50%;top:50%;"></i>
       </div>
       <!-- <pre>
         $state = {{$state.current.name}}
@@ -60,9 +64,18 @@
           </div>
       </div>
     </footer>
+    <script id="userData.html" type="text/ng-template">
+      <div  class="popup popupHover">
+        <ul ng-click="$event.stopPropagation();" class="fa-i-margin-right">
+         <li><i class="fa fa-user fa-lg"></i><span>My Profile</span></li>
+         <li><i class="fa fa-list-alt fa-lg"></i></i><span >List of members</span></li>
+         <li><i class="fa fa-cogs fa-lg"></i><span >Settings</span></li>
+         <li><i class="fa fa-sign-out fa-lg"></i><span>Log Out</span></li>
+        </ul>
+      </div>
 
+    </script>
     <script type="text/javascript" src="js/custom.js">  </script>
-    <script type="text/javascript" src="js/popuptoggle.js">  </script>
     <script type="text/javascript" src="controllers/projectCtrl.js">  </script>
     <script type="text/javascript" src="controllers/treeCtrl.js">  </script>
     <script type="text/javascript" src="controllers/detailViewCtrl.js">  </script>
@@ -71,6 +84,7 @@
     <script type="text/javascript" src="controllers/validationCtrl.js"></script>
     <script type="text/javascript" src="directives/contentEditable.js">  </script>
     <script type="text/javascript" src="directives/validation.js"></script>
+    <script type="text/javascript" src="directives/popover.js"></script>
     <script type="text/javascript" src="controllers/mainController.js">  </script>
     <script type="text/javascript" src="controllers/moduleHistoryCntrl.js">  </script>
     <script type="text/javascript" src="controllers/testCaseHistoryCntrl.js">  </script>
