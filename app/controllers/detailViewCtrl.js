@@ -55,7 +55,7 @@ $scope.steps["testCaseId"].push($scope.newStep);
 $scope.reset('newStep');
 }
 $scope.getTabName = function () {
-  if($state.current.name == 'projects.statistics')
+  if($state.current.name == 'projects.module.statistics')
   return 'Statistics'
   else return 'History'
 }

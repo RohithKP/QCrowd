@@ -1,7 +1,7 @@
 angular.module('QCrowd').controller('testCaseHistoryCntrl',['$scope','$state','helpers',function ($scope,$state,helpers) {
 $scope.history = [
   {
-  "date" : "29-FEBRUARY-2016",
+  "date" : "tc29-FEBRUARY-2016",
   "time" : "1:45 PM",
   "browsers":[{"name":"opera","status":1},{"name":"opera","status":1},{"name":"firefox","status":-1},{"name":"safari","status":1}]
   },
@@ -11,7 +11,7 @@ $scope.history = [
 "browsers":[{"name":"opera","status":1},{"name":"opera","status":1},{"name":"firefox","status":-1},{"name":"safari","status":1}]
   },
   {
-  "date" : "27-FEBRUARY-2016",
+  "date" : "tc27-FEBRUARY-2016",
   "time" : "2:30 PM",
 "browsers":[{"name":"opera","status":1},{"name":"opera","status":0},{"name":"firefox","status":-1},{"name":"safari","status":1}]
   },
