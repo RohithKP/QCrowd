@@ -290,6 +290,7 @@ border-radius: 0 0 4px 4px  ;
   background-color: #2C3742;
   color: #fff;
 }
+
 .popover-content{
   padding: 0;
 }
@@ -639,4 +640,39 @@ border-radius: 0 4px 0 0 ;
 .modal-img-wrapper{
   width: 70%;
     margin: 0 auto;
+  }
+.user-img {
+  width: 43px;
+  height: 43px;
+  margin-left: 10px;
+}
+.inline{
+  display:inline-block
+}
+.text-right{
+  padding-top: 4px;
+}
+.welcome{
+  color: #fff;
+  font-size: 14px;
+}
+.user-name{
+  font-size: 16px;
+  color: #fff;
+}
+#userDown .popover.bottom{
+  border: none;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.4);
+}
+#userDown .popover.bottom>.arrow {
+  position: absolute;
+  left: 86%;
+  box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0.4);
+}
+.fa-i-margin-right i{
+margin-right: 10px;
+}
+.popup.popupHover li:hover {
+  background-color: #2C3742;
+  color: #fff;
 }
