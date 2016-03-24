@@ -48,13 +48,13 @@ treecontrol li .tree-unselectable {
 treecontrol.tree-classic li.tree-expanded i.tree-branch-head {
     padding: 1px 10px;
     background: url("../images/folder.png") no-repeat;
-    background-position: center;
+    background-position: left;
 }
 
 treecontrol.tree-classic li.tree-collapsed i.tree-branch-head {
     padding: 1px 10px;
     background: url("../images/folder-closed.png") no-repeat;
-    background-position: center; 
+    background-position: left; 
 }
 
 treecontrol.tree-classic li.tree-leaf i.tree-leaf-head {
