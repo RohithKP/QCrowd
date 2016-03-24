@@ -46,9 +46,19 @@ $scope.history = [
 "browsers":[{"name":"opera","status":1},{"name":"opera","status":1},{"name":"firefox","status":-1},{"name":"safari","status":1}]
   }
 ]
-$scope.message = "hey there";
+$scope.resolver = {
+     message: function () {
+              return {
+                 tcResults:[{"name":"Rohith","imgUrl":"assets/images/users/two.jpg","QA":[{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"}]},
+                  {"name":"Emma","imgUrl":"assets/images/users/one.jpg","QA":[{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"2","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"}]},
+                  {"name":"Rocky","imgUrl":"assets/images/users/two.jpg","QA":[{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Failed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"3","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"}]},
+                ]
+
+              }
+            }
+}
 $scope.modalOpen = helpers.modalOpen;
 $scope.showStat=function (item) {
-  $scope.modalOpen('tcHistoryItem.html','tcHistoryItemPopUpCntrl','xl');
+  $scope.modalOpen('tcHistoryItem.html','tcHistoryItemPopUpCntrl','xl',$scope.resolver);
 }
 }]);

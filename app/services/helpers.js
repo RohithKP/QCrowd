@@ -48,18 +48,14 @@ angular.module("QCrowd").factory('helpers', function($uibModal) {
     total:function (array) {
       return array.reduce(function(a, b) {return a + b;});
     },
-    modalOpen:function (template,instanceCtrl,size) {
+    modalOpen:function (template,instanceCtrl,size,resolver) {
 
       var modalInstance = $uibModal.open({
         animation: true,
         templateUrl: template,
         controller: instanceCtrl,
         size: size,
-        resolve: {
-          message: function () {
-            // return $scope.message;
-          }
-        }
+        resolve:resolver
       });
 
       modalInstance.result.then(function (x) {
