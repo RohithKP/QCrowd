@@ -280,6 +280,12 @@ background-color: #EAEAEA;
 .popup ul> li.selected:hover{
 background-color: #2C3742;
 }
+.popup ul> li.selected:first-child{
+border-radius: 4px 4px 0 0 ;
+}
+.popup ul> li.selected:last-child{
+border-radius: 0 0 4px 4px  ;
+}
 .selected{
   background-color: #2C3742;
   color: #fff;
@@ -627,6 +633,14 @@ border-radius: 0 4px 0 0 ;
 .underline{
   text-decoration: underline;
 }
+.screenShotUrl{
+  height: 120px;
+  width: 100%;
+}
+.modal-img-wrapper{
+  width: 70%;
+    margin: 0 auto;
+  }
 .user-img {
   width: 43px;
   height: 43px;

@@ -13,7 +13,7 @@ angular.module('QCrowd').controller('addInstanceCtrl', function ($scope, $uibMod
   };
 });
 
-angular.module('QCrowd').controller('rqstInstanceCtrl', function ($scope, $uibModalInstance,helpers) {
+angular.module('QCrowd').controller('rqstInstanceCtrl', function ($scope, $uibModalInstance,helpers,message) {
   $scope.helpers=helpers;
   $scope.proceed = function () {
     $uibModalInstance.close();
@@ -21,10 +21,10 @@ angular.module('QCrowd').controller('rqstInstanceCtrl', function ($scope, $uibMo
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
-  $scope.browsers = ["chrome","firefox","internet-explorer","safari","opera"];
-  $scope.brarray = [];
+  $scope.browsers = message.browsers;
+  $scope.brarray = message.brarray;
 });
 
 angular.module('QCrowd').controller('tcHistoryItemPopUpCntrl', function ($scope, $uibModalInstance,message) {
-$scope.msg = message;
+$scope.tcResults = message.tcResults;
 });
