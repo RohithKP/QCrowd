@@ -31,7 +31,7 @@
         <div class="navbar-header">
           <a class="nav-brand" ui-sref="#"><img src="assets/images/QB_logo.png" alt="" /></a>
         </div>
-        <div id="userDown" class="navbar-collapse collapse" id="footer-body">
+        <div id="userDown" class="navbar-collapse collapse" >
           <ul class="nav navbar-nav">
             <li><a ui-sref="login" ui-sref-active="login">login</a></li>
             <li><a ui-sref="dashboard" ui-sref-active="dashboard">DashBoard</a></li>
@@ -51,11 +51,11 @@
       <div ui-view >
         <i class="fa fa-spinner fa-spin fa-5x" style="position:absolute;left:50%;top:50%;"></i>
       </div>
-      <!-- <pre>
+      <pre>
         $state = {{$state.current.name}}
         $stateParams = {{$stateParams}}
         $state full url = {{ $state.$current.url.source }}
-      </pre> -->
+      </pre>
     </div>
     <footer>
       <div class="navbar navbar-inverse navbar-fixed-bottom">
