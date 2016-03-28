@@ -49,16 +49,16 @@ $scope.history = [
 $scope.resolver = {
      message: function () {
               return {
-                 tcResults:[{"name":"Rohith","imgUrl":"assets/images/users/two.jpg","QA":[{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"}]},
-                  {"name":"Emma","imgUrl":"assets/images/users/one.jpg","QA":[{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"2","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"}]},
-                  {"name":"Rocky","imgUrl":"assets/images/users/two.jpg","QA":[{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Failed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"3","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"}]},
+                 tcResults:[{"name":"Rohith","imgUrl":"assets/images/users/two.jpg","ques":"1. Click on the white '+' on the orange background in the left side bar(not in the logo in the header)","expected":"Do you see a list of share service with a find dialog?","QA":[{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Failed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then  hen asdlkalw sjdnbsjd  then  hen asdlkalw sjdnbsjd sjdnkss"}]},
+                  {"name":"Emma","imgUrl":"assets/images/users/one.jpg","ques":"2. Click on the white '+' on the orange background in the left side bar(not in the logo in the header)","expected":"Do you see a list of share service with a find dialog?","QA":[{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"2","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":""},{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Failed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"}]},
+                  {"name":"Rocky","imgUrl":"assets/images/users/two.jpg","ques":"3. Click on the white '+' on the orange background in the left side bar(not in the logo in the header)","expected":"Do you see a list of share service with a find dialog?","QA":[{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Failed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"3","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"}]},
                 ]
-
               }
             }
 }
 $scope.modalOpen = helpers.modalOpen;
 $scope.showStat=function (item) {
   $scope.modalOpen('tcHistoryItem.html','tcHistoryItemPopUpCntrl','xl',$scope.resolver);
-}
+};
+
 }]);
