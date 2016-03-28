@@ -33,6 +33,9 @@
             </div>
           </div>
         </uib-tab>
+        <uib-tab index="3"  heading="REPORT" active="tab.active" disable="tab.disabled">
+
+        </uib-tab>
       </div>
     </div>
     <script id="taskname.html" type="text/ng-template">
@@ -59,10 +62,10 @@
           <li  class="dropdown">
             <span class="btn-group" uib-dropdown keyboard-nav>
               <button id="simple-btn-keyboard-nav" type="button" class="btn " uib-dropdown-toggle>
-                platform <span class="caret"></span>
+                {{platform}} <span class="caret"></span>
               </button>
               <ul uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
-                <li role="menuitem" ng-repeat="platform in platforms" >{{platform}}</li>
+                <li role="menuitem" ng-repeat="platform in platforms" ng-click="platForm(platform)">{{platform}}</li>
               </ul>
             </span>
           </li>
