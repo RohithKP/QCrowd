@@ -19,32 +19,50 @@
 </div>
 <script type="text/ng-template" id="tcHistoryItem.html">
   <div class="modal-header">
+  <i class="fa fa-times pull-right" ng-click="cancel()"></i>
     <h3 class="modal-title">Lorem Share Service In Chrome</h3>
+
   </div>
-  <div class="modal-body">
+  <div id="user-table" class="modal-body">
     <table class="table ">
       <tr>
-        <td>#</td>
-        <td ng-repeat="item in tcResults"><img src="{{item.imgUrl}}" alt="" class="avatar img-circle"/>{{item.name}}</td>
+        <th class="col-md-3">#</th>
+        <th class="col-md-3" ng-repeat="item in tcResults"><img src="{{item.imgUrl}}" alt="" class="avatar img-circle"/>{{item.name}}</th>
       </tr>
-          <tr >
-            <td>Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur
-<span class="text-muted">Lorem ipsum dolor sit amet, consectet urLorem ipsum dolor sit amet, consectetur</span>
-               </td>
-            <td ng-repeat="item in tcResults">
-              <div class="" ng-repeat="tc in item.QA">
-                <div class="modal-img-wrapper">
-                  <img src="{{tc.screenShotUrl}}" alt="" class="screenShotUrl"/>
+          <tr ng-repeat="item in tcResults">
+            <td>
+            <div class="content-wrapper">
+              <span class="block bold-color">{{item.ques}}</span>
+              <div class="mar-top-20">
+                <span class="bold-color">Expected Result:</span>
+                <span class=" muted">{{item.expected}}</span>
+              </div>  
+            </div>
+              <span class="block mar-top-20 bold-color comment-wrapper">QA comments</span>
+            </td>
+            <td ng-repeat="tc in item.QA">
+              <div class="" >
+                <div class="content-wrapper">
+                  <div class="modal-img-wrapper">
+                    <img src="{{tc.screenShotUrl}}" alt="" class="screenShotUrl" ng-click="showImg(this.item)"/>
+                  </div>
+                  <div class="mar-top-10">
+                    <span class="bold-color">Result:</span><span ng-class="{pass:tc.Result==='Passed',fail:tc.Result==='Failed'}">{{tc.Result}}</span>
+                  </div>
+                  <div class="">
+                    <span class="bold-color">Time/Date:</span><span class="muted">{{tc.DateTime }}</span>
+                  </div>
                 </div>
-                <div class="">
-                  Result:{{tc.Result}}
-                </div>
-                <div class="">
-                  Date/Time:{{tc.DateTime }}
+                <div class="comment-wrapper">
+                  {{tc["QA Comment"]}}
                 </div>
               </div>
             </td>
           </tr>
       </table>
  </div>
+</script>
+<script type="text/ng-template" id="tcHistoryImg.html">
+    <i class="fa fa-times pull-right" ng-click="cancel()"></i>
+    <img src="{{tcResults[0].QA[0].screenShotUrl}}" class="pop-img"/>
 </script>
