@@ -676,3 +676,26 @@ margin-right: 10px;
   background-color: #2C3742;
   color: #fff;
 }
+.pop-img{
+  width: 100%
+}
+
+#user-table .table>tbody>tr>td{
+  vertical-align: top;
+  padding: 0;
+
+}
+.content-wrapper{
+  height: 170px;
+}
+.comment-wrapper{
+  margin-top: 10px;
+  height: 50px;
+}
+.mar-top-10{
+  margin-top: 10px;
+}
+.bold-color{
+  color: #2C3742;
+  font-weight: 500;
+  }
