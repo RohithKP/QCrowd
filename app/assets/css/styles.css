@@ -50,7 +50,8 @@ a:focus {
 .inner {
     margin-left: auto;
     margin-right: auto;
-    width: 680px;
+    max-width: 680px;
+    padding:70px 0;
     min-height:350px;
 }
 #innerOne{
@@ -125,7 +126,7 @@ border: none;
 }
 
 .btn-wrapper{
-  padding-top: 30px;
+  padding: 30px 0;
 }
 .reg-link{
   display: block;
@@ -279,6 +280,12 @@ background-color: #EAEAEA;
 }
 .popup ul> li.selected:hover{
 background-color: #2C3742;
+}
+.popup ul> li.selected:first-child{
+border-radius: 4px 4px 0 0 ;
+}
+.popup ul> li.selected:last-child{
+border-radius: 0 0 4px 4px  ;
 }
 .selected{
   background-color: #2C3742;
@@ -627,6 +634,14 @@ border-radius: 0 4px 0 0 ;
 .underline{
   text-decoration: underline;
 }
+.screenShotUrl{
+  height: 120px;
+  width: 100%;
+}
+.modal-img-wrapper{
+  width: 70%;
+    margin: 0 auto;
+  }
 .user-img {
   width: 43px;
   height: 43px;

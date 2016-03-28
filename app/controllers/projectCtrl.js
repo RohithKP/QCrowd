@@ -70,4 +70,10 @@ angular.module('QCrowd').controller('projectCtrl',function ($scope,$state,helper
     $scope.currentNode.heading = $scope.getTitle();
     $scope.changeState();
   };
+  $scope.reqHndlresolver={
+    message: {
+               browsers : ["chrome","firefox","internet-explorer","safari","opera"],
+               brarray : []
+              }
+            }
 })
