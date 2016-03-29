@@ -22,6 +22,7 @@ angular.module('QCrowd').controller('rqstInstanceCtrl', function ($scope, $uibMo
     $uibModalInstance.dismiss('cancel');
   };
   $scope.browsers = message.browsers;
+  $scope.platformOptions = message.platformOptions;
   $scope.brarray = message.brarray;
 });
 

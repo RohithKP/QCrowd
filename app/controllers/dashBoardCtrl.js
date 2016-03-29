@@ -27,9 +27,5 @@ angular.module('QCrowd').controller('dashBoardCtrl', function ($scope,helpers,$w
 
    $scope.modalOpen = helpers.modalOpen;
   $scope.projectsSelected = [];
-  $scope.platform='platform';
-  $scope.platForm=function (platform) {
-    $scope.platform=platform;
-  }
 
 });

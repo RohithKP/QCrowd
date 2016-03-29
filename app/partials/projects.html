@@ -28,13 +28,7 @@
       <div class="col-md-6">
         <div class="form-group has-feedback">
           <label for="">Choose Platform</label>
-          <select class="form-control">
-            <option>Platforms</option>
-            <option>Windows</option>
-            <option>Mac</option>
-            <option>Ubuntu</option>
-            <option>Windows 10</option>
-          </select>
+           <select class="form-control" ng-model="platformOptions.selected" ng-options="o as o for o in platformOptions.options"></select>
         </div>
       </div>
       <div class="col-md-6">
