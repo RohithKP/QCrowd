@@ -7,7 +7,7 @@ angular.module('QCrowd').controller('projectCtrl',function ($scope,$state,helper
       return false;
     }
   }
-  // $scope.modalOpen = helpers.modalOpen;
+
   $scope.helpers = helpers;
 
   $scope.toggle = function(){
@@ -21,7 +21,6 @@ angular.module('QCrowd').controller('projectCtrl',function ($scope,$state,helper
   $scope.update = function (currentNode) {
     $scope.toggle();
     $scope.$broadcast('rename',currentNode);
-    // console.log($scope.dataForTheTree);
   }
   $scope.module = {}
   $scope.testCase = {}
@@ -70,10 +69,16 @@ angular.module('QCrowd').controller('projectCtrl',function ($scope,$state,helper
     $scope.currentNode.heading = $scope.getTitle();
     $scope.changeState();
   };
+  $scope.platforms = ['platforms','windows 10','windows 8','iOS 8','ubuntu'];
+  $scope.platformOptions =   {
+      options:    $scope.platforms,
+      selected:   'platforms'
+    };
   $scope.reqHndlresolver={
     message: {
                browsers : ["chrome","firefox","internet-explorer","safari","opera"],
-               brarray : []
+               brarray : [],
+              platformOptions:$scope.platformOptions
               }
             }
 })
