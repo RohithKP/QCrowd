@@ -647,7 +647,7 @@ border-radius: 0 4px 0 0 ;
   height: 43px;
   margin-left: 10px;
 }
-.inline{
+.inline-block{
   display:inline-block
 }
 .text-right{
@@ -699,4 +699,38 @@ margin-right: 10px;
 .bold-color{
   color: #2C3742;
   font-weight: 500;
-  }
+}
+#pagin-div{
+  text-align: center;
+}
+#pagin-div .pagination>.active>a{
+  color: #2C3742;
+  background-color: #DEDEDE;
+  border-color: #DEDEDE;
+}
+#pagin-div .pagination>li>a{
+  color: #697178;
+}
+#pagin-div .pagination-sm>li>a{
+      font-size: 14px;
+}
+.top-padding{
+  padding: 27px;
+}
+#select-num select > option:checked {
+  color: #fff;
+    background: #303840;
+}
+#input-page{
+  text-align: right;
+}
+#input-page input{
+  width: 40px;
+  border: 1px solid #D6CECE;
+  border-radius: 9px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

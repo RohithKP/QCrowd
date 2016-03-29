@@ -18,14 +18,31 @@ angular.module('QCrowd').controller('dashBoardCtrl', function ($scope,helpers,$w
     $scope.query.statusQuery =txt;
   }
   $scope.query.browsers = ['firefox','chrome','safari','opera'];
-  $scope.platforms = ['windows 10','windows 8','iOS 8','ubuntu'];
+
+  $scope.platforms = {
+   options: [
+     'platform',
+     'windows 10',
+     'windows 8',
+     'iOS 8',
+     'ubuntu'
+   ],
+   selected: 'platform'
+ };
   $scope.model = {
     name: 'Tabs'
   };
   $scope.brarray = [];
   $scope.helpers = helpers;
-
-   $scope.modalOpen = helpers.modalOpen;
   $scope.projectsSelected = [];
-
+  $scope.viewby = {
+    options: [
+      10,
+      25,
+      50,
+      100
+    ],
+    selected: 10
+  };
+   $scope.currentPage = 1;
 });

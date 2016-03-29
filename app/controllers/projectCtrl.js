@@ -7,7 +7,7 @@ angular.module('QCrowd').controller('projectCtrl',function ($scope,$state,helper
       return false;
     }
   }
-  // $scope.modalOpen = helpers.modalOpen;
+
   $scope.helpers = helpers;
 
   $scope.toggle = function(){
@@ -21,7 +21,6 @@ angular.module('QCrowd').controller('projectCtrl',function ($scope,$state,helper
   $scope.update = function (currentNode) {
     $scope.toggle();
     $scope.$broadcast('rename',currentNode);
-    // console.log($scope.dataForTheTree);
   }
   $scope.module = {}
   $scope.testCase = {}
