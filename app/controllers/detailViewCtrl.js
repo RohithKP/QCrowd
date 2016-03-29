@@ -23,22 +23,28 @@ $scope.addStep = function (step) {
 
 
 $scope.addModule = function(parentNode,module) {
-  $scope.expandedNodes.push(parentNode);
-  newModule = {"title":module.name, "id":Date.now(),"description":module.description, "links": [{}]};
-  parentNode.links.unshift(newModule);
-  $scope.$broadcast('select',newModule);
-  $scope.showSelected(newModule,parentNode);
-  $scope.module={};
+  $scope.$broadcast('show-errors-check-validity');
+  if ($scope.moduleForm.$valid) {
+
+    $scope.expandedNodes.push(parentNode);
+    newModule = {"title":module.name, "id":Date.now(),"description":module.description, "links": [{}]};
+    parentNode.links.unshift(newModule);
+    $scope.$parent.$broadcast('select',newModule);
+    $scope.showSelected(newModule,parentNode);
+    $scope.module={};
+}
 };
 
 $scope.addLeaf = function(parentNode,testCase) {
+    if ($scope.testCaseForm.$valid) {
   $scope.expandedNodes.push(parentNode);
   newNode = {"title": testCase.name, "id":Date.now(),"description":testCase.description, "links": []};
   parentNode.links.push(newNode);
-  $scope.$broadcast('select',newNode);
+  $scope.$parent.$broadcast('select',newNode);
   // $scope.selected = newNode;
   $scope.showSelected(newNode,parentNode);
   $scope.testCase= {};
+}
 };
 $scope.isSteps = function () {
   if($scope.steps['testCaseId']==undefined){

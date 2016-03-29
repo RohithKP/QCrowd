@@ -9,7 +9,7 @@ angular.module('QCrowd').controller('projectCtrl',function ($scope,$state,helper
   }
 
   $scope.helpers = helpers;
-
+   $scope.expandedNodes =null;
   $scope.toggle = function(){
     $scope.edit = !$scope.edit;
     inputs = document.querySelectorAll('.mute-input');
@@ -39,7 +39,7 @@ angular.module('QCrowd').controller('projectCtrl',function ($scope,$state,helper
   }
   $scope.changeState = function () {
     if($scope.parentNode == null){
-    $state.go('projects');
+      $state.go('projects');
     }
     else if ($scope.leaf) {
       $state.go('projects.testCase');
