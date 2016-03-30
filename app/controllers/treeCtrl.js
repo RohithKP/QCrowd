@@ -1,4 +1,4 @@
-angular.module('QCrowd').controller('treeCtrl',function ($scope) {
+angular.module('QCrowd').controller('treeCtrl',['$scope',function ($scope) {
   $scope.treeOptions = {
     nodeChildren: "links",
     dirSelectable: true,
@@ -33,4 +33,4 @@ angular.module('QCrowd').controller('treeCtrl',function ($scope) {
     $scope.showSelected($scope.dataForTheTree[0]);
   } )();
 
-});
+}]);

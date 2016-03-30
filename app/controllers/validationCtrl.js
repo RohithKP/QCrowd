@@ -1,5 +1,5 @@
 
-angular.module('QCrowd').controller('validationCtrl', function($scope,$state) {
+angular.module('QCrowd').controller('validationCtrl',['$scope','$state',function($scope,$state) {
   $scope.login = function() {
     $scope.$broadcast('show-errors-check-validity');
     if ($scope.loginForm.$valid) {
@@ -19,4 +19,4 @@ angular.module('QCrowd').controller('validationCtrl', function($scope,$state) {
     $scope.register ={ name: '', email: '', website : '', contact: '', number: '' };
     $scope.user = { name: '', password: ''};
   }
-});
+}]);

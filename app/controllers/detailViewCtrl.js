@@ -1,4 +1,4 @@
-angular.module('QCrowd').controller('detailViewCtrl',function ($scope,$state,helpers) {
+angular.module('QCrowd').controller('detailViewCtrl',['$scope','$state','helpers',function ($scope,$state,helpers) {
 
 $scope.newStep = {};
 $scope.steps = {"testCaseId":[{"id":"1","que":"Lorem Ipsum is simply dummy text of the printing and typesetting industry","check":"nsectetur, from a Lorem Ipsum "},{"id":"2","que":"Lornd typesetting industry","check":"nsectetur, from a Lorem Ipsum "},{"id":"3","que":"Lorem Ipsum is simply dummy text of the printing and typesetting industry","check":"nsectetur, from a Lorem Ipsum "},{"id":"4","que":"nsectetur, from a Lorem Ipsum nsectetur, from a Lorem Ipsum ","check":"dummy text of the printing and typesetting indust"}],
@@ -61,4 +61,4 @@ $scope.getTabName = function () {
     return 'History'
   };
 
-});
+}]);

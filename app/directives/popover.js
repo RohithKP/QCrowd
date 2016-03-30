@@ -1,5 +1,5 @@
 
-angular.module('QCrowd').directive('popoverClose', function($timeout){
+angular.module('QCrowd').directive('popoverClose',['$timeout',function($timeout){
   return{
     scope: {
       excludeClass: '@'
@@ -24,7 +24,7 @@ angular.module('QCrowd').directive('popoverClose', function($timeout){
       });
     }
   };
-});
+}]);
 angular.module('QCrowd').directive('popoverElem', function(){
   return{
     link: function(scope, element, attrs) {
