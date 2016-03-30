@@ -18,6 +18,15 @@
               <td><img class="img-circle avatar " src="{{project.user.imgUrl}}"/> {{project.user.name}}</td>
             </tr>
           </table>
+          <div>
+            <div id="select-num" class="inline-block col-md-4 top-padding">Show <select ng-model="viewby.selected" ng-options="o as o for o in viewby.options"></select></div>
+            <div id="pagin-div" class="inline-block col-md-4">
+              <uib-pagination total-items="495" items-per-page="5" ng-model="currentPage" max-size="4" previous-text="&lsaquo;" next-text="&rsaquo;" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
+            </div>
+            <div id="input-page" class="inline-block col-md-4 top-padding">
+              Go to <input type="number" name="page" ng-model="pageNo">/99
+            </div>
+          </div>
         </uib-tab>
         <uib-tab index="1"  heading="COMPLETED TASK" active="tab.active" disable="tab.disabled">
 
@@ -26,13 +35,26 @@
           <div class="">
             <div class="project-item" >
               <input type="checkbox" name="name" value="" ng-checked="helpers.allSelected(projectsSelected,projects)" ng-click="projectsSelected = helpers.selectAll(projectsSelected,projects)"> <span><strong>Project Name</strong></span>
-              <span class="pull-right add-icon"><i class="fa fa-plus-circle" ng-click="modalOpen('addProject.html','addInstanceCtrl')"></i><i class="fa fa-trash" ng-click="helpers.deleteItem(projectsSelected,projects)" ng-hide="helpers.empty(projectsSelected)"></i></span>
+              <span class="pull-right add-icon"><i class="fa fa-plus-circle" ng-click="helpers.modalOpen('addProject.html','addInstanceCtrl')"></i><i class="fa fa-trash" ng-click="helpers.deleteItem(projectsSelected,projects)" ng-hide="helpers.empty(projectsSelected)"></i></span>
             </div>
             <div class="project-list">
               <li class="project-item" ng-repeat="project in projects"><input type="checkbox" name="name" value="" ng-checked="helpers.isItem(projectsSelected,project.id)" ng-click="helpers.toggleSelect(projectsSelected,project.id)"> {{project.name}}</li>
             </div>
           </div>
+          <div>
+            <div id="select-num" class="inline-block col-md-4 top-padding">Show <select ng-model="viewby.selected" ng-options="o as o for o in viewby.options"></select></div>
+            <div id="pagin-div" class="inline-block col-md-4">
+              <uib-pagination total-items="495" items-per-page="5" ng-model="currentPage" max-size="4" previous-text="&lsaquo;" next-text="&rsaquo;" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
+            </div>
+            <div id="input-page" class="inline-block col-md-4 top-padding">
+              Go to <input type="number" name="page" ng-model="pageNo">/99
+            </div>
+          </div>
         </uib-tab>
+        <uib-tab index="3"  heading="REPORT" active="tab.active" disable="tab.disabled">
+
+        </uib-tab>
+      </uib-tabset>
       </div>
     </div>
     <script id="taskname.html" type="text/ng-template">
@@ -57,14 +79,7 @@
       <div class="popup" ng-click="$event.stopPropagation();">
         <ul style="text-align:center;">
           <li  class="dropdown">
-            <span class="btn-group" uib-dropdown keyboard-nav>
-              <button id="simple-btn-keyboard-nav" type="button" class="btn " uib-dropdown-toggle>
-                platform <span class="caret"></span>
-              </button>
-              <ul uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
-                <li role="menuitem" ng-repeat="platform in platforms" >{{platform}}</li>
-              </ul>
-            </span>
+            <select class="form-control" ng-model="platforms.selected" ng-options=" o for o in platforms.options"></select>
           </li>
           <li class="divider"></li>
           <li><span class=""><i ng-repeat="browser in query.browsers" class="fa fa-{{browser}} filter-browser-icon"  ng-class="{'browser-selected':brarray.indexOf(browser) >-1}" ng-click="helpers.toggleSelect(brarray,browser)"></i></span></li>
@@ -81,6 +96,7 @@
 
     <script type="text/ng-template" id="addProject.html">
       <div class="modal-header">
+        <i class="fa fa-times pull-right" ng-click="cancel()"></i>
         <h3 class="modal-title">ADD PROJECT</h3>
       </div>
       <div class="modal-body">

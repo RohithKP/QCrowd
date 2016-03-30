@@ -1,6 +1,6 @@
 
 angular.module('QCrowd').controller('validationCtrl', function($scope,$state) {
-  $scope.clear = function() {
+  $scope.login = function() {
     $scope.$broadcast('show-errors-check-validity');
     if ($scope.loginForm.$valid) {
       $scope.reset();

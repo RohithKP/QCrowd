@@ -29,7 +29,7 @@ angular.module('QCrowd').controller('treeCtrl',function ($scope) {
   (function () {
     // $scope.x = [];
     $scope.selected = $scope.dataForTheTree[0];
-    $scope.expandedNodes = [$scope.dataForTheTree[0]];
+    $scope.$parent.expandedNodes = [$scope.dataForTheTree[0]];
     $scope.showSelected($scope.dataForTheTree[0]);
   } )();
 

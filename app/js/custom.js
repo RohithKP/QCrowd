@@ -30,13 +30,13 @@ angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable',
     url: '/module',
     views:{
     'tabView@projects':{templateUrl:'partials/moduleHistory.html', controller:'moduleHistoryCntrl'},
-    }
+  }
   })
   .state('projects.testCase', {
     url: '/testCase',
     views:{
     'tabView@projects':{templateUrl:'partials/moduleHistory.html', controller:'testCaseHistoryCntrl'},
-    }
+  }
   })
   .state('projects.module.statistics', {
     url: '/statistics/:key',
@@ -58,7 +58,6 @@ angular.module("QCrowd").run(function ($rootScope, $state, $stateParams) {
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;
   $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams) {
-    console.log(toState);
   }
 );
 });

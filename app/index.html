@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>QCrowd</title>
-    <!-- <link rel="stylesheet" href="assets/css/bootstrap.css" media="screen" title="no title" charset="utf-8"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"  crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/angular-chart.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
@@ -14,6 +13,7 @@
     <script type="text/javascript" src='js/lib/angular-ui-router.js'></script>
     <script type="text/javascript" src="js/lib/angular-animate.js"></script>
     <script type="text/javascript" src="js/angular-tree-control.js"></script>
+
     <link rel="stylesheet" type="text/css" href="assets/css/tree-control.css">
     <link rel="stylesheet" type="text/css" href="assets/css/tree-control-attribute.css">
     <script type="text/javascript" src="js/Chart.js">  </script>
@@ -35,11 +35,11 @@
             <li><a ui-sref="projects" ui-sref-active="projects">Projects</a></li>
           </ul>
           <div class="text-right">
-          <span class="inline">
+          <span class="inline-block">
             <span class="block welcome">Welcome</span>
             <span class="user-name block">Jacob Mathen</span>
           </span>
-            <img  class="pull-right user-img img-circle exclude" src="assets/images/users/two.jpg" popover popover-placement="bottom-right" uib-popover-template="'userData.html'"  popover-elem/>
+            <img  class="pull-right user-img img-circle exclude" src="assets/images/users/one.jpg" popover popover-placement="bottom-right" uib-popover-template="'userData.html'"  popover-elem/>
            </div>
         </div>
       </div>
@@ -73,8 +73,8 @@
          <li><i class="fa fa-sign-out fa-lg"></i><span>Log Out</span></li>
         </ul>
       </div>
-
     </script>
+
     <script type="text/javascript" src="js/custom.js">  </script>
     <script type="text/javascript" src="controllers/projectCtrl.js">  </script>
     <script type="text/javascript" src="controllers/treeCtrl.js">  </script>
@@ -91,5 +91,5 @@
     <script type="text/javascript" src="controllers/statisticsCntrl.js">  </script>
     <script type="text/javascript" src="filters/filters.js"></script>
     <script type="text/javascript" src="services/helpers.js"></script>
-  </body>
+</body>
 </html>
