@@ -6,11 +6,6 @@ angular.module('QCrowd').controller('dashBoardCtrl', function ($scope,helpers,$w
                   {"id":3,"name":"savi main","status":{"text":"Passed","percent":100},"browsers":[{"platform-ver":"10","browser-ver":"V 40.1","platform":"windows","name":"firefox","status":1},{"platform-ver":"10","browser-ver":"V 40.1","platform":"apple","name":"chrome","status":1},{"platform-ver":"10","browser-ver":"V 40.1","platform":"windows","name":"safari","status":0},{"platform-ver":"10","browser-ver":"V 40.1","platform":"windows","name":"opera","status":1}],"user":{"id":4,"imgUrl":"assets/images/users/two.jpg","name":"Akshaya"}},
                 {"id":4,"name":"savi main","status":{"text":"Passed","percent":100},"browsers":[{"platform-ver":"10","browser-ver":"V 40.1","platform":"windows","name":"firefox","status":1},{"platform-ver":"10","browser-ver":"V 40.1","platform":"windows","name":"chrome","status":-1},{"platform-ver":"10","browser-ver":"V 40.1","platform":"apple","name":"safari","status":1}],"user":{"id":5,"imgUrl":"assets/images/users/two.jpg","name":"Dan"}}];
 
-  $scope.alertMe = function() {
-    setTimeout(function() {
-      $window.alert('You\'ve selected the alert tab!');
-    });
-  };
   $scope.query = {projectQuery:'',userQuery:'',statusQuery:'',browserQuery:''};
 
   $scope.filterStatus = function($event,txt){
@@ -29,9 +24,7 @@ angular.module('QCrowd').controller('dashBoardCtrl', function ($scope,helpers,$w
    ],
    selected: 'platform'
  };
-  $scope.model = {
-    name: 'Tabs'
-  };
+
   $scope.brarray = [];
   $scope.helpers = helpers;
   $scope.projectsSelected = [];
