@@ -34,7 +34,7 @@
         <uib-tab index="2"  heading="PROJECTS" active="tab.active" disable="tab.disabled">
           <div class="">
             <div class="project-item" >
-              <input type="checkbox" name="name" value="" ng-checked="helpers.allSelected(projectsSelected,projects)" ng-click="projectsSelected = helpers.selectAll(projectsSelected,projects)"> <span><strong>Project Name</strong></span>
+              <input type="checkbox" name="name" value="" ng-checked="helpers.allSelected(projectsSelected,projects)" ng-click=" helpers.selectAll(projectsSelected,projects)"> <span><strong>Project Name</strong></span>
               <span class="pull-right add-icon"><i class="fa fa-plus-circle" ng-click="helpers.modalOpen('addProject.html','addInstanceCtrl')"></i><i class="fa fa-trash" ng-click="helpers.deleteItem(projectsSelected,projects)" ng-hide="helpers.empty(projectsSelected)"></i></span>
             </div>
             <div class="project-list">
