@@ -1,64 +1,16 @@
-angular.module('QCrowd').controller('testCaseHistoryCntrl',['$scope','$state','helpers',function ($scope,$state,helpers) {
-$scope.history = [
-  {
-  "date" : "tc29-FEBRUARY-2016",
-  "time" : "1:45 PM",
-  "browsers":[{"name":"opera","status":1},{"name":"opera","status":1},{"name":"firefox","status":-1},{"name":"safari","status":1}]
-  },
-  {
-  "date" : "28-FEBRUARY-2016",
-  "time" : "10:11 AM",
-"browsers":[{"name":"opera","status":1},{"name":"opera","status":1},{"name":"firefox","status":-1},{"name":"safari","status":1}]
-  },
-  {
-  "date" : "tc27-FEBRUARY-2016",
-  "time" : "2:30 PM",
-"browsers":[{"name":"opera","status":1},{"name":"opera","status":0},{"name":"firefox","status":-1},{"name":"safari","status":1}]
-  },
-  {
-  "date" : "26-FEBRUARY-2016",
-  "time" : "11:25 AM",
-"browsers":[{"name":"opera","status":1},{"name":"opera","status":1},{"name":"firefox","status":1},{"name":"safari","status":1}]
-  },
-  {
-  "date" : "25-FEBRUARY-2016",
-  "time" : "12:35 PM",
-"browsers":[{"name":"opera","status":1},{"name":"opera","status":1},{"name":"firefox","status":0},{"name":"safari","status":1}]
-  },
-  {
-  "date" : "24-FEBRUARY-2016",
-  "time" : "4:00 PM",
-"browsers":[{"name":"opera","status":0},{"name":"opera","status":1},{"name":"firefox","status":-1},{"name":"safari","status":1}]
-  },
-  {
-  "date" : "23-FEBRUARY-2016",
-  "time" : "1:30 PM",
-"browsers":[{"name":"opera","status":1},{"name":"opera","status":1},{"name":"firefox","status":1},{"name":"safari","status":1}]
-  },
-  {
-  "date" : "22-FEBRUARY-2016",
-  "time" : "9:45 AM",
-"browsers":[{"name":"opera","status":0},{"name":"opera","status":0},{"name":"firefox","status":-1},{"name":"safari","status":1}]
-  },
-  {
-  "date" : "21-FEBRUARY-2016",
-  "time" : "8:25 PM",
-"browsers":[{"name":"opera","status":1},{"name":"opera","status":1},{"name":"firefox","status":-1},{"name":"safari","status":1}]
-  }
-]
-$scope.resolver = {
+angular.module('QCrowd').controller('testCaseHistoryCntrl',['$scope','$state','helpers','dataFactory',function ($scope,$state,helpers,dataFactory) {
+$scope.history = dataFactory.tcHistory.query();
+console.log(dataFactory.popupHisData.query());
+resolver = {
      message: function () {
               return {
-                 tcResults:[{"name":"Rohith","imgUrl":"assets/images/users/two.jpg","ques":"1. Click on the white '+' on the orange background in the left side bar(not in the logo in the header)","expected":"Do you see a list of share service with a find dialog?","QA":[{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Failed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then  hen asdlkalw sjdnbsjd  then  hen asdlkalw sjdnbsjd sjdnkss"}]},
-                  {"name":"Emma","imgUrl":"assets/images/users/one.jpg","ques":"2. Click on the white '+' on the orange background in the left side bar(not in the logo in the header)","expected":"Do you see a list of share service with a find dialog?","QA":[{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"2","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":""},{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Failed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"}]},
-                  {"name":"Rocky","imgUrl":"assets/images/users/two.jpg","ques":"3. Click on the white '+' on the orange background in the left side bar(not in the logo in the header)","expected":"Do you see a list of share service with a find dialog?","QA":[{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Failed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"3","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"},{"qid":"1","screenShotUrl":"assets/images/snapshot1.png","Result":"Passed","DateTime":"2:45pm (29 Feb 2016)","QA Comment":"then asdlkalw sjdnbsjd   sjdnkss"}]},
-                ]
+                 tcResults:dataFactory.popupHisData.query()
               }
             }
 }
-$scope.modalOpen = helpers.modalOpen;
+// $scope.modalOpen = helpers.modalOpen;
 $scope.showStat=function (item) {
-  $scope.modalOpen('tcHistoryItem.html','tcHistoryItemPopUpCntrl','xl',$scope.resolver);
+   helpers.modalOpen('tcHistoryItem.html','tcHistoryItemPopUpCntrl','xl',resolver);
 };
 
 }]);
