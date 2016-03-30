@@ -36,8 +36,9 @@ angular.module("QCrowd").factory('helpers', function($uibModal) {
     },
     deleteItem : function (array,items) {
       var new_arr = array;
+      var mapped_array = items.map(function(e) { return e.id; });
       angular.forEach(array,function (id) {
-       pos = items.map(function(e) { return e.id; }).indexOf(id);
+       pos = mapped_array.indexOf(id);
        if(pos>-1){
        items.splice(pos,1);
        }
