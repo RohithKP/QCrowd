@@ -8,5 +8,4 @@ angular.module('QCrowd').controller('statisticsCntrl',['$scope','$stateParams',f
       animateRotate : false,
   }
   $scope.failedTests = ["Lorem  adsasdasd ","Why this colaveri","Login test"];
-  console.log($stateParams.key);
 }])

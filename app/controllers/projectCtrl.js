@@ -1,4 +1,4 @@
-angular.module('QCrowd').controller('projectCtrl',function ($scope,$state,helpers) {
+angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers',function ($scope,$state,helpers) {
   $scope.isLeaf = function(node) {
     if(!!node){
       if(!node.links[0]){
@@ -81,4 +81,4 @@ angular.module('QCrowd').controller('projectCtrl',function ($scope,$state,helper
               platformOptions:$scope.platformOptions
               }
             }
-})
+}]);

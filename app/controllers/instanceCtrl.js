@@ -1,5 +1,5 @@
 
-angular.module('QCrowd').controller('addInstanceCtrl', function ($scope, $uibModalInstance) {
+angular.module('QCrowd').controller('addInstanceCtrl',['$scope','$uibModalInstance',function ($scope, $uibModalInstance) {
 
   $scope.proceed = function () {
     $uibModalInstance.close();
@@ -11,9 +11,9 @@ angular.module('QCrowd').controller('addInstanceCtrl', function ($scope, $uibMod
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
-});
+}]);
 
-angular.module('QCrowd').controller('rqstInstanceCtrl', function ($scope, $uibModalInstance,helpers,message) {
+angular.module('QCrowd').controller('rqstInstanceCtrl',['$scope','$uibModalInstance','helpers','message',function ($scope, $uibModalInstance,helpers,message) {
   $scope.helpers=helpers;
   $scope.proceed = function () {
     $uibModalInstance.close();
@@ -24,9 +24,9 @@ angular.module('QCrowd').controller('rqstInstanceCtrl', function ($scope, $uibMo
   $scope.browsers = message.browsers;
   $scope.platformOptions = message.platformOptions;
   $scope.brarray = message.brarray;
-});
+}]);
 
-angular.module('QCrowd').controller('tcHistoryItemPopUpCntrl', function ($scope, $uibModalInstance,helpers,message) {
+angular.module('QCrowd').controller('tcHistoryItemPopUpCntrl',['$scope','$uibModalInstance','helpers','message',function ($scope, $uibModalInstance,helpers,message) {
   $scope.tcResults = message.tcResults;
   $scope.resolver = {
      message: function () {
@@ -44,11 +44,11 @@ angular.module('QCrowd').controller('tcHistoryItemPopUpCntrl', function ($scope,
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
-});
+}]);
 
-angular.module('QCrowd').controller('tcHistoryImgPopUpCntrl', function ($scope, $uibModalInstance,message) {
+angular.module('QCrowd').controller('tcHistoryImgPopUpCntrl',['$scope','$uibModalInstance','message',function ($scope, $uibModalInstance,message) {
   $scope.tcResults = message.tcResults;
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
-});
+}]);

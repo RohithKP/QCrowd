@@ -1,4 +1,4 @@
-angular.module("QCrowd").factory('helpers', function($uibModal) {
+angular.module("QCrowd").factory('helpers',['$uibModal',function($uibModal) {
   return {
     toggleSelect: function (array,arg) {
       var index = array.indexOf(arg);
@@ -66,4 +66,4 @@ angular.module("QCrowd").factory('helpers', function($uibModal) {
     }
 
   }
-});
+}]);
