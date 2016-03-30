@@ -17,34 +17,26 @@ $scope.reset = function (obj) {
    eval('$scope.'+obj+'={}');
 };
 
-$scope.addStep = function (step) {
-
-};
-
-
 $scope.addModule = function(parentNode,module) {
-  $scope.$broadcast('show-errors-check-validity');
-  if ($scope.moduleForm.$valid) {
-
+  if($scope.module.name !== undefined && $scope.module.name !== ""){
     $scope.expandedNodes.push(parentNode);
     newModule = {"title":module.name, "id":Date.now(),"description":module.description, "links": [{}]};
     parentNode.links.unshift(newModule);
     $scope.$parent.$broadcast('select',newModule);
     $scope.showSelected(newModule,parentNode);
     $scope.module={};
-}
+  }
 };
 
 $scope.addLeaf = function(parentNode,testCase) {
-    if ($scope.testCaseForm.$valid) {
-  $scope.expandedNodes.push(parentNode);
-  newNode = {"title": testCase.name, "id":Date.now(),"description":testCase.description, "links": []};
-  parentNode.links.push(newNode);
-  $scope.$parent.$broadcast('select',newNode);
-  // $scope.selected = newNode;
-  $scope.showSelected(newNode,parentNode);
-  $scope.testCase= {};
-}
+  if($scope.testCase.name !== undefined && $scope.testCase.name !== ""){
+    $scope.expandedNodes.push(parentNode);
+    newNode = {"title": testCase.name, "id":Date.now(),"description":testCase.description, "links": []};
+    parentNode.links.push(newNode);
+    $scope.$parent.$broadcast('select',newNode);
+    $scope.showSelected(newNode,parentNode);
+    $scope.testCase= {};
+  }
 };
 $scope.isSteps = function () {
   if($scope.steps['testCaseId']==undefined){
@@ -52,18 +44,21 @@ $scope.isSteps = function () {
   }else{
     return true;
   }
-}
+};
 $scope.stepsChecked = [];
 $scope.helpers = helpers;
 
 $scope.addStep = function () {
-$scope.steps["testCaseId"].push($scope.newStep);
-$scope.reset('newStep');
-}
+  if($scope.newStep.que !== undefined && $scope.newStep.que !== ""){
+    $scope.steps["testCaseId"].push($scope.newStep);
+    $scope.reset('newStep');
+  }
+};
 $scope.getTabName = function () {
   if($state.current.name == 'projects.module.statistics')
-  return 'Statistics'
-  else return 'History'
-}
+    return 'Statistics'
+  else
+    return 'History'
+  };
 
 });
