@@ -9,10 +9,10 @@
       <textarea disabled class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
 <div class="" ng-show="share.more&&isLeaf(nodeRef)">
       <span class="heading ">Precondition</span>
-      <textarea disabled class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
+      <textarea disabled class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.precondition" ng-class="{'form-control un-mute':edit}"></textarea>
 
-      <span class="heading ">priority</span>
-      <textarea disabled="true" class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
+      <span class="heading ">Priority</span>
+      <textarea disabled="true" class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.priority" ng-class="{'form-control un-mute':edit}"></textarea>
 </div>
 <div class="sidebar" ng-click="showMore()" ng-show="isLeaf(nodeRef)">
 <i ng-show="!share.more" class="fa fa-caret-down caret-down"></i>
