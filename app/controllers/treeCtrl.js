@@ -13,16 +13,17 @@ angular.module('QCrowd').controller('treeCtrl',['$scope','dataFactory',function 
       labelSelected: "a8"
     }
   }
-  console.log(dataFactory.treeData.query());
+
   $scope.dataForTheTree =dataFactory.treeData.query();
-if($scope.dataForTheTree[0]){
+
+  $scope.dataForTheTree.$promise.then(function success() {
+
   (function () {
-    // $scope.x = [];
     $scope.selected = $scope.dataForTheTree[0];
     $scope.$parent.expandedNodes = [$scope.dataForTheTree[0]];
     $scope.showSelected($scope.dataForTheTree[0]);
   } )();
 
-}
+});
 
 }]);

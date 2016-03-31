@@ -9,7 +9,7 @@ angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers',f
   }
 
   $scope.helpers = helpers;
-   $scope.expandedNodes =null;
+  //  $scope.expandedNodes =null;
   $scope.toggle = function(){
     $scope.edit = !$scope.edit;
     inputs = document.querySelectorAll('.mute-input');

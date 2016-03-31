@@ -8,7 +8,6 @@ resolver = {
               }
             }
 }
-// $scope.modalOpen = helpers.modalOpen;
 $scope.showStat=function (item) {
    helpers.modalOpen('tcHistoryItem.html','tcHistoryItemPopUpCntrl','xl',resolver);
 };
