@@ -1,6 +1,6 @@
 
-angular.module('QCrowd').controller('dashBoardCtrl',['$scope','helpers','$window','$document','$log','dataFactory',function ($scope,helpers,$window,$document,$log,dataFactory) {
-  $scope.projects = dataFactory.projects.query();
+angular.module('QCrowd').controller('dashBoardCtrl',['$scope','helpers','$window','$document','$log','projectData',function ($scope,helpers,$window,$document,$log,projectData) {
+  $scope.projects = projectData;
   $scope.alertMe = function() {
     setTimeout(function() {
       $window.alert('You\'ve selected the alert tab!');

@@ -1,4 +1,6 @@
-angular.module('QCrowd').controller('treeCtrl',['$scope','dataFactory',function ($scope,dataFactory) {
+angular.module('QCrowd').controller('treeCtrl',['$scope','$http', '$timeout', 'dataFactory', function ($scope,$http, $timeout, dataFactory) {
+  $scope.dataForTheTree = $scope.$parent.treeData;
+  console.log(  $scope.dataForTheTree);
   $scope.treeOptions = {
     nodeChildren: "links",
     dirSelectable: true,
@@ -12,18 +14,31 @@ angular.module('QCrowd').controller('treeCtrl',['$scope','dataFactory',function 
       label: "a6",
       labelSelected: "a8"
     }
-  }
+  };
 
-  $scope.dataForTheTree =dataFactory.treeData.query();
+    $timeout(function () {
+      $scope.selected = $scope.dataForTheTree[0];
+      $scope.$parent.expandedNodes = [$scope.dataForTheTree[0]];
+      $scope.showSelected($scope.dataForTheTree[0]);
+    }, 100)
 
-  $scope.dataForTheTree.$promise.then(function success() {
+    // $http.get('./assets/json/treeData.json')
+    //   .then(function (data) {
+    //     $scope.selected = data[0];
+    //     $scope.$parent.expandedNodes = [data[0]];
+    //     $scope.showSelected(data[0]);
+    //   }, function (error) {
+    //     console.log(error);
+    //     console.log('oops');
+    //   })
 
-  (function () {
-    $scope.selected = $scope.dataForTheTree[0];
-    $scope.$parent.expandedNodes = [$scope.dataForTheTree[0]];
-    $scope.showSelected($scope.dataForTheTree[0]);
-  } )();
-
-});
-
+      // dataFactory.myData()
+      //   .then(function (data) {
+      //     $scope.selected = data[0];
+      //     $scope.$parent.expandedNodes = [data[0]];
+      //     $scope.showSelected(data[0]);
+      //   }, function (error) {
+      //     console.log(error);
+      //     console.log('oops');
+      //   })
 }]);

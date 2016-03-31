@@ -15,15 +15,36 @@ angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable',
   .state('dashboard', {
     url: '/dashboard',
     templateUrl: 'partials/dashboard.html',
-    controller:"dashBoardCtrl"
+    controller:"dashBoardCtrl",
+    resolve: {
+          projectData: function(dataFactory){
+              return dataFactory.projects.query();
+      }}
   })
   .state('projects', {
     url: '/projects',
     views:{
-      '':{templateUrl: 'partials/projects.html',    controller:'projectCtrl'},
-      'treeView@projects':{templateUrl:'partials/tree.html', controller:'treeCtrl'},
-      'detailView@projects':{templateUrl:'partials/detailView.html', controller:'detailViewCtrl'},
-      'tabView@projects':{templateUrl:'partials/moduleHistory.html', controller:'moduleHistoryCntrl'},
+      '': {
+        templateUrl: 'partials/projects.html',
+        controller: 'projectCtrl',
+        resolve: {
+            treeData: function(dataFactory){
+                return dataFactory.treeData.query();
+              }
+            }
+      },
+      'treeView@projects': {
+        templateUrl:'partials/tree.html',
+        controller:'treeCtrl'
+      },
+      'detailView@projects': {
+        templateUrl:'partials/detailView.html',
+        controller:'detailViewCtrl'
+      },
+      'tabView@projects': {
+        templateUrl: 'partials/moduleHistory.html',
+        controller:'moduleHistoryCntrl'
+      },
     }
   })
   .state('projects.module', {
