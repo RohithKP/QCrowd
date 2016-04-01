@@ -9,10 +9,10 @@
       <textarea disabled class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
 <div class="" ng-show="share.more&&isLeaf(nodeRef)">
       <span class="heading ">Precondition</span>
-      <textarea disabled class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.precondition" ng-class="{'form-control un-mute':edit}"></textarea>
+      <textarea disabled class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
 
       <span class="heading ">Priority</span>
-      <textarea disabled="true" class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.priority" ng-class="{'form-control un-mute':edit}"></textarea>
+      <textarea disabled="true" class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
 </div>
 <div class="sidebar" ng-click="showMore()" ng-show="isLeaf(nodeRef)">
 <i ng-show="!share.more" class="fa fa-caret-down caret-down"></i>
@@ -72,11 +72,11 @@
 
       <div class="" ng-show='isLeaf(nodeRef)'>
         <div ng-show="!add">
-        <span class="">STEPS</span><span class="pull-right" ng-show="!helpers.empty(stepsChecked)" ng-click="helpers.deleteItem(stepsChecked,steps['testCaseId'])"><i class="fa fa-trash"></i></span>
+        <span class="">STEPS</span><span class="pull-right" ng-show="!helpers.empty(stepsChecked)" ng-click="helpers.deleteItem(stepsChecked,steps[nodeId])"><i class="fa fa-trash"></i></span>
               <div id="listWithHandle" class="table-responsive">
                 <table class="table borderless">
                   <tbody ng-sortable >
-                    <tr ng-repeat="step in steps['testCaseId']" class="iHover">
+                    <tr ng-repeat="step in steps[nodeId]" class="iHover">
                       <td>
                         <span  class="drag-icon">
                           <i class="fa fa-ellipsis-v"></i>
@@ -90,7 +90,7 @@
                       </td>
                       <td>
                         <i class="fa fa-pencil icons"></i>
-                        <i class="fa fa-trash icons" ng-click="stepsChecked.push(step.id);helpers.deleteItem(stepsChecked,steps['testCaseId'])"></i>
+                        <i class="fa fa-trash icons" ng-click="stepsChecked.push(step.id);helpers.deleteItem(stepsChecked,steps[nodeId])"></i>
                       </td>
                     </tr>
                   </tbody>

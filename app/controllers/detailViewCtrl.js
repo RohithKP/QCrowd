@@ -1,10 +1,9 @@
-angular.module('QCrowd').controller('detailViewCtrl',['$scope','$state','helpers','modHistory','tcHistory',function ($scope,$state,helpers,modHistory,tcHistory) {
+angular.module('QCrowd').controller('detailViewCtrl',['$scope','$state','helpers','modHistory','tcHistory','steps',function ($scope,$state,helpers,modHistory,tcHistory,steps) {
 $scope.modHistory = modHistory;
 $scope.tcHistory = tcHistory;
 $scope.newStep = {};
-$scope.steps = {"testCaseId":[{"id":"1","que":"Lorem Ipsum is simply dummy text of the printing and typesetting industry","check":"nsectetur, from a Lorem Ipsum "},{"id":"2","que":"Lornd typesetting industry","check":"nsectetur, from a Lorem Ipsum "},{"id":"3","que":"Lorem Ipsum is simply dummy text of the printing and typesetting industry","check":"nsectetur, from a Lorem Ipsum "},{"id":"4","que":"nsectetur, from a Lorem Ipsum nsectetur, from a Lorem Ipsum ","check":"dummy text of the printing and typesetting indust"}],
-                "testCaseId2":[{"id":"1","que":"specimen book. It has survived not only five centuries, but also","check":"It has survived not only five specimen book. centuries, but also"},{"id":"2","que":"ved not only fi It has survived not only five ","check":"ved not only fi"}],
-                };
+console.log(steps);
+$scope.steps = steps;
 // $scope.sortableOptions = { additionalPlaceholderClass: 'placeholder' };
 $scope.updateCancel =function () {
   $scope.toggle();
@@ -40,7 +39,7 @@ $scope.addLeaf = function(parentNode,testCase) {
   }
 };
 $scope.isSteps = function () {
-  if($scope.steps['testCaseId']==undefined){
+  if($scope.steps[$scope.nodeId]==undefined){
     return false;
   }else{
     return true;
@@ -51,7 +50,10 @@ $scope.helpers = helpers;
 
 $scope.addStep = function () {
   if($scope.newStep.que !== undefined && $scope.newStep.que !== ""){
-    $scope.steps["testCaseId"].push($scope.newStep);
+    if($scope.steps[$scope.nodeId]==undefined){
+      $scope.steps[$scope.nodeId] = [];
+    }
+    $scope.steps[$scope.nodeId].push($scope.newStep);
     $scope.reset('newStep');
   }
 };

@@ -69,6 +69,7 @@ angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers','
     $scope.currentNode =angular.copy(node);
     $scope.currentNode.heading = $scope.getTitle();
     $scope.changeState();
+    $scope.nodeId = $scope.currentNode.id;
   };
   $scope.platforms = ['platforms','windows 10','windows 8','iOS 8','ubuntu'];
   $scope.platformOptions =   {
