@@ -55,7 +55,7 @@ $scope.addStep = function () {
   }
 };
 $scope.getTabName = function () {
-  if($state.current.name == 'projects.module.statistics')
+  if($state.current.name == 'dashboard.projects.module.statistics')
     return 'Statistics'
   else
     return 'History'

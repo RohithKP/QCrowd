@@ -39,7 +39,7 @@ angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers',f
   }
   $scope.changeState = function () {
     if($scope.parentNode == null){
-      // $state.go('dashboard.projects');
+      $state.go('dashboard.projects');
     }
     else if ($scope.leaf) {
       $state.go('dashboard.projects.testCase');

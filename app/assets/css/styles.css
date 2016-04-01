@@ -750,3 +750,6 @@ input[type=number]::-webkit-outer-spin-button {
 .breadcrumb{
   margin: 0;
 }
+.breadcrumb>li+li:before{
+      content: ">\00a0";
+}
