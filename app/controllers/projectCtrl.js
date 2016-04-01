@@ -1,4 +1,5 @@
-angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers',function ($scope,$state,helpers) {
+angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers','treeData',function ($scope,$state,helpers,treeData) {
+  $scope.treeData = treeData;
   $scope.isLeaf = function(node) {
     if(!!node){
       if(!node.links[0]){
@@ -9,7 +10,7 @@ angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers',f
   }
 
    $scope.helpers = helpers;
-   $scope.expandedNodes =null;
+   $scope.expandedNodes = [];
   $scope.toggle = function(){
     $scope.edit = !$scope.edit;
     inputs = document.querySelectorAll('.mute-input');

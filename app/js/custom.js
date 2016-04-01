@@ -1,4 +1,4 @@
-angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable','ngAnimate','chart.js','angularUtils.directives.uiBreadcrumbs']).config(function ($stateProvider,$urlRouterProvider) {
+angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable','ngAnimate','chart.js','angularUtils.directives.uiBreadcrumbs','ngResource']).config(function ($stateProvider,$urlRouterProvider) {
   $urlRouterProvider.otherwise('/login');
 
   $stateProvider
@@ -16,8 +16,16 @@ angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable',
     url: '/dashboard',
     views:{
       '':{templateUrl: 'partials/home.html'},
-      'mainView@dashboard':{templateUrl:'partials/dashboard.html', controller:'dashBoardCtrl'}
+      'mainView@dashboard':{
+        templateUrl:'partials/dashboard.html',
+        controller:'dashBoardCtrl'
+      }
     },
+    resolve: {
+        projects: function(dataFactory){
+            return dataFactory.projects.query();
+          }
+        },
     data:{
       displayName:'Home'
     }
@@ -25,10 +33,35 @@ angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable',
   .state('dashboard.projects', {
     url: '/projects',
     views:{
-      'mainView@dashboard':{templateUrl:'partials/projects.html', controller:'projectCtrl'},
-      'treeView@dashboard.projects':{templateUrl:'partials/tree.html', controller:'treeCtrl'},
-      'detailView@dashboard.projects':{templateUrl:'partials/detailView.html', controller:'detailViewCtrl'},
-      'tabView@dashboard.projects':{templateUrl:'partials/moduleHistory.html', controller:'moduleHistoryCntrl'},
+      'mainView@dashboard':{
+        templateUrl:'partials/projects.html',
+        controller:'projectCtrl',
+        resolve: {
+            treeData: function(dataFactory){
+                return dataFactory.treeData.query();
+              }
+            }
+          },
+      'treeView@dashboard.projects':{
+        templateUrl:'partials/tree.html',
+        controller:'treeCtrl'
+      },
+      'detailView@dashboard.projects':{
+        templateUrl:'partials/detailView.html',
+        controller:'detailViewCtrl',
+        resolve: {
+              modHistory: function(dataFactory){
+                  return dataFactory.modHistory.query();
+                },
+              tcHistory: function(dataFactory){
+                  return dataFactory.tcHistory.query();
+                }
+            }
+      },
+      'tabView@dashboard.projects':{
+        templateUrl:'partials/moduleHistory.html',
+        controller:'moduleHistoryCntrl'
+      }
     },
     data:{
       displayName:'Projects'
