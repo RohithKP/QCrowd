@@ -8,7 +8,7 @@ angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers',f
     }
   }
 
-  $scope.helpers = helpers;
+   $scope.helpers = helpers;
    $scope.expandedNodes =null;
   $scope.toggle = function(){
     $scope.edit = !$scope.edit;
@@ -39,13 +39,13 @@ angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers',f
   }
   $scope.changeState = function () {
     if($scope.parentNode == null){
-      $state.go('projects');
+      // $state.go('dashboard.projects');
     }
     else if ($scope.leaf) {
-      $state.go('projects.testCase');
+      $state.go('dashboard.projects.testCase');
     }
     else{
-       $state.go('projects.module');
+       $state.go('dashboard.projects.module');
         }
   }
 

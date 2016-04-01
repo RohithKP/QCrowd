@@ -38,7 +38,7 @@
               <span class="pull-right add-icon"><i class="fa fa-plus-circle" ng-click="helpers.modalOpen('addProject.html','addInstanceCtrl')"></i><i class="fa fa-trash" ng-click="helpers.deleteItem(projectsSelected,projects)" ng-hide="helpers.empty(projectsSelected)"></i></span>
             </div>
             <div class="project-list">
-              <li class="project-item" ng-repeat="project in projects"><input type="checkbox" name="name" value="" ng-checked="helpers.isItem(projectsSelected,project.id)" ng-click="helpers.toggleSelect(projectsSelected,project.id)"> {{project.name}}</li>
+              <li class="project-item gray-hover" ng-repeat="project in projects" ui-sref="dashboard.projects"><input type="checkbox" name="name" value="" ng-checked="helpers.isItem(projectsSelected,project.id)" ng-click="$event.stopPropagation(); helpers.toggleSelect(projectsSelected,project.id)"> {{project.name}}</li>
             </div>
           </div>
           <div>

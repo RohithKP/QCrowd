@@ -5,14 +5,14 @@
         <th >#</th>
         <th  >Date</th>
         <th  >Time</th>
-        <th ng-if="$state.current.name == 'projects.testCase'">Browsers</th>
+        <th ng-if="$state.current.name == 'dashboard.projects.testCase'">Browsers</th>
       </tr>
     <tbody>
       <tr ng-repeat="item in history" ng-click="showStat(this.item)">
         <td>{{$index+1}}</td>
         <td>{{item.date}}</td>
         <td>{{item.time}}</td>
-          <td ng-if="$state.current.name == 'projects.testCase'"><span class="browser-icon" ng-repeat="browser in item.browsers" ng-class="{pass:browser.status==1,fail:browser.status==0,muted:browser.status==-1}"><i  class="fa fa-{{browser.name}}">&nbsp;</i></span></span></td>
+          <td ng-if="$state.current.name == 'dashboard.projects.testCase'"><span class="browser-icon" ng-repeat="browser in item.browsers" ng-class="{pass:browser.status==1,fail:browser.status==0,muted:browser.status==-1}"><i  class="fa fa-{{browser.name}}">&nbsp;</i></span></span></td>
       </tr>
     </tbody>
   </table>
@@ -36,7 +36,7 @@
               <div class="mar-top-20">
                 <span class="bold-color">Expected Result:</span>
                 <span class=" muted">{{item.expected}}</span>
-              </div>  
+              </div>
             </div>
               <span class="block mar-top-20 bold-color comment-wrapper">QA comments</span>
             </td>

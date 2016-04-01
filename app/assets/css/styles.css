@@ -29,8 +29,8 @@ a:focus {
 /*login*/
 .outer {
     display: table;
-    position: absolute;
-    height: 100%;
+    /*position: absolute;*/
+    height: 100vh;
     padding : 0px;
     width: 100%;
 }
@@ -360,6 +360,10 @@ margin: 4px 10px;
   list-style: none;
   height: 65px;
   padding: 22px;
+  cursor: pointer;
+}
+.gray-hover:hover{
+    background: rgba(204, 204, 204, 0.42);
 }
 .project-item input{
   margin-right: 20px;
@@ -738,4 +742,11 @@ input[type=number]::-webkit-outer-spin-button {
 .btn-custom-dark.focus,.btn-custom-dark:focus {
     color: #EFEFEF;
     text-decoration: none;
+}
+.bread-crumbs{
+  position: relative;;
+  top: 58px;
+}
+.breadcrumb{
+  margin: 0;
 }

@@ -39,6 +39,6 @@ $scope.history = [
 ]
 
 $scope.showStat=function (item) {
-   $state.go('projects.module.statistics',{"key":item.date+item.time});
+   $state.go('dashboard.projects.module.statistics',{"key":item.date+item.time});
 }
 }]);
