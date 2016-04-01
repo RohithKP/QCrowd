@@ -1,4 +1,5 @@
-angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers',function ($scope,$state,helpers) {
+angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers','treeData',function ($scope,$state,helpers,treeData) {
+  $scope.treeData = treeData;
   $scope.isLeaf = function(node) {
     if(!!node){
       if(!node.links[0]){
@@ -8,8 +9,8 @@ angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers',f
     }
   }
 
-  $scope.helpers = helpers;
-   $scope.expandedNodes =null;
+   $scope.helpers = helpers;
+   $scope.expandedNodes = [];
   $scope.toggle = function(){
     $scope.edit = !$scope.edit;
     inputs = document.querySelectorAll('.mute-input');
@@ -39,13 +40,13 @@ angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers',f
   }
   $scope.changeState = function () {
     if($scope.parentNode == null){
-      $state.go('projects');
+      $state.go('dashboard.projects');
     }
     else if ($scope.leaf) {
-      $state.go('projects.testCase');
+      $state.go('dashboard.projects.testCase');
     }
     else{
-       $state.go('projects.module');
+       $state.go('dashboard.projects.module');
         }
   }
 

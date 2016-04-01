@@ -24,27 +24,25 @@ angular.module("QCrowd").factory('helpers',['$uibModal',function($uibModal) {
     },
     selectAll :function (array,items) {
       if(!this.allSelected(array,items)){
-        array = [];
+        array.length=0;
         angular.forEach(items,function(item){
           array.push(item.id);
           console.log(array);
         })
       }else {
-           array = [];
+           array.length=0;
       }
-      return array;
     },
     deleteItem : function (array,items) {
       var new_arr = array;
-      var mapped_array = items.map(function(e) { return e.id; });
       angular.forEach(array,function (id) {
-       pos = mapped_array.indexOf(id);
+       pos = items.map(function(e) { return e.id; }).indexOf(id);
        if(pos>-1){
        items.splice(pos,1);
        }
        console.log(pos);
       });
-        array = [];
+        array.length=0;
     },
     total:function (array) {
       return array.reduce(function(a, b) {return a + b;});
