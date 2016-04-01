@@ -1,4 +1,4 @@
-angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable','ngAnimate','chart.js']).config(function ($stateProvider,$urlRouterProvider) {
+angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable','ngAnimate','chart.js','angularUtils.directives.uiBreadcrumbs','ngResource']).config(function ($stateProvider,$urlRouterProvider) {
   $urlRouterProvider.otherwise('/login');
 
   $stateProvider
@@ -14,41 +14,91 @@ angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable',
   })
   .state('dashboard', {
     url: '/dashboard',
-    templateUrl: 'partials/dashboard.html',
-    controller:"dashBoardCtrl"
+    views:{
+      '':{templateUrl: 'partials/home.html'},
+      'mainView@dashboard':{
+        templateUrl:'partials/dashboard.html',
+        controller:'dashBoardCtrl'
+      }
+    },
+    resolve: {
+        projects: function(dataFactory){
+            return dataFactory.projects.query();
+          }
+        },
+    data:{
+      displayName:'Home'
+    }
   })
-  .state('projects', {
+  .state('dashboard.projects', {
     url: '/projects',
     views:{
-      '':{templateUrl: 'partials/projects.html',    controller:'projectCtrl'},
-      'treeView@projects':{templateUrl:'partials/tree.html', controller:'treeCtrl'},
-      'detailView@projects':{templateUrl:'partials/detailView.html', controller:'detailViewCtrl'},
-      'tabView@projects':{templateUrl:'partials/moduleHistory.html', controller:'moduleHistoryCntrl'},
+      'mainView@dashboard':{
+        templateUrl:'partials/projects.html',
+        controller:'projectCtrl',
+        resolve: {
+            treeData: function(dataFactory){
+                return dataFactory.treeData.query();
+              }
+            }
+          },
+      'treeView@dashboard.projects':{
+        templateUrl:'partials/tree.html',
+        controller:'treeCtrl'
+      },
+      'detailView@dashboard.projects':{
+        templateUrl:'partials/detailView.html',
+        controller:'detailViewCtrl',
+        resolve: {
+              modHistory: function(dataFactory){
+                  return dataFactory.modHistory.query();
+                },
+              tcHistory: function(dataFactory){
+                  return dataFactory.tcHistory.query();
+                }
+            }
+      },
+      'tabView@dashboard.projects':{
+        templateUrl:'partials/moduleHistory.html',
+        controller:'moduleHistoryCntrl'
+      }
+    },
+    data:{
+      displayName:'Projects'
     }
   })
-  .state('projects.module', {
+  .state('dashboard.projects.module', {
     url: '/module',
     views:{
-    'tabView@projects':{templateUrl:'partials/moduleHistory.html', controller:'moduleHistoryCntrl'},
+    'tabView@dashboard.projects':{templateUrl:'partials/moduleHistory.html', controller:'moduleHistoryCntrl'},
+  },
+  data:{
+    displayName:'Module'
   }
   })
-  .state('projects.testCase', {
+  .state('dashboard.projects.testCase', {
     url: '/testCase',
     views:{
-    'tabView@projects':{templateUrl:'partials/moduleHistory.html', controller:'testCaseHistoryCntrl'},
+    'tabView@dashboard.projects':{templateUrl:'partials/moduleHistory.html', controller:'testCaseHistoryCntrl'},
+  },
+  data:{
+    displayName:'Test Case'
   }
   })
-  .state('projects.module.statistics', {
+  .state('dashboard.projects.module.statistics', {
     url: '/statistics/:key',
     views:{
-      'tabView@projects':{templateUrl:'partials/statistics.html', controller:'statisticsCntrl'},
+      'tabView@dashboard.projects':{templateUrl:'partials/statistics.html', controller:'statisticsCntrl'},
+    },
+    data:{
+      displayName:'Statistics'
     }
   })
-  .state('projects.addStep', {
+  .state('dashboard.projects.addStep', {
     url: '/projects/addStep',
     views:{
-      'treeView':{template:'partials/tree.html'},
-      'addView':{template:'partials/detailView.html'},
+      // 'treeView':{template:'partials/tree.html'},
+      // 'addView':{template:'partials/detailView.html'},
     }
   })
 

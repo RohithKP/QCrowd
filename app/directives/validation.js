@@ -1,4 +1,4 @@
-angular.module('QCrowd').directive('showErrors', function ($timeout, showErrorsConfig) {
+angular.module('QCrowd').directive('showErrors',['$timeout','showErrorsConfig',function ($timeout, showErrorsConfig) {
       var getShowSuccess, linkFn;
       getShowSuccess = function (options) {
         var showSuccess;
@@ -59,7 +59,7 @@ angular.module('QCrowd').directive('showErrors', function ($timeout, showErrorsC
         }
       };
     }
-  );
+  ]);
 
 angular.module('QCrowd').provider('showErrorsConfig', function () {
     var _showSuccess;
