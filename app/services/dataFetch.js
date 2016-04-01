@@ -5,6 +5,7 @@ angular.module('QCrowd').factory('dataFactory',['$resource',function($resource) 
     projects : $resource('./assets/json/projects.json', {}),
     tcHistory : $resource('./assets/json/testHistory.json', {}),
     treeData : $resource('./assets/json/treeData.json', {}),
-    popupHisData : $resource('./assets/json/tcPopupHistory.json', {})
+    popupHisData : $resource('./assets/json/tcPopupHistory.json', {}),
+    steps : $resource('./assets/json/steps.json', {},{ query: {method:'GET', isArray: false}}),
   };
 }]);

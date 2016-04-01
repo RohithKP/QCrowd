@@ -55,6 +55,9 @@ angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable',
                 },
               tcHistory: function(dataFactory){
                   return dataFactory.tcHistory.query();
+                },
+              steps: function(dataFactory){
+                  return dataFactory.steps.query();
                 }
             }
       },
