@@ -4,7 +4,7 @@ angular.module('QCrowd')
     '$state',
     'helpers',
     'treeData',
-    function ($scope,$state,helpers, treeData) {
+    function ($scope,$state,helpers,treeData) {
       $scope.treeData = treeData;
 
       $scope.isLeaf = function(node) {
@@ -17,7 +17,7 @@ angular.module('QCrowd')
       }
 
       $scope.helpers = helpers;
-       $scope.expandedNodes =null;
+       $scope.expandedNodes =[];
       $scope.toggle = function(){
         $scope.edit = !$scope.edit;
         inputs = document.querySelectorAll('.mute-input');

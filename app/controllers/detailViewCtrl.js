@@ -19,7 +19,7 @@ $scope.reset = function (obj) {
 
 $scope.addModule = function(parentNode,module) {
   if($scope.module.name !== undefined && $scope.module.name !== ""){
-    $scope.expandedNodes.push(parentNode);
+    $scope.$parent.expandedNodes.push(parentNode);
     newModule = {"title":module.name, "id":Date.now(),"description":module.description, "links": [{}]};
     parentNode.links.unshift(newModule);
     $scope.$parent.$broadcast('select',newModule);
@@ -30,7 +30,7 @@ $scope.addModule = function(parentNode,module) {
 
 $scope.addLeaf = function(parentNode,testCase) {
   if($scope.testCase.name !== undefined && $scope.testCase.name !== ""){
-    $scope.expandedNodes.push(parentNode);
+    $scope.$parent.expandedNodes.push(parentNode);
     newNode = {"title": testCase.name, "id":Date.now(),"description":testCase.description, "links": []};
     parentNode.links.push(newNode);
     $scope.$parent.$broadcast('select',newNode);

@@ -1,5 +1,5 @@
-angular.module('QCrowd').controller('treeCtrl',['$scope','$http', '$timeout', 'dataFactory', function ($scope,$http, $timeout, dataFactory) {
-  $scope.dataForTheTree = $scope.$parent.treeData;
+angular.module('QCrowd').controller('treeCtrl',['$scope','$http', function ($scope,$http) {
+
   $scope.treeOptions = {
     nodeChildren: "links",
     dirSelectable: true,
@@ -15,12 +15,15 @@ angular.module('QCrowd').controller('treeCtrl',['$scope','$http', '$timeout', 'd
     }
   };
 
-    $timeout(function () {
+  $scope.treeData.$promise.then(function (data) {
+      $scope.dataForTheTree = data;
       $scope.selected = $scope.dataForTheTree[0];
       $scope.$parent.expandedNodes = [$scope.dataForTheTree[0]];
       $scope.showSelected($scope.dataForTheTree[0]);
-    }, 100)
 
+  }, function () {
+    console.log("fail");
+  })
     // $http.get('./assets/json/treeData.json')
     //   .then(function (data) {
     //     $scope.selected = data[0];
