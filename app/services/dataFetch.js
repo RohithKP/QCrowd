@@ -6,17 +6,17 @@ angular.module('QCrowd').factory('dataFactory',['$resource', '$q', '$http', func
     treeData : $resource('./assets/json/treeData.json', {}),
     popupHisData : $resource('./assets/json/tcpopupHistory.json', {}),
 
-    myData: function () {
-      var url = './assets/json/treeData.json',
-          deferred = $q.defer();
-
-          $http.get(url).then(function (data) {
-            deferred.resolve(data);
-          }, function () {
-            deferred.reject(data);
-          })
-
-          return deferred.promise;
-    }
+    // myData: function () {
+    //   var url = './assets/json/treeData.json',
+    //       deferred = $q.defer();
+    //
+    //       $http.get(url).then(function (data) {
+    //         deferred.resolve(data);
+    //       }, function () {
+    //         deferred.reject(data);
+    //       })
+    //
+    //       return deferred.promise;
+    // }
   };
 }]);

@@ -1,6 +1,5 @@
 angular.module('QCrowd').controller('treeCtrl',['$scope','$http', '$timeout', 'dataFactory', function ($scope,$http, $timeout, dataFactory) {
   $scope.dataForTheTree = $scope.$parent.treeData;
-  console.log(  $scope.dataForTheTree);
   $scope.treeOptions = {
     nodeChildren: "links",
     dirSelectable: true,
