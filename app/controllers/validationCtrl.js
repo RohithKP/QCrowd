@@ -3,7 +3,7 @@ angular.module('QCrowd').controller('validationCtrl',['$scope','$state',function
   $scope.login = function() {
     $scope.$broadcast('show-errors-check-validity');
     if ($scope.loginForm.$valid) {
-      $scope.reset();
+       $scope.reset();
        $state.go('dashboard');
     }
   };

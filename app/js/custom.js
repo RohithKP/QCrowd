@@ -1,4 +1,5 @@
-angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable','ngAnimate','chart.js','angularUtils.directives.uiBreadcrumbs','ngResource']).config(function ($stateProvider,$urlRouterProvider) {
+angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable','ngAnimate','chart.js','angularUtils.directives.uiBreadcrumbs','ngResource'])
+.config(function ($stateProvider,$urlRouterProvider) {
   $urlRouterProvider.otherwise('/login');
 
   $stateProvider
@@ -97,14 +98,6 @@ angular.module('QCrowd',['ui.router','treeControl','ui.bootstrap','ng-sortable',
       displayName:'Statistics'
     }
   })
-  .state('dashboard.projects.addStep', {
-    url: '/projects/addStep',
-    views:{
-      // 'treeView':{template:'partials/tree.html'},
-      // 'addView':{template:'partials/detailView.html'},
-    }
-  })
-
 });
 
 angular.module("QCrowd").run(function ($rootScope, $state, $stateParams) {

@@ -7,5 +7,5 @@ angular.module('QCrowd').controller('statisticsCntrl',['$scope','$stateParams',f
       segmentShowStroke : false,
       animateRotate : false,
   }
-  $scope.failedTests = ["Lorem  adsasdasd ","Why this colaveri","Login test"];
+  $scope.failedTests = ["Lorem  adsasdasd ","Marcium loperse","Login test"];
 }])

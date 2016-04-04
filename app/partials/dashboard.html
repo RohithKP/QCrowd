@@ -6,20 +6,45 @@
           <table class="table">
             <tr>
               <th class="col-md-1">#</th>
-              <th class="col-md-2">Task Name &nbsp;<i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'taskname.html'"  popover-elem></i></th>
-              <th class="col-md-2">Status &nbsp;<i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'status.html'" popover-elem></i></th>
-              <th class="col-md-2">Browsers &nbsp;<i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'browsers.html'" popover-elem></i></th>
-              <th class="col-md-2">User &nbsp;<i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'users.html'" popover-elem></i></th>
+              <th class="col-md-2">Task Name &nbsp;
+                <i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'taskname.html'"popover-elem></i>
+              </th>
+              <th class="col-md-2">Status &nbsp;
+                <i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'status.html'" popover-elem></i>
+              </th>
+              <th class="col-md-2">Browsers &nbsp;
+                <i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'browsers.html'" popover-elem></i>
+              </th>
+              <th class="col-md-2">User &nbsp;
+                <i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'users.html'" popover-elem></i>
+              </th>
             </tr>
-            <tr ng-repeat="project in projects  | projFilter:query.projectQuery |userFilter:query.userQuery |statusFilter:query.statusQuery |browserFilter:brarray ">
+            <tr ng-repeat="project in projects | projFilter:query.projectQuery | userFilter:query.userQuery | statusFilter:query.statusQuery | browserFilter:brarray ">
               <td>{{project.id}}</td><td>{{project.name}}</td>
-              <td><span ng-class="{'fail':project.status.text=='Failed','pass':project.status.text=='Passed'}">{{project.status.text}}<uib-progressbar animate="false" value="project.status.percent" type="success"><b>{{project.status.percent}}%</b></uib-progressbar></span></td>
-              <td><span class="browser-icon-wrapper"><span class="browser-icon" ng-repeat="browser in project.browsers" ng-class="{pass:browser.status==1,fail:browser.status==0,muted:browser.status==-1}"><i class="fa fa-{{browser.platform}} platform-icon"></i><span class='version'>V 40.1</span><i  class="fa fa-{{browser.name}}">&nbsp;</i></span></span></td>
+              <td>
+                <span ng-class="{'fail':project.status.text=='Failed','pass':project.status.text=='Passed'}">
+                  {{project.status.text}}
+                  <uib-progressbar animate="false" value="project.status.percent"type="success">
+                    <b>{{project.status.percent}}%</b>
+                  </uib-progressbar>
+                </span>
+              </td>
+              <td>
+                <span class="browser-icon-wrapper">
+                  <span class="browser-icon" ng-repeat="browser in project.browsers" ng-class="{pass:browser.status==1,fail:browser.status==0,muted:browser.status==-1}">
+                    <i class="fa fa-{{browser.platform}} platform-icon"></i>
+                    <span class='version'>V 40.1</span>
+                    <i class="fa fa-{{browser.name}}">&nbsp;</i>
+                  </span>
+                </span>
+              </td>
               <td><img class="img-circle avatar " src="{{project.user.imgUrl}}"/> {{project.user.name}}</td>
             </tr>
           </table>
           <div>
-            <div id="select-num" class="inline-block col-md-4 top-padding">Show <select ng-model="viewby.selected" ng-options="o as o for o in viewby.options"></select></div>
+            <div id="select-num" class="inline-block col-md-4 top-padding">Show
+              <select ng-model="viewby.selected" ng-options="o as o for o in viewby.options"></select>
+            </div>
             <div id="pagin-div" class="inline-block col-md-4">
               <uib-pagination total-items="495" items-per-page="5" ng-model="currentPage" max-size="4" previous-text="&lsaquo;" next-text="&rsaquo;" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
             </div>
@@ -34,15 +59,24 @@
         <uib-tab index="2"  heading="PROJECTS" active="tab.active" disable="tab.disabled">
           <div class="">
             <div class="project-item" >
-              <input type="checkbox" name="name" value="" ng-checked="helpers.allSelected(projectsSelected,projects)" ng-click=" helpers.selectAll(projectsSelected,projects)"> <span><strong>Project Name</strong></span>
-              <span class="pull-right add-icon"><i class="fa fa-plus-circle" ng-click="helpers.modalOpen('addProject.html','addInstanceCtrl')"></i><i class="fa fa-trash" ng-click="helpers.deleteItem(projectsSelected,projects)" ng-hide="helpers.empty(projectsSelected)"></i></span>
+              <input type="checkbox" name="name" value="" ng-checked="helpers.allSelected(projectsSelected,projects)" ng-click=" helpers.selectAll(projectsSelected,projects)">
+              <span><strong>Project Name</strong></span>
+              <span class="pull-right add-icon">
+               <i class="fa fa-plus-circle" ng-click="helpers.modalOpen('addProject.html','addInstanceCtrl')"></i>
+               <i class="fa fa-trash" ng-click="helpers.deleteItem(projectsSelected,projects)" ng-hide="helpers.empty(projectsSelected)"></i>
+             </span>
             </div>
             <div class="project-list">
-              <li class="project-item gray-hover" ng-repeat="project in projects" ui-sref="dashboard.projects"><input type="checkbox" name="name" value="" ng-checked="helpers.isItem(projectsSelected,project.id)" ng-click="$event.stopPropagation(); helpers.toggleSelect(projectsSelected,project.id)"> {{project.name}}</li>
+              <li class="project-item gray-hover" ng-repeat="project in projects" ui-sref="dashboard.projects">
+                <input type="checkbox" name="name" value="" ng-checked="helpers.isItem(projectsSelected,project.id)" ng-click="$event.stopPropagation(); helpers.toggleSelect(projectsSelected,project.id)">
+                 {{project.name}}
+               </li>
             </div>
           </div>
           <div>
-            <div id="select-num" class="inline-block col-md-4 top-padding">Show <select ng-model="viewby.selected" ng-options="o as o for o in viewby.options"></select></div>
+            <div id="select-num" class="inline-block col-md-4 top-padding">Show
+              <select ng-model="viewby.selected" ng-options="o as o for o in viewby.options"></select>
+            </div>
             <div id="pagin-div" class="inline-block col-md-4">
               <uib-pagination total-items="495" items-per-page="5" ng-model="currentPage" max-size="4" previous-text="&lsaquo;" next-text="&rsaquo;" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
             </div>
