@@ -58,7 +58,6 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
             {
               $scope.obj = { "path" :  path + "['" + prop + "']" , "value" : value} ;
               $scope.obj.path = $scope.obj.path.slice(0,-6);
-              console.log($scope.obj.path);
               return eval('ref'+$scope.obj.path);
             }
           }
@@ -238,7 +237,6 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
               } else {
                 if (!$scope.options.equality(selectedNode, $scope.selectedNode)) {
                   $scope.selectedNode = selectedNode;
-                  console.log(selectedNode);
                   selected = true;
                 }
                 else {

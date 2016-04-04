@@ -23,7 +23,7 @@ a:focus {
   /*border-radius: 4px 4px 0 0 ;*/
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
-    border-top: 2px solid red;
+    border-top: 2px solid #FF4F02;
 }
 
 /*login*/
@@ -43,7 +43,7 @@ a:focus {
 }
 .top {
     display: table-cell;
-    padding: 100px 0;
+    padding: 80px 0;
     background-color: #f1f1f1;
     background-image: url(../images/bg_pattern.png);
 }
@@ -126,7 +126,7 @@ border: none;
 }
 
 .btn-wrapper{
-  padding: 30px 0;
+  padding: 20px 0;
 }
 .reg-link{
   display: block;
@@ -481,7 +481,7 @@ div.modal-env-wrapper.bar:hover i {display: inline;}
   background-color: #fff;
   border-top: 1px solid rgba(204, 204, 204, 0.5);
   border-bottom: 1px solid rgba(204, 204, 204, 0.5);
-  border-left: 2px solid red;
+  border-left: 2px solid #FF4F02;
   color:#2C3742;
   border-right: 1px solid #fff;
 margin-right: -2px;
@@ -752,4 +752,21 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .breadcrumb>li+li:before{
       content: ">\00a0";
+}
+.popup{
+  font-family: 'Ubuntu', sans-serif;
+
+}
+.add-url-txt i{
+  padding-right: 5px;
+}
+.export{
+  clear: both;
+}
+.pad-top{
+  padding-top: 10px;
+}
+#export button {
+  padding: 0;
+  min-width:  81px;
 }
