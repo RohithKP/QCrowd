@@ -4,7 +4,8 @@ angular.module("QCrowd").factory('helpers',['$uibModal',function($uibModal) {
       var index = array.indexOf(arg);
       if (index > -1) {
           array.splice(index, 1);
-      }else{
+      }
+      else{
         array.push(arg);
       }
     },
@@ -18,7 +19,8 @@ angular.module("QCrowd").factory('helpers',['$uibModal',function($uibModal) {
       if(array[0]==undefined)return false;
       var bool =true;
       angular.forEach(items,function(item){
-            if(this.isItem(array,item.id)==false)bool = false;
+            if(this.isItem(array,item.id)==false)
+              bool = false;
         }.bind(this))
       return bool;
     },
@@ -27,9 +29,9 @@ angular.module("QCrowd").factory('helpers',['$uibModal',function($uibModal) {
         array.length=0;
         angular.forEach(items,function(item){
           array.push(item.id);
-          console.log(array);
         })
-      }else {
+      }
+      else {
            array.length=0;
       }
     },
@@ -40,7 +42,6 @@ angular.module("QCrowd").factory('helpers',['$uibModal',function($uibModal) {
        if(pos>-1){
        items.splice(pos,1);
        }
-       console.log(pos);
       });
         array.length=0;
     },
