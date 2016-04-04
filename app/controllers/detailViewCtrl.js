@@ -2,7 +2,6 @@ angular.module('QCrowd').controller('detailViewCtrl',['$scope','$state','helpers
 $scope.modHistory = modHistory;
 $scope.tcHistory = tcHistory;
 $scope.newStep = {};
-console.log(steps);
 $scope.steps = steps;
 // $scope.sortableOptions = { additionalPlaceholderClass: 'placeholder' };
 $scope.updateCancel =function () {

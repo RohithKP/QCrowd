@@ -5,7 +5,7 @@
         <span class="pull-right edit-icon" ng-show='!edit'  ng-click="toggle()"><i class="fa fa-pencil"></i></span>
       </span>
       <input class="text-danger mute-input  null-pad " id="inp1" disabled="true" ng-model="currentNode.title" ng-class="{'form-control un-mute':edit}" style="width:240px;"></input>
-      <span class="heading ">{{currentNode.heading}} Description {{edit}}</span>
+      <span class="heading ">{{currentNode.heading}} Description</span>
       <textarea disabled class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
 <div class="" ng-show="share.more&&isLeaf(nodeRef)">
       <span class="heading ">Precondition</span>
@@ -55,10 +55,10 @@
               <div class="form-group">
                 <select class="form-control">
                   <option>Priority</option>
+                  <option>1</option>
                   <option>2</option>
                   <option>3</option>
                   <option>4</option>
-                  <option>5</option>
                 </select>
               </div>
               <div class="mar-right-20">
@@ -75,6 +75,9 @@
         <span class="">STEPS</span><span class="pull-right" ng-show="!helpers.empty(stepsChecked)" ng-click="helpers.deleteItem(stepsChecked,steps[nodeId])"><i class="fa fa-trash"></i></span>
               <div id="listWithHandle" class="table-responsive">
                 <table class="table borderless">
+                  <tr>
+
+                  </tr>
                   <tbody ng-sortable >
                     <tr ng-repeat="step in steps[nodeId]" class="iHover">
                       <td>
