@@ -766,3 +766,7 @@ input[type=number]::-webkit-outer-spin-button {
 .pad-top{
   padding-top: 10px;
 }
+#export button {
+  padding: 0;
+  min-width:  81px;
+}
