@@ -1,12 +1,10 @@
 
 angular.module('QCrowd').controller('dashBoardCtrl',['$scope','helpers','$window','$document','$log','projects',function($scope,helpers,$window,$document,$log,projects) {
   projects.$promise.then(
-  function (data) {
-    $scope.projects =  data;
-  },function () {
-
-  }
-  )
+    function (data) {
+      $scope.projects =  data;
+    },function () {}
+  );
 
   $scope.query = {projectQuery:'',userQuery:'',statusQuery:'',browserQuery:''};
 

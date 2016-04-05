@@ -7,17 +7,16 @@
       <input class="text-danger mute-input  null-pad " id="inp1" disabled="true" ng-model="currentNode.title" ng-class="{'form-control un-mute':edit}" style="width:240px;"></input>
       <span class="heading ">{{currentNode.heading}} Description</span>
       <textarea disabled class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
-<div class="" ng-show="share.more&&isLeaf(nodeRef)">
-      <span class="heading ">Precondition</span>
-      <textarea disabled class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
-
-      <span class="heading ">Priority</span>
-      <textarea disabled="true" class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
-</div>
-<div class="sidebar" ng-click="showMore()" ng-show="isLeaf(nodeRef)">
-<i ng-show="!share.more" class="fa fa-caret-down caret-down"></i>
-<i ng-show="share.more" class="fa fa-caret-up caret-down"></i>
-</div>
+      <div class="" ng-show="share.more&&isLeaf(nodeRef)">
+        <span class="heading ">Precondition</span>
+        <textarea disabled class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
+        <span class="heading ">Priority</span>
+        <textarea disabled="true" class="mute-input  null-pad" style="width:680px;min-height:40px;" name="name" ng-model="currentNode.description" ng-class="{'form-control un-mute':edit}"></textarea>
+      </div>
+      <div class="sidebar" ng-click="showMore()" ng-show="isLeaf(nodeRef)">
+        <i ng-show="!share.more" class="fa fa-caret-down caret-down"></i>
+        <i ng-show="share.more" class="fa fa-caret-up caret-down"></i>
+      </div>
       <div  class="mar-top-20 mar-right-20" ng-show='edit'>
         <button  class="btn btn-custom-light" type="button" name="button" ng-click="updateCancel()">CANCEL</button>
         <button  class="btn btn-custom-dark" type="button" name="button" ng-click="update(currentNode)">SAVE</button>
@@ -36,47 +35,54 @@
                  <textarea class="form-control" rows="3" ng-model="module.description" placeholder="Module Description" required></textarea>
                </div>
                <div class="mar-right-20">
-                  <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="reset('module')">CANCEL</button>
-                  <button class="btn btn-custom-dark" ng-show='!isLeaf(currentNode)' type="submit" name="button" ng-click="addModule(nodeRef,module)">SAVE</button>
+                  <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="reset('module')">     CANCEL
+                  </button>
+                  <button class="btn btn-custom-dark" ng-show='!isLeaf(currentNode)' type="submit" name="button" ng-click="addModule(nodeRef,module)">
+                    SAVE
+                  </button>
                </div>
-            </div>
-          </uib-tab>
-          <uib-tab heading="NEW TEST CASE" classes="ver-tab">
-            <div class="tc-form-wrapper">
-              <div class="form-group" >
-                <input type="text" class="form-control" ng-model="testCase.name" placeholder="Test Case Name" required>
+             </div>
+            </uib-tab>
+            <uib-tab heading="NEW TEST CASE" classes="ver-tab">
+              <div class="tc-form-wrapper">
+                <div class="form-group" >
+                  <input type="text" class="form-control" ng-model="testCase.name" placeholder="Test Case Name" required>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" rows="3" ng-model="testCase.description" placeholder="Test Case Description" required></textarea>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" rows="3" ng-model="testCase.condition" placeholder="Pre Condition" required></textarea>
+                </div>
+                <div class="form-group">
+                  <select class="form-control">
+                    <option>Priority</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <div class="mar-right-20">
+                  <button class="btn btn-custom-light" ng-show='!isLeaf(nodeRef)' type="button" name="button" ng-click="reset('testCase')">
+                    CANCEL
+                  </button>
+                  <button class="btn btn-custom-dark" ng-show='!isLeaf(nodeRef)' type="submit" name="button" ng-click="addLeaf(nodeRef,testCase)">
+                    SAVE
+                  </button>
+                </div>
               </div>
-              <div class="form-group">
-                <textarea class="form-control" rows="3" ng-model="testCase.description" placeholder="Test Case Description" required></textarea>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" rows="3" ng-model="testCase.condition" placeholder="Pre Condition" required></textarea>
-              </div>
-              <div class="form-group">
-                <select class="form-control">
-                  <option>Priority</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                </select>
-              </div>
-              <div class="mar-right-20">
-                <button class="btn btn-custom-light" ng-show='!isLeaf(nodeRef)' type="button" name="button" ng-click="reset('testCase')">CANCEL</button>
-                <button class="btn btn-custom-dark" ng-show='!isLeaf(nodeRef)' type="submit" name="button" ng-click="addLeaf(nodeRef,testCase)">SAVE</button>
-              </div>
-            </div>
-          </uib-tab>
+            </uib-tab>
         </uib-tabset>
       </div>
-
       <div class="" ng-show='isLeaf(nodeRef)'>
         <div ng-show="!add">
-        <span class="">STEPS</span><span class="pull-right" ng-show="!helpers.empty(stepsChecked)" ng-click="helpers.deleteItem(stepsChecked,steps[nodeId])"><i class="fa fa-trash"></i></span>
-              <div id="listWithHandle" class="table-responsive">
+          <span class="">STEPS</span><span class="pull-right" ng-show="!helpers.empty(stepsChecked)" ng-click="helpers.deleteItem(stepsChecked,steps[nodeId])">
+            <i class="fa fa-trash"></i>
+            </span>
+            <div id="listWithHandle" class="table-responsive">
                 <table class="table borderless">
                   <tr>
-
                   </tr>
                   <tbody ng-sortable >
                     <tr ng-repeat="step in steps[nodeId]" class="iHover">
@@ -99,32 +105,32 @@
                   </tbody>
                 </table>
               </div>
-        <div class=""  ng-class="{'text-center':!isSteps()}">
-          <h3 ng-show="!isSteps()" class="text-muted intro-text">There are no steps to show</h3>
-          <div class="mar-right-20">
-            <button class="btn btn-custom-light"  type="button" name="button" ng-click="">EMBED</button>
-            <button class="btn btn-custom-dark"  type="button" name="button" ng-click="add = true">ADD</button>
+              <div class=""  ng-class="{'text-center':!isSteps()}">
+                <h3 ng-show="!isSteps()" class="text-muted intro-text">There are no steps to show</h3>
+                <div class="mar-right-20">
+                  <button class="btn btn-custom-light"  type="button" name="button" ng-click="">EMBED</button>
+                  <button class="btn btn-custom-dark"  type="button" name="button" ng-click="add = true">ADD</button>
+                </div>
+              </div>
+            </div>
+            <div ng-show="add">
+              <div class="form-group">
+                <label for="">What should the tester do?</label>
+                <input type="text" class="form-control" ng-model="newStep.que" placeholder="Click the login button" required>
+              </div>
+              <div class="form-group">
+                <label for="">Ask the tester what they should check for?</label>
+                <input type="text" class="form-control" ng-model="newStep.check" placeholder="Are you at login page?" required>
+              </div>
+              <div  class="mar-top-20 mar-right-20" >
+                <button  class="btn btn-custom-light" type="button" name="button" ng-click="add=false;">CANCEL</button>
+                <button  class="btn btn-custom-dark" type="button" name="submit" ng-click="add=false;addStep(newStep)">SAVE</button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div ng-show="add">
-        <div class="form-group">
-          <label for="">What should the tester do?</label>
-          <input type="text" class="form-control" ng-model="newStep.que" placeholder="Click the login button" required>
-        </div>
-        <div class="form-group">
-          <label for="">Ask the tester what they should check for?</label>
-          <input type="text" class="form-control" ng-model="newStep.check" placeholder="Are you at login page?" required>
-        </div>
-        <div  class="mar-top-20 mar-right-20" >
-          <button  class="btn btn-custom-light" type="button" name="button" ng-click="add=false;">CANCEL</button>
-          <button  class="btn btn-custom-dark" type="button" name="submit" ng-click="add=false;addStep(newStep)">SAVE</button>
-        </div>
-      </div>
-     </div>
-    </div>
-  </uib-tab>
-  <uib-tab  index="1"  heading={{getTabName()}} active="tab.active" disable="tab.disabled">
-  <div class="" ui-view="tabView"></div>
- </uib-tab>
-</uib-tabset>
+      </uib-tab>
+      <uib-tab  index="1"  heading={{getTabName()}} active="tab.active" disable="tab.disabled">
+        <div class="" ui-view="tabView"></div>
+      </uib-tab>
+  </uib-tabset>

@@ -1,40 +1,44 @@
 <div class="detail-wrapper">
-<span class="block back-link"><i class="fa fa-chevron-down fa-rotate-90"></i><a class="" ui-sref="dashboard.projects.module">Back to History</a></span>
-<div id="statistics" class="">
-<div class="vt-wrapper" ng-show='!isLeaf(nodeRef)'>
-  <uib-tabset vertical="true" type="pills">
-    <uib-tab heading="SUMMARY" classes="ver-tab">
-      <div class="col-md-3">
-        Total :{{helpers.total(chartData)}}
-        <ul class="cust-pie-legend">
-          <li ng-repeat="label in labels" style="color:{{colors[$index]}}">{{label}}:{{chartData[$index]}}</li>
-        </ul>
-      </div>
-      <div class="col-md-6 col-xs-12" style="">
-        <canvas id="base" class="chart-base" chart-type="type" chart-data="chartData" chart-labels="labels" chart-options="chartOptions" chart-colours="colors"></canvas>
-      </div>
-      <div class="col-md-3">
-       <ul class="cust-pie-legend pull-right">
-         <li ng-repeat="label in labels" style="color:{{colors[$index]}}"><span class="colored-span"style="background-color:{{colors[$index]}};"></span>{{label}}</li>
-       </ul>
-      </div>
-      <div id="export" class="export text-right">
-        <button type="button" class="btn btn-custom-dark" name="button">EXPORT</button>
-      </div>
-    </uib-tab>
+  <span class="block back-link"><i class="fa fa-chevron-down fa-rotate-90"></i><a class="" ui-sref="dashboard.projects.module">Back to History</a></span>
+  <div id="statistics" class="">
+    <div class="vt-wrapper" ng-show='!isLeaf(nodeRef)'>
+      <uib-tabset vertical="true" type="pills">
+        <uib-tab heading="SUMMARY" classes="ver-tab">
+          <div class="col-md-3">
+            Total :{{helpers.total(chartData)}}
+            <ul class="cust-pie-legend">
+              <li ng-repeat="label in labels" style="color:{{colors[$index]}}">{{label}}:{{chartData[$index]}}</li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-xs-12" style="">
+            <canvas id="base" class="chart-base" chart-type="type" chart-data="chartData" chart-labels="labels" chart-options="chartOptions" chart-colours="colors">
+            </canvas>
+          </div>
+          <div class="col-md-3">
+            <ul class="cust-pie-legend pull-right">
+              <li ng-repeat="label in labels" style="color:{{colors[$index]}}"><span class="colored-span"style="background-color:{{colors[$index]}};"></span>{{label}}</li>
+            </ul>
+          </div>
+          <div id="export" class="export text-right">
+            <button type="button" class="btn btn-custom-dark" name="button">EXPORT</button>
+          </div>
+        </uib-tab>
 
-    <uib-tab heading="PASSED TESTS" classes="ver-tab">
-    </uib-tab>
-    <uib-tab heading="FAILED TESTS" classes="ver-tab">
-      <div class="col-md-12 list-with-padding">
-        <ul class="cust-pie-legend">
-          <li ng-repeat="test in failedTests"><span class="text-danger">{{$index+1}}&nbsp;&nbsp;test.name</span><span class="pull-right text-muted">Show Steps <i class="fa fa-chevron-down"></i></span></li>
-        </ul>
-      </div>
-    </uib-tab>
-    <uib-tab heading="NOT RUN" classes="ver-tab">
-    </uib-tab>
-  </uib-tabset>
-</div>
-</div>
+        <uib-tab heading="PASSED TESTS" classes="ver-tab">
+        </uib-tab>
+        <uib-tab heading="FAILED TESTS" classes="ver-tab">
+          <div class="col-md-12 list-with-padding">
+            <ul class="cust-pie-legend">
+              <li ng-repeat="test in failedTests">
+                <span class="text-danger">{{$index+1}}&nbsp;&nbsp;{{test}}</span>
+                <span class="pull-right text-muted">Show Steps <i class="fa fa-chevron-down"></i></span>
+              </li>
+            </ul>
+          </div>
+        </uib-tab>
+        <uib-tab heading="NOT RUN" classes="ver-tab">
+        </uib-tab>
+      </uib-tabset>
+    </div>
+  </div>
 </div>
