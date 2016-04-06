@@ -7,7 +7,7 @@ angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers','
       }
       return false;
     }
-  }
+  };
 
    $scope.helpers = helpers;
    $scope.expandedNodes = [];
@@ -17,14 +17,13 @@ angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers','
     angular.forEach(inputs,function (input) {
       input.disabled = !$scope.edit;
     })
-    console.log($scope.edit);
-  }
+  };
   $scope.update = function (currentNode) {
     $scope.toggle();
     $scope.$broadcast('rename',currentNode);
-  }
-  $scope.module = {}
-  $scope.testCase = {}
+  };
+  $scope.module = {};
+  $scope.testCase = {};
 
   $scope.getTitle = function () {
     var title;
@@ -37,7 +36,7 @@ angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers','
       title = "Module"
     }
     return title;
-  }
+  };
   $scope.changeState = function () {
     if($scope.parentNode == null){
       $state.go('dashboard.projects');
@@ -48,9 +47,9 @@ angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers','
     else{
        $state.go('dashboard.projects.module');
         }
-  }
+  };
 
-  $scope.share = {}
+  $scope.share = {};
   $scope.share.more = false;
 
  $scope.disableInputs = function () {
@@ -58,7 +57,7 @@ angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers','
    angular.forEach(inputs,function (input) {
      input.disabled = true;
    })
-}
+};
   $scope.showSelected = function(node,$parentNode,$index) {
     $scope.share.more = false;
     $scope.edit = false;
@@ -82,5 +81,5 @@ angular.module('QCrowd').controller('projectCtrl',['$scope','$state','helpers','
                brarray : [],
               platformOptions:$scope.platformOptions
               }
-            }
+            };
 }]);

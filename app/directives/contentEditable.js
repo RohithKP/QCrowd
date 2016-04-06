@@ -18,12 +18,10 @@ angular.module('QCrowd').directive('contenteditable', function() {
             ctrl.$setViewValue(elm.html());
 
             elm.bind('keydown', function(event) {
-                console.log("keydown " + event.which);
                 var esc = event.which == 27,
                     el = event.target;
 
                 if (esc) {
-                        console.log("esc");
                         ctrl.$setViewValue(elm.html());
                         el.blur();
                         event.preventDefault();
