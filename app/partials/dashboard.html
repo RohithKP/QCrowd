@@ -34,6 +34,7 @@
                   <span class="browser-icon" ng-repeat="browser in project.browsers" ng-class="{pass:browser.status==1,fail:browser.status==0,muted:browser.status==-1}">
                     <i class="fa fa-{{browser.platform}} platform-icon"></i>
                     <span class='version'>V 40.1</span>
+                    <span class='plt-version'>{{browser['platform-ver']}}</span>
                     <i class="fa fa-{{browser.name}}">&nbsp;</i>
                   </span>
                 </span>

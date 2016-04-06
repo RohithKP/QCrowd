@@ -296,9 +296,7 @@ border-radius: 0 0 4px 4px  ;
 .popover-content{
   padding: 0;
 }
-td .fa{
-  margin-right: 6px;
-}
+
 /*.relative-wrapper{
   position: relative;
   display: block;
@@ -320,13 +318,17 @@ td{
   /*top:8px;*/
 }
 .browser-icon-wrapper:hover .browser-icon{
- padding:7px 10px;
+  padding:7px 10px;
+  margin-right:0;
 }
-.browser-icon-wrapper:hover .platform-icon,.browser-icon-wrapper:hover .version{
+.browser-icon-wrapper:hover .platform-icon,.browser-icon-wrapper:hover .version,.browser-icon-wrapper:hover .plt-version {
  display: block;
 }
 .browser-icon{
   position: relative;
+}
+td .browser-icon-wrapper .browser-icon{
+  margin-right: 6px;
 }
 .platform-icon{
   display: none;
@@ -334,6 +336,9 @@ td{
   font-size: 12px;
   right: 5px;
   top: 0;
+}
+.browser-icon-wrapper .plt-version{
+  display: none;
 }
 .version{
   display: none;
@@ -689,6 +694,7 @@ margin-right: 10px;
 #user-table .table>tbody>tr>td{
   vertical-align: top;
   padding: 0;
+  padding-right: 4px;
 
 }
 .content-wrapper{
@@ -700,10 +706,6 @@ margin-right: 10px;
 }
 .mar-top-10{
   margin-top: 10px;
-}
-.bold-color{
-  color: #2C3742;
-  font-weight: 500;
 }
 #pagin-div{
   text-align: center;
@@ -773,4 +775,16 @@ input[type=number]::-webkit-outer-spin-button {
 }
 #listWithHandle .table>tbody+tbody{
   border-top: none;
+}
+#chekbox-margin{
+  margin-right: 3px;
+}
+.expctd{
+  color: #636A70;
+}
+.plt-version{
+position: absolute;
+top: 0;
+font-size: 9px;
+right: 18px;
 }
