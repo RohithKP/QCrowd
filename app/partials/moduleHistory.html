@@ -35,13 +35,13 @@
        <tr ng-repeat="item in tcResults">
           <td>
             <div class="content-wrapper">
-              <span class="block bold-color">{{item.ques}}</span>
+              <span class="block ">{{item.ques}}</span>
               <div class="mar-top-20">
-                <span class="bold-color">Expected Result:</span>
-                <span class=" muted">{{item.expected}}</span>
+                <span>Expected Result:</span>
+                <span class="expctd">{{item.expected}}</span>
               </div>
             </div>
-            <span class="block mar-top-20 bold-color comment-wrapper">QA comments</span>
+            <span class="block mar-top-20 comment-wrapper">QA comments</span>
           </td>
           <td ng-repeat="tc in item.QA">
             <div class="" >
@@ -50,10 +50,10 @@
                   <img src="{{tc.screenShotUrl}}" alt="" class="screenShotUrl" ng-click="showImg(tc.screenShotUrl)"/>
                 </div>
                 <div class="mar-top-10">
-                  <span class="bold-color">Result:</span><span ng-class="{pass:tc.Result==='Passed',fail:tc.Result==='Failed'}">{{tc.Result}}</span>
+                  <span>Result:</span><span ng-class="{pass:tc.Result==='Passed',fail:tc.Result==='Failed'}">{{tc.Result}}</span>
                 </div>
                 <div class="">
-                  <span class="bold-color">Time/Date:</span><span class="muted">{{tc.DateTime }}</span>
+                  <span>Time/Date:</span><span class="expctd">{{tc.DateTime }}</span>
                 </div>
               </div>
               <div class="comment-wrapper">

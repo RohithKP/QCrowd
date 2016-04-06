@@ -60,7 +60,6 @@ angular.module("QCrowd").factory('helpers',['$uibModal',function($uibModal) {
 
       modalInstance.result.then(function (x) {
       }, function () {
-      console.log('Modal dismissed at: ' + new Date());
       });
     }
 
