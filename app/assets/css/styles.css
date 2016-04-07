@@ -458,7 +458,8 @@ div.modal-env-wrapper.bar:hover i {display: inline;}
   font-size: 20px;
 }
 .tree-div{
-  /*background-color: #999;*/
+  background-color: #999;
+  opacity: 0.9;
   border-radius: 5px 0 0 5px;
   min-height: 500px;
   margin-top: 42px;
