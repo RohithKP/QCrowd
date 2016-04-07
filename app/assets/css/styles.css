@@ -17,6 +17,7 @@ a:hover,
 a:focus {
   color: #23527c;
   text-decoration: underline;
+  cursor: pointer;
 }
 .active{
   /*color: #ccc;*/
@@ -38,13 +39,13 @@ a:focus {
 .middle {
     display: table-cell;
     vertical-align: middle;
-    background-color: #f1f1f1;
+    background-color: #E6E6E6;
     background-image: url(../images/bg_pattern.png);
 }
 .top {
     display: table-cell;
     padding: 80px 0;
-    background-color: #f1f1f1;
+    background-color: #E6E6E6;
     background-image: url(../images/bg_pattern.png);
 }
 .inner {
@@ -472,6 +473,13 @@ div.modal-env-wrapper.bar:hover i {display: inline;}
 /*.nav-pills>li{
   width: 140px;
 }*/
+
+#detailTab>.tab-content{
+min-height: 510px;
+}
+#dashboard .tab-content{
+    padding: 10px;
+}
 .nav-pills>li a{
   padding: 12px 20px;
   background-color: rgba(135, 135, 135, 0.18);
@@ -549,13 +557,13 @@ hr{
   margin-left: -25px;
 }
 .sidebar{
-  background-color: #333;
+  background-color: #454E58;
 position: absolute;
 right: 0;
 top: 0;
 bottom:0;
-width: 12px;
-border-radius: 0 4px 0 0 ;
+width: 11px;
+border-radius: 0 4px 4px 0 ;
 }
 .caret-down{
   position: absolute;
@@ -788,4 +796,19 @@ position: absolute;
 top: 0;
 font-size: 9px;
 right: 18px;
+}
+::-webkit-scrollbar-track
+{
+	background-color: #F5F5F5;
+  border-radius: 4px;
+}
+::-webkit-scrollbar
+{
+	width: 4px;
+	background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb
+{
+  border-radius: 4px;
+	background-color: #2C3748;
 }
