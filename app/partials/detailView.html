@@ -18,8 +18,8 @@
         <i ng-show="share.more" class="fa fa-caret-up caret-down"></i>
       </div>
       <div  class="mar-top-20 mar-right-20" ng-show='edit'>
-        <button  class="btn btn-custom-light" type="button" name="button" ng-click="updateCancel()">CANCEL</button>
-        <button  class="btn btn-custom-dark" type="button" name="button" ng-click="update(currentNode)">SAVE</button>
+        <a  class="btn btn-custom-light" type="button" name="button" ng-click="updateCancel()">CANCEL</a>
+        <a  class="btn btn-custom-dark" type="button" name="button" ng-click="update(currentNode)">SAVE</a>
       </div>
     </div>
     <hr>
@@ -35,11 +35,11 @@
                  <textarea class="form-control" rows="3" ng-model="module.description" placeholder="Module Description" required></textarea>
                </div>
                <div class="mar-right-20">
-                  <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="reset('module')">     CANCEL
-                  </button>
-                  <button class="btn btn-custom-dark" ng-show='!isLeaf(currentNode)' type="submit" name="button" ng-click="addModule(nodeRef,module)">
+                  <a class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="reset('module')">     CANCEL
+                  </a>
+                  <a class="btn btn-custom-dark" ng-show='!isLeaf(currentNode)' type="submit" name="button" ng-click="addModule(nodeRef,module)">
                     SAVE
-                  </button>
+                  </a>
                </div>
              </div>
             </uib-tab>
@@ -64,12 +64,12 @@
                   </select>
                 </div>
                 <div class="mar-right-20">
-                  <button class="btn btn-custom-light" ng-show='!isLeaf(nodeRef)' type="button" name="button" ng-click="reset('testCase')">
+                  <a class="btn btn-custom-light" ng-show='!isLeaf(nodeRef)' type="button" name="button" ng-click="reset('testCase')">
                     CANCEL
-                  </button>
-                  <button class="btn btn-custom-dark" ng-show='!isLeaf(nodeRef)' type="submit" name="button" ng-click="addLeaf(nodeRef,testCase)">
+                  </a>
+                  <a class="btn btn-custom-dark" ng-show='!isLeaf(nodeRef)' type="submit" name="button" ng-click="addLeaf(nodeRef,testCase)">
                     SAVE
-                  </button>
+                  </a>
                 </div>
               </div>
             </uib-tab>
@@ -108,8 +108,8 @@
               <div class=""  ng-class="{'text-center':!isSteps()}">
                 <h3 ng-show="!isSteps()" class="text-muted intro-text">There are no steps to show</h3>
                 <div class="mar-right-20">
-                  <button class="btn btn-custom-light"  type="button" name="button" ng-click="">EMBED</button>
-                  <button class="btn btn-custom-dark"  type="button" name="button" ng-click="add = true">ADD</button>
+                  <a class="btn btn-custom-light"  type="button" name="button" ng-click="">EMBED</a>
+                  <a class="btn btn-custom-dark"  type="button" name="button" ng-click="add = true">ADD</a>
                 </div>
               </div>
             </div>
@@ -123,8 +123,8 @@
                 <input type="text" class="form-control" ng-model="newStep.check" placeholder="Are you at login page?" required>
               </div>
               <div  class="mar-top-20 mar-right-20" >
-                <button  class="btn btn-custom-light" type="button" name="button" ng-click="add=false;">CANCEL</button>
-                <button  class="btn btn-custom-dark" type="button" name="submit" ng-click="add=false;addStep(newStep)">SAVE</button>
+                <a  class="btn btn-custom-light" type="button" name="button" ng-click="add=false;">CANCEL</a>
+                <a  class="btn btn-custom-dark" type="button" name="submit" ng-click="add=false;addStep(newStep)">SAVE</a>
               </div>
             </div>
           </div>

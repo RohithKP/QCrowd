@@ -294,7 +294,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
             //added ng-if
             if(!template) {
               template =
-              '<ul {{options.ulClass}} >' +
+              '<ul ng-sortable {{options.ulClass}} >' +
               '<li ng-repeat="node in node.{{options.nodeChildren}} | filter:filterExpression:filterComparator {{options.orderBy}}"  ng-class="headClass(node)" {{options.liClass}}' +
               'set-node-to-data>' +
               '<i class="tree-branch-head" ng-class="iBranchClass()" ng-click="selectNodeHead(node)"></i>' +

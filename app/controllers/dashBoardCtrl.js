@@ -24,12 +24,13 @@ angular.module('QCrowd').controller('dashBoardCtrl',['$scope','helpers','$window
   $scope.projectsSelected = [];
   $scope.viewby = {
     options: [
+      5,
       10,
       25,
       50,
       100
     ],
-    selected: 10
+    selected: 5
   };
    $scope.currentPage = 1;
 }]);

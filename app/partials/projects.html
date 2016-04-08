@@ -2,13 +2,13 @@
   <div class="top">
     <div class="container">
       <div class="row text-right" >
-        <button type="button" class="btn btn-custom-dark" name="button" ng-click="helpers.modalOpen('requestExecution.html','rqstInstanceCtrl','',reqHndlresolver)">REQUEST EXECUTION</button>
+        <a type="button" class="btn btn-custom-dark" name="button" ng-click="helpers.modalOpen('requestExecution.html','rqstInstanceCtrl','',reqHndlresolver)">REQUEST EXECUTION</a>
       </div>
       <div class="row">
 
         <!-- COLUMN ONE NAMED VIEW -->
         <div class="col-md-3 tree-div null-pad">
-          <div ui-view="treeView"></div>
+          <div ui-view="treeView" ></div>
         </div>
 
         <!-- COLUMN TWO NAMED VIEW -->
@@ -40,8 +40,8 @@
           <div class="xs-text text-right underline"><a>Request additional browser support</a></div>
       </div>
     <div class="col-md-12 text-center mar-right-20 mar-top-20">
-      <button class="btn btn-custom-light" type="button" ng-click="cancel()">CANCEL</button>
-      <button class="btn btn-custom-dark" type="button" ng-click="proceed()">RUN TEST</button>
+      <a class="btn btn-custom-light" type="button" ng-click="cancel()">CANCEL</a>
+      <a class="btn btn-custom-dark" type="button" ng-click="proceed()">RUN TEST</a>
     </div>
   </div>
 </script>
