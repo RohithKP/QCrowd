@@ -414,7 +414,7 @@ div.modal-env-wrapper.bar:hover i {display: inline;}
     margin: 30px auto;
 }
 .modal-xl{
-  width: 80%;
+  width: 85%;
 }
 }
 .modal-body{
@@ -667,6 +667,14 @@ border-radius: 0 4px 4px 0 ;
 }
 .inline-block{
   display:inline-block
+}
+.steps-tc{
+  display: inline-table;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.td-right{
+  text-align: right;
 }
 .text-right{
   padding-top: 4px;
