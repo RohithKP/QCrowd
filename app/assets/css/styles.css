@@ -447,8 +447,7 @@ div.modal-env-wrapper.bar:hover i {display: inline;}
   padding: 20px 40px;
   position: relative;
 }
-
-.mar-right-20 button:first-child{
+.mar-right-20 [type="button"]:first-child{
   margin-right: 20px;
 }
 

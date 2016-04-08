@@ -47,10 +47,10 @@
               <select ng-model="viewby.selected" ng-options="o as o for o in viewby.options"></select>
             </div>
             <div id="pagin-div" class="inline-block col-md-4">
-              <uib-pagination total-items="495" items-per-page="5" ng-model="currentPage" max-size="4" previous-text="&lsaquo;" next-text="&rsaquo;" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
+              <uib-pagination total-items="100" items-per-page="5" ng-model="currentPage" max-size="4" previous-text="&lsaquo;" next-text="&rsaquo;" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
             </div>
             <div id="input-page" class="inline-block col-md-4 top-padding">
-              Go to <input type="number" name="page" ng-model="pageNo">/99
+              Go to <input type="number" name="page" ng-model="pageNo">/20
             </div>
           </div>
         </uib-tab>
@@ -79,10 +79,10 @@
               <select ng-model="viewby.selected" ng-options="o as o for o in viewby.options"></select>
             </div>
             <div id="pagin-div" class="inline-block col-md-4">
-              <uib-pagination total-items="495" items-per-page="5" ng-model="currentPage" max-size="4" previous-text="&lsaquo;" next-text="&rsaquo;" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
+              <uib-pagination total-items="100" items-per-page="5" ng-model="currentPage" max-size="4" previous-text="&lsaquo;" next-text="&rsaquo;" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
             </div>
             <div id="input-page" class="inline-block col-md-4 top-padding">
-              Go to <input type="number" name="page" ng-model="pageNo">/99
+              Go to <input type="number" name="page" ng-model="pageNo">/20
             </div>
           </div>
         </uib-tab>
@@ -162,7 +162,7 @@
         </div>
           <span class="pull-right add-url-txt" clone ><i class="fa fa-plus-circle"></i> ADD URL</span>
         </div>
-        <div class="modal-btn-wrapper"><button class="btn btn-custom-dark" type="button" ng-click="proceed()">PROCEED</button></div>
+        <div class="modal-btn-wrapper"><a class="btn btn-custom-dark" type="button" ng-click="proceed()">PROCEED</a></div>
       </div>
     </script>
   </div>
