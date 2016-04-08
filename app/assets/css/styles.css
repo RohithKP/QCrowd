@@ -666,10 +666,8 @@ border-radius: 0 4px 4px 0 ;
   vertical-align: middle;
   margin-left: 10px;
 }
-.td-right{
-  text-align: right;
-}
-.text-right{
+
+.user-right{
   padding-top: 4px;
 }
 .welcome{
