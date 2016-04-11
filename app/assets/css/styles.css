@@ -668,11 +668,6 @@ border-radius: 0 4px 4px 0 ;
 .inline-block{
   display:inline-block
 }
-.steps-tc{
-  display: inline-table;
-  vertical-align: middle;
-  margin-left: 10px;
-}
 
 .user-right{
   padding-top: 4px;
@@ -816,4 +811,7 @@ right: 18px;
 {
   border-radius: 4px;
 	background-color: #2C3748;
+}
+.drag-td{
+  width: 46px;
 }

@@ -18,8 +18,8 @@
         <i ng-show="share.more" class="fa fa-caret-up caret-down"></i>
       </div>
       <div  class="mar-top-20 mar-right-20" ng-show='edit'>
-        <a  class="btn btn-custom-light" type="button" name="button" ng-click="updateCancel()">CANCEL</a>
-        <a  class="btn btn-custom-dark" type="button" name="button" ng-click="update(currentNode)">SAVE</a>
+        <button  class="btn btn-custom-light" type="button" name="button" ng-click="updateCancel()">CANCEL</button>
+        <button  class="btn btn-custom-dark" type="button" name="button" ng-click="update(currentNode)">SAVE</button>
       </div>
     </div>
     <hr>
@@ -35,11 +35,11 @@
                  <textarea class="form-control" rows="3" ng-model="module.description" placeholder="Module Description" required></textarea>
                </div>
                <div class="mar-right-20">
-                  <a class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="reset('module')">     CANCEL
-                  </a>
-                  <a class="btn btn-custom-dark" ng-show='!isLeaf(currentNode)' type="submit" name="button" ng-click="addModule(nodeRef,module)">
+                  <button class="btn btn-custom-light" ng-show='!isLeaf(currentNode)' type="button" name="button" ng-click="reset('module')">     CANCEL
+                  </button>
+                  <button class="btn btn-custom-dark" ng-show='!isLeaf(currentNode)' type="submit" name="button" ng-click="addModule(nodeRef,module)">
                     SAVE
-                  </a>
+                  </button>
                </div>
              </div>
             </uib-tab>
@@ -64,12 +64,12 @@
                   </select>
                 </div>
                 <div class="mar-right-20">
-                  <a class="btn btn-custom-light" ng-show='!isLeaf(nodeRef)' type="button" name="button" ng-click="reset('testCase')">
+                  <button class="btn btn-custom-light" ng-show='!isLeaf(nodeRef)' type="button" name="button" ng-click="reset('testCase')">
                     CANCEL
-                  </a>
-                  <a class="btn btn-custom-dark" ng-show='!isLeaf(nodeRef)' type="submit" name="button" ng-click="addLeaf(nodeRef,testCase)">
+                  </button>
+                  <button class="btn btn-custom-dark" ng-show='!isLeaf(nodeRef)' type="submit" name="button" ng-click="addLeaf(nodeRef,testCase)">
                     SAVE
-                  </a>
+                  </button>
                 </div>
               </div>
             </uib-tab>
@@ -86,18 +86,18 @@
                   </tr>
                   <tbody ng-sortable >
                     <tr ng-repeat="step in steps[nodeId]" class="iHover">
-                      <td  class="col-md-11">
+                      <td class="drag-td">
                         <span  class="drag-icon">
                           <i class="fa fa-ellipsis-v"></i>
                           <i class="fa fa-ellipsis-v"></i>
                         </span>
                         <input type="checkbox" name="name" value="" ng-click="helpers.toggleSelect(stepsChecked,step.id)">
-                        <span class="steps-tc">
-                          <span class="block">{{$index+1}}.{{step['que']}}</span>
-                          <span class="text-muted block check-text">{{step['check']}}</span>
-                        </span>
                       </td>
-                      <td class="col-md-1 text-right">
+                      <td>
+                        <span class="block">{{$index+1}}.{{step['que']}}</span>
+                        <span class="text-muted block check-text">{{step['check']}}</span>
+                      </td>
+                      <td class="text-right">
                         <i class="fa fa-pencil icons"></i>
                         <i class="fa fa-trash icons" ng-click="stepsChecked.push(step.id);helpers.deleteItem(stepsChecked,steps[nodeId])"></i>
                       </td>
@@ -108,8 +108,8 @@
               <div class=""  ng-class="{'text-center':!isSteps()}">
                 <h3 ng-show="!isSteps()" class="text-muted intro-text">There are no steps to show</h3>
                 <div class="mar-right-20">
-                  <a class="btn btn-custom-light"  type="button" name="button" ng-click="">EMBED</a>
-                  <a class="btn btn-custom-dark"  type="button" name="button" ng-click="add = true">ADD</a>
+                  <button class="btn btn-custom-light"  type="button" name="button" ng-click="">EMBED</button>
+                  <button class="btn btn-custom-dark"  type="button" name="button" ng-click="add = true">ADD</button>
                 </div>
               </div>
             </div>
@@ -123,8 +123,8 @@
                 <input type="text" class="form-control" ng-model="newStep.check" placeholder="Are you at login page?" required>
               </div>
               <div  class="mar-top-20 mar-right-20" >
-                <a  class="btn btn-custom-light" type="button" name="button" ng-click="add=false;">CANCEL</a>
-                <a  class="btn btn-custom-dark" type="button" name="submit" ng-click="add=false;addStep(newStep)">SAVE</a>
+                <button  class="btn btn-custom-light" type="button" name="button" ng-click="add=false;">CANCEL</button>
+                <button  class="btn btn-custom-dark" type="button" name="submit" ng-click="add=false;addStep(newStep)">SAVE</button>
               </div>
             </div>
           </div>
