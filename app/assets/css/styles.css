@@ -372,7 +372,9 @@ margin: 4px 10px;
 .add-icon i {
   margin-right: 8px;
 }
-.modal{top:70px;}
+.modal{
+  top:70px;
+}
 .modal-header{
   text-align: center;
   color: #fff;
@@ -405,7 +407,7 @@ div.modal-env-wrapper.bar:hover i {display: inline;}
     margin: 30px auto;
 }
 .modal-xl{
-  width: 85%;
+  width: 90%;
 }
 }
 .modal-body{
@@ -642,7 +644,6 @@ border-radius: 0 4px 4px 0 ;
 }
 .modal-img-wrapper{
   width: 70%;
-    margin: 0 auto;
   }
 .user-img {
   width: 43px;
@@ -684,17 +685,20 @@ margin-right: 10px;
   border-radius: 4px 4px 0 0 ;
 }
 .popup.popupHover li:last-child:hover{
-border-radius: 0 0 4px 4px  ;
+  border-radius: 0 0 4px 4px ;
 }
 .pop-img{
   width: 100%
 }
 
 #user-table .table>tbody>tr>td{
+  box-sizing: border-box;
   vertical-align: top;
-  padding: 0;
-  padding-right: 4px;
-
+  padding-top: 16px;
+  padding-bottom: 7px;
+}
+#ques{
+  padding-right: 19px;
 }
 .content-wrapper{
   height: 170px;
@@ -811,7 +815,7 @@ right: 18px;
 }
 .no-image{
   position: absolute;
-  top: 40px;
+  top: 57px;
   color: #CFD0D2;
-  left: 50px;
+  left: 15px;
 }
