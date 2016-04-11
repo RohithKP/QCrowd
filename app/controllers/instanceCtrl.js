@@ -30,15 +30,18 @@ angular.module('QCrowd').controller('tcHistoryItemPopUpCntrl',['$scope','$uibMod
   $scope.tcResults = message.tcResults;
 
   $scope.showImg=function (url) {
-    resolver = {
-       message: function () {
-                return {
-                  imgUrl:url
-                }
+    if ( url !== "" ) {
+      resolver = {
+         message: function () {
+                  return {
+                    imgUrl:url
+                  }
+        }
       }
+      helpers.modalOpen('tcHistoryImg.html','tcHistoryImgPopUpCntrl','xl',resolver);
     }
-    helpers.modalOpen('tcHistoryImg.html','tcHistoryImgPopUpCntrl','xl',resolver);
   };
+
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };

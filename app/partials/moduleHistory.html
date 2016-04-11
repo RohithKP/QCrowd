@@ -35,28 +35,32 @@
        <tr ng-repeat="item in tcResults">
           <td>
             <div class="content-wrapper">
-              <span class="block ">{{item.ques}}</span>
-              <div class="mar-top-20">
-                <span>Expected Result:</span>
-                <span class="expctd">{{item.expected}}</span>
+              <span class="block bold">{{item.ques}}</span>
+              <div class="mar-top-20 ">
+                <span class="bold">Expected Result: </span>
+                <span class="color-fade">{{item.expected}}</span>
               </div>
             </div>
-            <span class="block mar-top-20 comment-wrapper">QA comments</span>
+            <span class="block mar-top-20 comment-wrapper bold">QA comments:</span>
           </td>
           <td ng-repeat="tc in item.QA">
             <div class="" >
               <div class="content-wrapper">
                 <div class="modal-img-wrapper">
                   <img src="{{tc.screenShotUrl}}" alt="" class="screenShotUrl" ng-click="showImg(tc.screenShotUrl)"/>
+                  <h5 class="no-image" ng-if="!tc.screenShotUrl"> IMAGE NOT UPLOADED</h5>
                 </div>
                 <div class="mar-top-10">
-                  <span>Result:</span><span ng-class="{pass:tc.Result==='Passed',fail:tc.Result==='Failed'}">{{tc.Result}}</span>
+                  <span class="bold">Result: </span>
+                  <span ng-class="{pass:tc.Result==='Passed',fail:tc.Result==='Failed'}">
+                    {{tc.Result}}
+                  </span>
                 </div>
                 <div class="">
-                  <span>Time/Date:</span><span class="expctd">{{tc.DateTime }}</span>
+                  <span class="bold">Time/Date: </span><span class="color-fade">{{tc.DateTime }}</span>
                 </div>
               </div>
-              <div class="comment-wrapper">
+              <div class="comment-wrapper bold">
                 {{tc["QA Comment"]}}
               </div>
             </div>
