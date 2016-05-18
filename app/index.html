@@ -1,33 +1,92 @@
 <!DOCTYPE html>
 <html ng-app="QCrowd">
-<head>
-  <meta charset="utf-8">
-  <title>QCrowd</title>
-  <link rel="stylesheet" href="/assets/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="/assets/css/font-awesome.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="/assets/css/styles.css" media="screen" title="no title" charset="utf-8">
-  <script type="text/javascript" src='/js/lib/angular.js'></script>
-  <!-- <script type="text/javascript" src='/js/lib/angular-route.min.js'></script> -->
-  <script type="text/javascript" src='/js/lib/angular-ui-router.js'></script>
-</head>
-<body>
-  <!-- NAVIGATION -->
-  <nav class="nav navbar-inverse" role="navigation">
-    <div class="navbar-header">
-      <a class="navbar-brand" ui-sref="#">AngularUI Router</a>
+  <head>
+    <meta charset="utf-8">
+    <title>QCrowd</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"  crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/angular-chart.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="assets/css/styles.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src='js/lib/angular.js'></script>
+    <script type="text/javascript" src='js/ui-bootstrap-tpls-1.2.4.js'></script>
+    <script type="text/javascript" src='js/lib/angular-ui-router.js'></script>
+    <script type="text/javascript" src="js/lib/angular-animate.js"></script>
+    <script type="text/javascript" src="js/angular-tree-control.js"></script>
+    <script type="text/javascript" src="js/angular-resource.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/tree-control.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/tree-control-attribute.css">
+    <script type="text/javascript" src="js/Chart.js">  </script>
+    <script type="text/javascript" src="js/angular-chart.js">  </script>
+    <script src="http://rubaxa.github.io/Sortable/Sortable.js"></script>
+    <script src="http://rubaxa.github.io/Sortable/ng-sortable.js"></script>
+  </head>
+  <body popover-close exclude-class="exclude">
+    <!-- NAVIGATION -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="nav-brand" ui-sref="#"><img src="assets/images/QB_logo.png" alt="" /></a>
+        </div>
+        <div id="userDown" class="navbar-collapse collapse" >
+          <div class="text-right user-right" ng-hide="$state.current.name=='login' || $state.current.name=='register'">
+            <span class="inline-block">
+              <span class="block welcome">Welcome</span>
+              <span class="user-name block">Jacob Mathen</span>
+            </span>
+            <img  class="pull-right user-img img-circle exclude" src="assets/images/users/three.jpg" popover popover-placement="bottom-right" uib-popover-template="'userData.html'"  popover-elem/>
+          </div>
+        </div>
+      </div>
     </div>
-    <ul class="nav navbar-nav pull-right">
-      <li><a ui-sref="home">Home</a></li>
-      <li><a ui-sref="login">login</a></li>
-    </ul>
-  </nav>
-
-  <div class="container">
-    <div ui-view >    Loading .. .. .
+    <div class="">
+      <div ui-view >
+        <i class="fa fa-spinner fa-spin fa-5x" style="position:absolute;left:50%;top:50%;"></i>
+      </div>
+      <!-- <pre>
+        $state = {{$state.current.name}}
+        $stateParams = {{$stateParams}}
+        $state full url = {{ $state.$current.url.source }}
+      </pre> -->
     </div>
-  </div>
+    <footer>
+      <div class="navbar navbar-inverse navbar-fixed-bottom">
+          <div class="container">
+              <div class="navbar-collapse collapse" id="footer-body">
+                  <ul class="nav navbar-nav">
+                  </ul>
+              </div>
+          </div>
+      </div>
+    </footer>
+    <script id="userData.html" type="text/ng-template">
+      <div  class="popup popupHover">
+        <ul ng-click="$event.stopPropagation();" class="fa-i-margin-right">
+         <li><i class="fa fa-user fa-lg"></i><span>My Profile</span></li>
+         <li><i class="fa fa-list-alt fa-lg"></i></i><span >List of members</span></li>
+         <li><i class="fa fa-cogs fa-lg"></i><span >Settings</span></li>
+         <li ui-sref="login"><i  class="fa fa-sign-out fa-lg"></i><span>Log Out</span></li>
+        </ul>
+      </div>
+    </script>
 
-  <script type="text/javascript" src="/js/custom.js">  </script>
-  <script type="text/javascript" src="/controllers/mainController.js">  </script>
+    <script type="text/javascript" src="js/custom.js">  </script>
+    <script type="text/javascript" src="controllers/projectCtrl.js">  </script>
+    <script type="text/javascript" src="controllers/treeCtrl.js">  </script>
+    <script type="text/javascript" src="controllers/detailViewCtrl.js">  </script>
+    <script type="text/javascript" src="controllers/dashBoardCtrl.js">  </script>
+    <script type="text/javascript" src="controllers/instanceCtrl.js">  </script>
+    <script type="text/javascript" src="controllers/validationCtrl.js"></script>
+    <script type="text/javascript" src="directives/contentEditable.js">  </script>
+    <script type="text/javascript" src="directives/validation.js"></script>
+    <script type="text/javascript" src="directives/popover.js"></script>
+    <script type="text/javascript" src="directives/uiBreadcrumbs.js"></script>
+    <script type="text/javascript" src="controllers/mainController.js">  </script>
+    <script type="text/javascript" src="controllers/moduleHistoryCntrl.js">  </script>
+    <script type="text/javascript" src="controllers/testCaseHistoryCntrl.js">  </script>
+    <script type="text/javascript" src="controllers/statisticsCntrl.js">  </script>
+    <script type="text/javascript" src="filters/filters.js"></script>
+    <script type="text/javascript" src="services/helpers.js"></script>
+    <script type="text/javascript" src="services/dataFetch.js"></script>
 </body>
 </html>

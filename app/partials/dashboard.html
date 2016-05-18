@@ -1,0 +1,168 @@
+<div class="outer " popover-close exclude-class="exclude">
+  <div class="top">
+    <div id="dashboard" class="container null-pad" >
+      <uib-tabset active="0">
+        <uib-tab index="0"  heading="TASK UNDER PROGRESS" active="tab.active" disable="tab.disabled">
+          <table class="table">
+            <tr>
+              <th class="col-md-1">#</th>
+              <th class="col-md-2">Task Name &nbsp;
+                <i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'taskname.html'"popover-elem></i>
+              </th>
+              <th class="col-md-2">Status &nbsp;
+                <i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'status.html'" popover-elem></i>
+              </th>
+              <th class="col-md-2">Browsers &nbsp;
+                <i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'browsers.html'" popover-elem></i>
+              </th>
+              <th class="col-md-2">User &nbsp;
+                <i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'users.html'" popover-elem></i>
+              </th>
+            </tr>
+            <tr ng-repeat="project in projects | projFilter:query.projectQuery | userFilter:query.userQuery | statusFilter:query.statusQuery | browserFilter:brarray ">
+              <td>{{project.id}}</td><td>{{project.name}}</td>
+              <td>
+                <span ng-class="{'fail':project.status.text=='Failed','pass':project.status.text=='Passed'}">
+                  {{project.status.text}}
+                  <uib-progressbar animate="false" value="project.status.percent"type="success">
+                    <b>{{project.status.percent}}%</b>
+                  </uib-progressbar>
+                </span>
+              </td>
+              <td>
+                <span class="browser-icon-wrapper">
+                  <span class="browser-icon" ng-repeat="browser in project.browsers" ng-class="{pass:browser.status==1,fail:browser.status==0,muted:browser.status==-1}">
+                    <i class="fa fa-{{browser.platform}} platform-icon"></i>
+                    <span class='version'>V 40.1</span>
+                    <span class='plt-version'>{{browser['platform-ver']}}</span>
+                    <i class="fa fa-{{browser.name}}">&nbsp;</i>
+                  </span>
+                </span>
+              </td>
+              <td><img class="img-circle avatar " src="{{project.user.imgUrl}}"/> {{project.user.name}}</td>
+            </tr>
+          </table>
+          <div>
+            <div id="select-num" class="inline-block col-md-4 top-padding">Show
+              <select ng-model="viewby.selected" ng-options="o as o for o in viewby.options"></select>
+            </div>
+            <div id="pagin-div" class="inline-block col-md-4">
+              <uib-pagination total-items="100" items-per-page="5" ng-model="currentPage" max-size="4" previous-text="&lsaquo;" next-text="&rsaquo;" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
+            </div>
+            <div id="input-page" class="inline-block col-md-4 top-padding">
+              Go to <input type="number" name="page" ng-model="pageNo">/20
+            </div>
+          </div>
+        </uib-tab>
+        <uib-tab index="1"  heading="COMPLETED TASK" active="tab.active" disable="tab.disabled">
+
+        </uib-tab>
+        <uib-tab index="2"  heading="PROJECTS" active="tab.active" disable="tab.disabled">
+          <div class="">
+            <div class="project-item" >
+              <input type="checkbox" name="name" value="" ng-checked="helpers.allSelected(projectsSelected,projects)" ng-click=" helpers.selectAll(projectsSelected,projects)">
+              <span><strong>Project Name</strong></span>
+              <span class="pull-right add-icon">
+               <i class="fa fa-plus-circle" ng-click="helpers.modalOpen('addProject.html','addInstanceCtrl')"></i>
+               <i class="fa fa-trash" ng-click="helpers.deleteItem(projectsSelected,projects)" ng-hide="helpers.empty(projectsSelected)"></i>
+             </span>
+            </div>
+            <div class="project-list">
+              <li class="project-item gray-hover" ng-repeat="project in projects" ui-sref="dashboard.projects">
+                <input type="checkbox" name="name" value="" ng-checked="helpers.isItem(projectsSelected,project.id)" ng-click="$event.stopPropagation(); helpers.toggleSelect(projectsSelected,project.id)">
+                 {{project.name}}
+               </li>
+            </div>
+          </div>
+          <div>
+            <div id="select-num" class="inline-block col-md-4 top-padding">Show
+              <select ng-model="viewby.selected" ng-options="o as o for o in viewby.options"></select>
+            </div>
+            <div id="pagin-div" class="inline-block col-md-4">
+              <uib-pagination total-items="100" items-per-page="5" ng-model="currentPage" max-size="4" previous-text="&lsaquo;" next-text="&rsaquo;" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
+            </div>
+            <div id="input-page" class="inline-block col-md-4 top-padding">
+              Go to <input type="number" name="page" ng-model="pageNo">/20
+            </div>
+          </div>
+        </uib-tab>
+        <uib-tab index="3"  heading="REPORT" active="tab.active" disable="tab.disabled">
+
+        </uib-tab>
+      </uib-tabset>
+      </div>
+    </div>
+    <script id="taskname.html" type="text/ng-template">
+      <div class="popup">
+        <ul ng-click="$event.stopPropagation();">
+          <li class="no-hover"><input placeholder="Task Name" type="text" ng-model="query.projectQuery"  uib-typeahead="project.name for project in projects | filter:$viewValue | limitTo:8" /></li>
+        </ul>
+      </div>
+    </script>
+    <script id="status.html" type="text/ng-template">
+      <div class="popup">
+        <ul >
+          <li ng-click="filterStatus($event,'')" ng-class="{selected:query.statusQuery ==''}">Both </li>
+          <li class="divider"></li>
+          <li ng-click="filterStatus($event,'failed')" ng-class="{selected:query.statusQuery =='failed'}">Failed</li>
+          <li class="divider"></li>
+          <li ng-click="filterStatus($event,'passed')" ng-class="{selected:query.statusQuery =='passed'}">Passed</li>
+        </ul>
+      </div>
+    </script>
+    <script id="browsers.html" type="text/ng-template">
+      <div class="popup" ng-click="$event.stopPropagation();">
+        <ul style="text-align:center;">
+          <li  class="dropdown">
+            <select class="form-control" ng-model="platforms.selected" ng-options=" o for o in platforms.options"></select>
+          </li>
+          <li class="divider"></li>
+          <li><span class=""><i ng-repeat="browser in query.browsers" class="fa fa-{{browser}} filter-browser-icon"  ng-class="{'browser-selected':brarray.indexOf(browser) >-1}" ng-click="helpers.toggleSelect(brarray,browser)"></i></span></li>
+        </ul>
+      </div>
+    </script>
+    <script id="users.html" type="text/ng-template">
+      <div class="popup" ng-click="$event.stopPropagation();">
+        <ul>
+          <li class="no-hover"><input placeholder="user" type="text" ng-model="query.userQuery"  uib-typeahead="project.user.name for project in projects | filter:$viewValue | limitTo:8" /></li>
+        </ul>
+      </div>
+    </script>
+
+    <script type="text/ng-template" id="addProject.html">
+      <div class="modal-header">
+        <i class="fa fa-times pull-right" ng-click="cancel()"></i>
+        <h3 class="modal-title">ADD PROJECT</h3>
+      </div>
+      <div class="modal-body">
+        <div class="modal-content-wrapper">
+          <div class="col-md-6">
+            <div class="form-group has-feedback">
+              <input type="text" class="form-control" placeholder="Project Name"/>
+            </div>
+            <div class="form-group has-feedback">
+              <input type="text" class="form-control"  placeholder="Project Category"/>
+              <span class=" form-control-feedback" ><img src="assets/images/down-arrow.png" alt="" /></span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <textarea class="form-control txtarea" placeholder="Project Details"></textarea>
+          </div>
+          <div class="col-md-12 text-center modal-sub-txt"><span>PROJECT ENVIRONMENT DETAILS</span></div>
+          <div id="root">
+          <div id='modal-input-group' class="col-md-12 modal-env-wrapper">
+            <div class="col-md-6 form-group has-feedback">
+              <input type="text" class="form-control" placeholder="QA URL" value = "QA URL"/>
+            </div>
+            <div class="col-md-6 form-group has-feedback">
+              <input type="text" class="form-control" placeholder="http://"/>
+              <i ng-click="deleteNod($event)" class="fa fa-times-circle pull-right close-icon"></i>
+            </div>
+          </div>
+        </div>
+          <span class="pull-right add-url-txt" clone ><i class="fa fa-plus-circle"></i> ADD URL</span>
+        </div>
+        <div class="modal-btn-wrapper"><a class="btn btn-custom-dark" type="button" ng-click="proceed()">PROCEED</a></div>
+      </div>
+    </script>
+  </div>
